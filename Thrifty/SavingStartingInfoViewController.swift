@@ -21,11 +21,11 @@ class SavingStartingInfoViewController: UIViewController, NSFetchedResultsContro
         super.viewDidLoad()
         saveToCoreData()
         navigationController?.dismiss(animated: true, completion: nil)
-        // Do any additional setup after loading the view.
     }
     
     func saveToCoreData ()
     {
+        //TODO: way to save data without just appending to array, should delete previous values
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
         {
             userInfo = UserMO(context: appDelegate.persistentContainer.viewContext)
