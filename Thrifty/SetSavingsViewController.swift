@@ -12,9 +12,12 @@ class SetSavingsViewController: UIViewController {
 
     var myInfo = startingInfo()
     
-    @IBOutlet var inputSavings: UITextField!
+    var dollarSavings : Double = 0
     
+    @IBOutlet var inputSavings: UITextField!
     @IBOutlet var percentageSlider: UISlider!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +30,16 @@ class SetSavingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func setSavings(_ sender: Any) {
-        myInfo.savings = Double(roundf(self.percentageSlider!.value))
+    
+    @IBAction func slidSlider(_ sender: UISlider) {
+        dollarSavings = (Double(percentageSlider.value)/100) * myInfo.income
+        inputSavings.text = String(dollarSavings)
     }
+    @IBAction func changedText(_ sender: Any) {
+        dollarSavings = (inputSavings.text! as NSString).doubleValue
+        percentageSlider.setValue(Float(dollarSavings/myInfo.income)*100.0, animated: true)
+    }
+    
 
     // MARK: - Navigation
 
@@ -37,11 +47,12 @@ class SetSavingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        myInfo.savings = Double(roundf(self.percentageSlider!.value))
+        myInfo.savings = dollarSavings
+//            Double(roundf(self.percentageSlider!.value))
         
-        if segue.identifier == "SavingsToBudget" {
-            let budgetVC = segue.destination as! BudgetViewController
-            budgetVC.myInfo = myInfo
+        if segue.identifier == "SavingToConfirmation" {
+            let confirmationVC = segue.destination as! SavingStartingInfoViewController
+            confirmationVC.myInfo = myInfo
         }
     }
 

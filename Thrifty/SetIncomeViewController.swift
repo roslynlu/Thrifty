@@ -38,11 +38,9 @@ class SetIncomeViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         myInfo.income = (inputIncome.text! as NSString).doubleValue
-        print("my income is \(myInfo.income)")
         
         if segue.identifier == "IncomeToExpenses" {
             let expensesVC = segue.destination as! SetRecurringExpensesViewController
-            print("my income in prepare is \(myInfo.income)")
             expensesVC.myInfo = myInfo
         }
     }

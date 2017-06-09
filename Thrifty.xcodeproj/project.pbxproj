@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */; };
-		E4D96FED1EEB15700030BF2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEC1EEB15700030BF2A /* ViewController.swift */; };
 		E4D96FF01EEB15700030BF2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FEE1EEB15700030BF2A /* Main.storyboard */; };
 		E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */; };
 		E4D96FF51EEB15700030BF2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FF41EEB15700030BF2A /* Assets.xcassets */; };
@@ -18,12 +17,14 @@
 		E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */; };
 		E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970051EEB210D0030BF2A /* BudgetViewController.swift */; };
 		E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970071EEB229C0030BF2A /* StartingInfo.swift */; };
+		E4D9700B1EEB3FB30030BF2A /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970091EEB3FB30030BF2A /* UserMO+CoreDataClass.swift */; };
+		E4D9700C1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */; };
+		E4D9700F1EEB43180030BF2A /* SavingStartingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4D96FE71EEB15700030BF2A /* Thrifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thrifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E4D96FEC1EEB15700030BF2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4D96FEF1EEB15700030BF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4D96FF21EEB15700030BF2A /* Thrifty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Thrifty.xcdatamodel; sourceTree = "<group>"; };
 		E4D96FF41EEB15700030BF2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +35,9 @@
 		E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSavingsViewController.swift; sourceTree = "<group>"; };
 		E4D970051EEB210D0030BF2A /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		E4D970071EEB229C0030BF2A /* StartingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingInfo.swift; sourceTree = "<group>"; };
+		E4D970091EEB3FB30030BF2A /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStartingInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,19 +71,29 @@
 			isa = PBXGroup;
 			children = (
 				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
+				E4D96FF61EEB15700030BF2A /* LaunchScreen.storyboard */,
 				E4D970071EEB229C0030BF2A /* StartingInfo.swift */,
 				E4D96FFF1EEB1AEC0030BF2A /* SetIncomeViewController.swift */,
 				E4D970011EEB20360030BF2A /* SetRecurringExpensesViewController.swift */,
 				E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */,
+				E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */,
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
-				E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */,
-				E4D96FEC1EEB15700030BF2A /* ViewController.swift */,
 				E4D96FF41EEB15700030BF2A /* Assets.xcassets */,
-				E4D96FF61EEB15700030BF2A /* LaunchScreen.storyboard */,
+				E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */,
 				E4D96FF91EEB15700030BF2A /* Info.plist */,
-				E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */,
+				E4D9700D1EEB406F0030BF2A /* Core Data */,
 			);
 			path = Thrifty;
+			sourceTree = "<group>";
+		};
+		E4D9700D1EEB406F0030BF2A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */,
+				E4D970091EEB3FB30030BF2A /* UserMO+CoreDataClass.swift */,
+				E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,13 +168,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4D96FED1EEB15700030BF2A /* ViewController.swift in Sources */,
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
 				E4D970021EEB20360030BF2A /* SetRecurringExpensesViewController.swift in Sources */,
+				E4D9700B1EEB3FB30030BF2A /* UserMO+CoreDataClass.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				E4D970001EEB1AEC0030BF2A /* SetIncomeViewController.swift in Sources */,
+				E4D9700C1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift in Sources */,
+				E4D9700F1EEB43180030BF2A /* SavingStartingInfoViewController.swift in Sources */,
 				E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
