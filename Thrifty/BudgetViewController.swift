@@ -10,79 +10,87 @@ import UIKit
 import CoreData
 
 class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate {
-
-    @IBOutlet var setIncome: UIButton!
     
-    @IBOutlet var setExpenses: UIButton!
-    
-    @IBOutlet var setSavings: UIButton!
     
     var myInfo : UserMO!
     var fetchResultsController : NSFetchedResultsController<UserMO>!
     
+    @IBOutlet weak var incomeButton: UIButton!
+    @IBOutlet weak var expButton: UIButton!
+    @IBOutlet weak var savingsButton: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print ("\(myInfo.income) + \(myInfo.recurringExpenses) + \(myInfo.savings)")
-        // Do any additional setup after loading the view.
-        //creates a fetch request and sorts data based on attribute
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let fetchRequest : NSFetchRequest<UserMO> = UserMO.fetchRequest()
-                let sortDescriptor = NSSortDescriptor(key: "income", ascending: true)
-                fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        //creates the persistence container context, associates the fetchRequest with the
-        //fetchedResultsController
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
-        {
-            let context = appDelegate.persistentContainer.viewContext
-            
-            
-            
-            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchResultsController.delegate = self
-            
-            //fetches data and stores it in MyToDo
-            do
-            {
-                try fetchResultsController.performFetch()
-                if let fetchedObjects = fetchResultsController.fetchedObjects
-                {
-                    for userInfo in fetchedObjects
-                    {
-                        myInfo = userInfo
-                        setIncome.setTitle(String(myInfo.income), for: .normal)
-                        setExpenses.setTitle(String(myInfo.recurringExpenses), for: .normal)
-                        setSavings.setTitle(String(myInfo.savings), for: .normal)
-                    }
-                    
-                }
-            }
-            catch
-            {
-                print(error)
-            }
-        }
-        
-        
+        loadData()
+        updateDisplay()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if myInfo == nil {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstTimeSetup")
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func setIncomeClicked(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetIncome") as! SetIncomeViewController
+        viewController.myInfo = userInfo(self.myInfo)
+        present(viewController, animated: true, completion: nil)
+        
     }
-    */
-
+    
+    @IBAction func setExpClicked(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetRecExp") as! SetRecurringExpensesViewController
+        viewController.myInfo = userInfo(self.myInfo)
+        present(viewController, animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBAction func setSavingsClicked(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetSavings") as! SetSavingsViewController
+        viewController.myInfo = userInfo(self.myInfo)
+        present(viewController, animated: true, completion: nil)
+        
+    }
+    
+    func updateDisplay() {
+        if myInfo != nil {
+            incomeButton.setTitle(String(format: "$%.2f", myInfo.income), for: UIControlState.normal)
+            expButton.setTitle(String(format: "$%.2f", myInfo.recurringExpenses), for: UIControlState.normal)
+            savingsButton.setTitle(String(format: "$%.2f", myInfo.savings), for: UIControlState.normal)
+        }
+    }
+    
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    // Fetches data and stores it in myInfo
+    func loadData() {
+        let fetchRequest : NSFetchRequest<UserMO> = UserMO.fetchRequest()
+        do {
+            let fetchedObjects = try getContext().fetch(fetchRequest)
+            myInfo = fetchedObjects.first
+        }
+        catch {
+            print(error)
+        }
+    }
+    
 }

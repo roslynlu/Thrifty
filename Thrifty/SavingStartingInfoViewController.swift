@@ -10,53 +10,70 @@ import UIKit
 import CoreData
 
 class SavingStartingInfoViewController: UIViewController, NSFetchedResultsControllerDelegate {
-
-    var myInfo = startingInfo()
-    var userInfo : UserMO!
     
-    var fetchResultsController : NSFetchedResultsController<UserMO>!
-
+    var myInfo = userInfo()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         saveToCoreData()
-        navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    func saveToCoreData ()
-    {
-        //TODO: way to save data without just appending to array, should delete previous values
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
-        {
-            userInfo = UserMO(context: appDelegate.persistentContainer.viewContext)
-            
-            userInfo.income = myInfo.income
-            userInfo.recurringExpenses = myInfo.recurringExpenses
-            userInfo.savings = myInfo.savings
-            
-            appDelegate.saveContext()
-        }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
+        present(viewController, animated: true, completion: nil)
+        
     }
     
-//    override func viewWillAppear()
-//    {
-//        saveToCoreData()
-//        navigationController?.dismiss(animated: true, completion: nil)
-//    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+    
+    
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    
+    func saveToCoreData() {
+        let context = getContext()
+        
+        let fetchRequest : NSFetchRequest<UserMO> = UserMO.fetchRequest()
+        do {
+            let fetchedObjects = try context.fetch(fetchRequest)
+            for object in fetchedObjects {
+                context.delete(object)
+            }
+        }
+        catch {
+            print(error)
+        }
+        
+        let user = UserMO(context: context)
+        user.income = myInfo.income
+        user.recurringExpenses = myInfo.recurringExpenses
+        user.savings = myInfo.savings
+        
+        
+        do {
+            try context.save()
+            print("saved!")
+        }
+        catch {
+           print(error)
+        }
     }
 
-
+    
+    
 }

@@ -10,14 +10,24 @@ import UIKit
 
 class SetIncomeViewController: UIViewController {
 
+    
+    var myInfo = userInfo()
+    var firstTime: Bool = false
+    
+    //Outlets
     @IBOutlet var inputIncome: UITextField!
+    @IBOutlet weak var mainButton: UIButton!
 
-    var myInfo = startingInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if firstTime {
+            mainButton.setTitle("Next", for: UIControlState.normal)
+        }
+        else {
+            mainButton.setTitle("Save", for: UIControlState.normal)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,18 +36,26 @@ class SetIncomeViewController: UIViewController {
     }
     
     
-//    @IBAction func setYourIncome(_ sender: Any) {
-//        myInfo.income = (inputIncome.text! as NSString).doubleValue
-//        print("my income is \(myInfo.income)")
-//    }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func mainButtonClicked(_ sender: UIButton) {
+        
         myInfo.income = (inputIncome.text! as NSString).doubleValue
+
+        if firstTime {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetRecExp") as! SetRecurringExpensesViewController
+            viewController.myInfo = self.myInfo
+            viewController.firstTime = true
+            present(viewController, animated: true, completion: nil)
+            
+        }
+        else {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SaveUserInfo") as! SavingStartingInfoViewController
+            viewController.myInfo = self.myInfo
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         
         if segue.identifier == "IncomeToExpenses" {
             let expensesVC = segue.destination as! SetRecurringExpensesViewController

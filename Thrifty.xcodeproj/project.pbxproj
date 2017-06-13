@@ -21,6 +21,7 @@
 		E4D9700C1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */; };
 		E4D9700F1EEB43180030BF2A /* SavingStartingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */; };
 		E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970101EEB62660030BF2A /* MainViewController.swift */; };
+		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStartingInfoViewController.swift; sourceTree = "<group>"; };
 		E4D970101EEB62660030BF2A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,17 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
-				E4D96FF61EEB15700030BF2A /* LaunchScreen.storyboard */,
-				E4D970071EEB229C0030BF2A /* StartingInfo.swift */,
-				E4D96FFF1EEB1AEC0030BF2A /* SetIncomeViewController.swift */,
-				E4D970011EEB20360030BF2A /* SetRecurringExpensesViewController.swift */,
-				E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */,
-				E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */,
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
 				E4D970101EEB62660030BF2A /* MainViewController.swift */,
-				E4D96FF41EEB15700030BF2A /* Assets.xcassets */,
-				E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */,
-				E4D96FF91EEB15700030BF2A /* Info.plist */,
+				F681E3211EEE2FA600926D75 /* Setter VCs */,
+				F681E3201EEE2F8A00926D75 /* Supporting Files */,
 				E4D9700D1EEB406F0030BF2A /* Core Data */,
 			);
 			path = Thrifty;
@@ -97,6 +92,30 @@
 				E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */,
 			);
 			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		F681E3201EEE2F8A00926D75 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4D96FF61EEB15700030BF2A /* LaunchScreen.storyboard */,
+				E4D96FF41EEB15700030BF2A /* Assets.xcassets */,
+				E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */,
+				E4D970071EEB229C0030BF2A /* StartingInfo.swift */,
+				E4D96FF91EEB15700030BF2A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F681E3211EEE2FA600926D75 /* Setter VCs */ = {
+			isa = PBXGroup;
+			children = (
+				F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */,
+				E4D96FFF1EEB1AEC0030BF2A /* SetIncomeViewController.swift */,
+				E4D970011EEB20360030BF2A /* SetRecurringExpensesViewController.swift */,
+				E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */,
+				E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */,
+			);
+			name = "Setter VCs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +194,7 @@
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
+				F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */,
 				E4D970021EEB20360030BF2A /* SetRecurringExpensesViewController.swift in Sources */,
 				E4D9700B1EEB3FB30030BF2A /* UserMO+CoreDataClass.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
@@ -343,6 +363,7 @@
 				E4D96FFE1EEB15700030BF2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
