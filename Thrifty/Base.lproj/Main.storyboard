@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Cn-1j-5h7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Cn-1j-5h7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -365,7 +365,7 @@
                             <constraint firstItem="34U-Ui-X3R" firstAttribute="centerY" secondItem="Ubg-Wa-mgQ" secondAttribute="centerY" id="zqr-jj-V6a"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Budget" id="FMV-w1-hdT"/>
+                    <tabBarItem key="tabBarItem" title="Budget" image="budget" id="FMV-w1-hdT"/>
                     <connections>
                         <outlet property="expButton" destination="8hu-tu-98K" id="SRW-pj-HzM"/>
                         <outlet property="incomeButton" destination="9xz-nd-hpF" id="M6A-GQ-wg6"/>
@@ -375,6 +375,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVj-Gz-irg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1594" y="5320"/>
+        </scene>
+        <!--Funds-->
+        <scene sceneID="xJ5-4I-SLO">
+            <objects>
+                <viewController title="Funds" id="5Cy-Jo-SEW" userLabel="Funds" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LEj-Ji-DNH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lh6-oL-cNw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sSo-aZ-qPD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Funds" image="funds2" id="hCs-8Y-jKo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Dl-bK-tcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-812" y="4645"/>
         </scene>
         <!--Main-->
         <scene sceneID="qzX-Yy-9pr">
@@ -421,14 +440,14 @@
                             <constraint firstItem="UjR-OE-kno" firstAttribute="centerY" secondItem="mEg-Kp-dF2" secondAttribute="centerY" id="c3o-Xo-VSW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Main" id="6Ak-Qn-bX6"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="main" selectedImage="main" id="6Ak-Qn-bX6"/>
                     <connections>
                         <outlet property="dailyBudget" destination="o70-Xg-nrn" id="oRb-qm-gVe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2a-nn-K1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775" y="4349"/>
+            <point key="canvasLocation" x="-100" y="3966"/>
         </scene>
         <!--History-->
         <scene sceneID="Ej6-ww-kIG">
@@ -450,11 +469,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" id="gbs-ta-lgY"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" id="gbs-ta-lgY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xn-wK-5OV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50" y="3629"/>
+            <point key="canvasLocation" x="583" y="3248"/>
         </scene>
         <!--Analysis-->
         <scene sceneID="OK9-0N-vju">
@@ -469,11 +488,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Analysis" id="40U-wq-hdi"/>
+                    <tabBarItem key="tabBarItem" title="Analysis" image="analysis" id="40U-wq-hdi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaE-mQ-iFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="2978"/>
+            <point key="canvasLocation" x="1246" y="2575"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kCU-h8-3sh">
@@ -487,6 +506,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="dUe-VK-fB4" kind="relationship" relationship="viewControllers" id="cAj-Yo-5v5"/>
+                        <segue destination="5Cy-Jo-SEW" kind="relationship" relationship="viewControllers" id="E0f-7w-Gup"/>
                         <segue destination="119-Ab-A9P" kind="relationship" relationship="viewControllers" id="8dK-AF-4vL"/>
                         <segue destination="3qx-8b-3gY" kind="relationship" relationship="viewControllers" id="PVA-V0-Rl0"/>
                         <segue destination="gtH-iM-Y94" kind="relationship" relationship="viewControllers" id="GtH-MR-UK1"/>
@@ -497,4 +517,11 @@
             <point key="canvasLocation" x="-1594" y="1941"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="analysis" width="30" height="30"/>
+        <image name="budget" width="30" height="30"/>
+        <image name="funds2" width="30" height="30"/>
+        <image name="history" width="30" height="30"/>
+        <image name="main" width="26" height="30"/>
+    </resources>
 </document>
