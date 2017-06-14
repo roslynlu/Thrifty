@@ -32,6 +32,7 @@
 		F61D80771EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */; };
 		F61D80781EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */; };
 		F61D80791EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */; };
+		E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */; };
 		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,9 @@
 		F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IncomeMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IncomeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4F8A38C1EF1E97900CBCCB2 /* Thrifty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thrifty-Bridging-Header.h"; sourceTree = "<group>"; };
+		E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryObjC.h; sourceTree = "<group>"; };
+		E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryObjC.m; sourceTree = "<group>"; };
 		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,10 @@
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
 				E4D970101EEB62660030BF2A /* MainViewController.swift */,
 				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
+				E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */,
+				E41D78841EF1DD96000CC8B1 /* HistoryVC.swift */,
+				E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */,
+				E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */,
 				F681E3211EEE2FA600926D75 /* Setter VCs */,
 				F681E3201EEE2F8A00926D75 /* Supporting Files */,
 				E4D9700D1EEB406F0030BF2A /* Core Data */,
@@ -298,15 +306,19 @@
 				F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */,
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
 				F61D80771EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift in Sources */,
+				E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */,
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
 				F61D80781EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift in Sources */,
 				F61D805B1EF1DDB1006B6B1D /* ExpenseTableController.swift in Sources */,
 				F61D80791EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift in Sources */,
+				E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
 				F61D80761EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
 				F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */,
 				E4D970021EEB20360030BF2A /* SetRecurringExpensesViewController.swift in Sources */,
+				E41D78851EF1DD96000CC8B1 /* HistoryVC.swift in Sources */,
+				E4D9700B1EEB3FB30030BF2A /* UserMO+CoreDataClass.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,
 				F61D80731EF1E8BB006B6B1D /* GoalMO+CoreDataProperties.swift in Sources */,
