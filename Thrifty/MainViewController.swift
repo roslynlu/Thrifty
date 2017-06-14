@@ -17,7 +17,7 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     var dailyBudgetDollars: Double = 0
     var numDaysInMonth: Double = 30
     var netMonthlyIncome: Double = 0
-    
+    var expenses : Double = 0
     
     // Outlets
     @IBOutlet var dailyBudget: UILabel!
@@ -46,22 +46,11 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
 //        
 //    }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -77,5 +66,17 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         catch {
             print(error)
         }
+    }
+    
+    @IBAction func unwindSave(segue: UIStoryboardSegue)
+    {
+        let expenseVC = segue.source as! ExpenseVC
+        expenses += expenseVC.amountExpense
+        print("total expenses are \(expenses)")
+    }
+    
+    @IBAction func unwindCancel(segue: UIStoryboardSegue)
+    {
+        
     }
 }
