@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BF90A76469703F418227E6F /* Pods_Thrifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */; };
+		E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */; };
+		E41D78851EF1DD96000CC8B1 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78841EF1DD96000CC8B1 /* HistoryVC.swift */; };
 		E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */; };
 		E4D96FF01EEB15700030BF2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FEE1EEB15700030BF2A /* Main.storyboard */; };
 		E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */; };
@@ -21,10 +24,16 @@
 		E4D9700C1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */; };
 		E4D9700F1EEB43180030BF2A /* SavingStartingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */; };
 		E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970101EEB62660030BF2A /* MainViewController.swift */; };
+		E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */; };
 		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19A50D7C45845FCB980B286F /* Pods-Thrifty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thrifty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty.debug.xcconfig"; sourceTree = "<group>"; };
+		2644817BCBEC393FDD8B4D04 /* Pods-Thrifty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thrifty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty.release.xcconfig"; sourceTree = "<group>"; };
+		7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thrifty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseVC.swift; sourceTree = "<group>"; };
+		E41D78841EF1DD96000CC8B1 /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		E4D96FE71EEB15700030BF2A /* Thrifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thrifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D96FEF1EEB15700030BF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,6 +50,9 @@
 		E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStartingInfoViewController.swift; sourceTree = "<group>"; };
 		E4D970101EEB62660030BF2A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E4F8A38C1EF1E97900CBCCB2 /* Thrifty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thrifty-Bridging-Header.h"; sourceTree = "<group>"; };
+		E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryObjC.h; sourceTree = "<group>"; };
+		E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryObjC.m; sourceTree = "<group>"; };
 		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,17 +61,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF90A76469703F418227E6F /* Pods_Thrifty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAB334B70D48539F55D55F4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC4BC8EF74CF207108060524 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19A50D7C45845FCB980B286F /* Pods-Thrifty.debug.xcconfig */,
+				2644817BCBEC393FDD8B4D04 /* Pods-Thrifty.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E4D96FDE1EEB15700030BF2A = {
 			isa = PBXGroup;
 			children = (
 				E4D96FE91EEB15700030BF2A /* Thrifty */,
 				E4D96FE81EEB15700030BF2A /* Products */,
+				CC4BC8EF74CF207108060524 /* Pods */,
+				AAB334B70D48539F55D55F4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +109,14 @@
 				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
 				E4D970101EEB62660030BF2A /* MainViewController.swift */,
+				E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */,
+				E41D78841EF1DD96000CC8B1 /* HistoryVC.swift */,
+				E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */,
+				E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */,
 				F681E3211EEE2FA600926D75 /* Setter VCs */,
 				F681E3201EEE2F8A00926D75 /* Supporting Files */,
 				E4D9700D1EEB406F0030BF2A /* Core Data */,
+				E4F8A38C1EF1E97900CBCCB2 /* Thrifty-Bridging-Header.h */,
 			);
 			path = Thrifty;
 			sourceTree = "<group>";
@@ -125,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4D96FFC1EEB15700030BF2A /* Build configuration list for PBXNativeTarget "Thrifty" */;
 			buildPhases = (
+				5D7AA2A1BFA2F7F25C50CBEF /* [CP] Check Pods Manifest.lock */,
 				E4D96FE31EEB15700030BF2A /* Sources */,
 				E4D96FE41EEB15700030BF2A /* Frameworks */,
 				E4D96FE51EEB15700030BF2A /* Resources */,
+				B7EC3B85C7D13FD1C857BFCF /* [CP] Embed Pods Frameworks */,
+				F793D77273570BE9874772BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,6 +190,7 @@
 				TargetAttributes = {
 					E4D96FE61EEB15700030BF2A = {
 						CreatedOnToolsVersion = 8.3.1;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -185,17 +226,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5D7AA2A1BFA2F7F25C50CBEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B7EC3B85C7D13FD1C857BFCF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F793D77273570BE9874772BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E4D96FE31EEB15700030BF2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
+				E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */,
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
+				E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
 				F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */,
 				E4D970021EEB20360030BF2A /* SetRecurringExpensesViewController.swift in Sources */,
+				E41D78851EF1DD96000CC8B1 /* HistoryVC.swift in Sources */,
 				E4D9700B1EEB3FB30030BF2A /* UserMO+CoreDataClass.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				E4D970001EEB1AEC0030BF2A /* SetIncomeViewController.swift in Sources */,
@@ -322,24 +414,31 @@
 		};
 		E4D96FFD1EEB15700030BF2A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19A50D7C45845FCB980B286F /* Pods-Thrifty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Thrifty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.deanza.rlu.Thrifty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Thrifty/Thrifty-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		E4D96FFE1EEB15700030BF2A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2644817BCBEC393FDD8B4D04 /* Pods-Thrifty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Thrifty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.deanza.rlu.Thrifty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Thrifty/Thrifty-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
