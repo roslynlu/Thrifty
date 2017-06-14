@@ -11,7 +11,6 @@ import UIKit
 class SetIncomeViewController: UIViewController {
 
     
-    var myInfo = userInfo()
     var firstTime: Bool = false
     
     //Outlets
@@ -38,29 +37,19 @@ class SetIncomeViewController: UIViewController {
     
     @IBAction func mainButtonClicked(_ sender: UIButton) {
         
-        myInfo.income = (inputIncome.text! as NSString).doubleValue
+       // myInfo.income = (inputIncome.text! as NSString).doubleValue
 
         if firstTime {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetRecExp") as! SetRecurringExpensesViewController
-            viewController.myInfo = self.myInfo
-            viewController.firstTime = true
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ExpenseTable") as! ExpenseTableController
+
             present(viewController, animated: true, completion: nil)
             
         }
         else {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SaveUserInfo") as! SavingStartingInfoViewController
-            viewController.myInfo = self.myInfo
             present(viewController, animated: true, completion: nil)
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        
-        if segue.identifier == "IncomeToExpenses" {
-            let expensesVC = segue.destination as! SetRecurringExpensesViewController
-            expensesVC.myInfo = myInfo
-        }
-    }
 
 }

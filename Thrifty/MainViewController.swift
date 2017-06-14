@@ -29,22 +29,22 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        loadData()
-
-        
-        //monthly income, subtract recurring expenses and subtract savings
-        //
-        if let info = myInfo {
-            netMonthlyIncome = info.income - info.recurringExpenses - info.savings
-            dailyBudgetDollars = netMonthlyIncome/numDaysInMonth
-            
-            dailyBudget.text = String(format: "$%.2f", dailyBudgetDollars)
-        }
-        
-    }
+//    
+//    override func viewWillAppear(_ animated: Bool) {
+//        
+//        loadData()
+//
+//        
+//        //monthly income, subtract recurring expenses and subtract savings
+//        //
+//        if let info = myInfo {
+//            netMonthlyIncome = info.income - info.recurringExpenses - info.savings
+//            dailyBudgetDollars = netMonthlyIncome/numDaysInMonth
+//            
+//            dailyBudget.text = String(format: "$%.2f", dailyBudgetDollars)
+//        }
+//        
+//    }
     
     
     override func didReceiveMemoryWarning() {

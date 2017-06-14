@@ -58,11 +58,11 @@ class SavingStartingInfoViewController: UIViewController, NSFetchedResultsContro
         catch {
             print(error)
         }
-        
-        let user = UserMO(context: context)
-        user.income = myInfo.income
-        user.recurringExpenses = myInfo.recurringExpenses
-        user.savings = myInfo.savings
+//        
+//        let user = UserMO(context: context)
+//        user.income = myInfo.income
+//        user.recurringExpenses = myInfo.recurringExpenses
+//        user.savings = myInfo.savings
         
         
         do {

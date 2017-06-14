@@ -1,5 +1,5 @@
 //
-//  UserMO+CoreDataClass.swift
+//  ExpenseMO+CoreDataClass.swift
 //  Thrifty
 //
 //  Created by Boris Teodorovich on 6/14/17.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(UserMO)
-public class UserMO: NSManagedObject {
+@objc(ExpenseMO)
+public class ExpenseMO: NSManagedObject {
 
 }

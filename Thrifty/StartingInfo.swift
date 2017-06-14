@@ -19,10 +19,10 @@ struct userInfo {
         savings = 0
     }
     
-    init(_ sourceUserMO: UserMO) {
-        self.income = sourceUserMO.income
-        self.recurringExpenses = sourceUserMO.recurringExpenses
-        self.savings = sourceUserMO.savings
-        
-    }
+//    init(_ sourceUserMO: UserMO) {
+//        self.income = sourceUserMO.income
+//        self.recurringExpenses = sourceUserMO.recurringExpenses
+//        self.savings = sourceUserMO.savings
+//        
+//    }
 }

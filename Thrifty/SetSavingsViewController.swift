@@ -10,7 +10,7 @@ import UIKit
 
 class SetSavingsViewController: UIViewController {
 
-    var myInfo = userInfo()
+    
     var firstTime: Bool = false
     var dollarSavings : Double = 0
     
@@ -38,33 +38,33 @@ class SetSavingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func slidSlider(_ sender: UISlider) {
-        dollarSavings = (Double(percentageSlider.value)/100) * myInfo.income
-        inputSavings.text = String(format: "$%.2f", dollarSavings)
-    }
-    @IBAction func changedText(_ sender: Any) {
-        dollarSavings = (inputSavings.text! as NSString).doubleValue
-        percentageSlider.setValue(Float(dollarSavings/myInfo.income)*100.0, animated: true)
-    }
-    
-    @IBAction func mainButtonPressed(_ sender: UIButton) {
-        
-        myInfo.savings = dollarSavings
-
-        // Also redundant, but at least it's consistent
-        
-        if firstTime {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SaveUserInfo") as! SavingStartingInfoViewController
-            viewController.myInfo = self.myInfo
-            present(viewController, animated: true, completion: nil)
-            
-        }
-        else {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SaveUserInfo") as! SavingStartingInfoViewController
-            viewController.myInfo = self.myInfo
-            present(viewController, animated: true, completion: nil)
-        }
-    }
+//    
+//    @IBAction func slidSlider(_ sender: UISlider) {
+//        dollarSavings = (Double(percentageSlider.value)/100) * myInfo.income
+//        inputSavings.text = String(format: "$%.2f", dollarSavings)
+//    }
+//    @IBAction func changedText(_ sender: Any) {
+//        dollarSavings = (inputSavings.text! as NSString).doubleValue
+//        percentageSlider.setValue(Float(dollarSavings/myInfo.income)*100.0, animated: true)
+//    }
+//    
+//    @IBAction func mainButtonPressed(_ sender: UIButton) {
+//        
+//        myInfo.savings = dollarSavings
+//
+//        // Also redundant, but at least it's consistent
+//        
+//        if firstTime {
+//            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SaveUserInfo") as! SavingStartingInfoViewController
+//            viewController.myInfo = self.myInfo
+//            present(viewController, animated: true, completion: nil)
+//            
+//        }
+//        else {
+//            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SaveUserInfo") as! SavingStartingInfoViewController
+//            viewController.myInfo = self.myInfo
+//            present(viewController, animated: true, completion: nil)
+//        }
+//    }
 
 }

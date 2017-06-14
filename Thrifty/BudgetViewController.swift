@@ -47,14 +47,14 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     @IBAction func setIncomeClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetIncome") as! SetIncomeViewController
-        viewController.myInfo = userInfo(self.myInfo)
+//        viewController.myInfo = userInfo(self.myInfo)
         present(viewController, animated: true, completion: nil)
         
     }
     
     @IBAction func setExpClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetRecExp") as! SetRecurringExpensesViewController
-        viewController.myInfo = userInfo(self.myInfo)
+//        viewController.myInfo = userInfo(self.myInfo)
         present(viewController, animated: true, completion: nil)
         
         
@@ -62,16 +62,16 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     @IBAction func setSavingsClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetSavings") as! SetSavingsViewController
-        viewController.myInfo = userInfo(self.myInfo)
+//        viewController.myInfo = userInfo(self.myInfo)
         present(viewController, animated: true, completion: nil)
         
     }
     
     func updateDisplay() {
         if myInfo != nil {
-            incomeButton.setTitle(String(format: "$%.2f", myInfo.income), for: UIControlState.normal)
-            expButton.setTitle(String(format: "$%.2f", myInfo.recurringExpenses), for: UIControlState.normal)
-            savingsButton.setTitle(String(format: "$%.2f", myInfo.savings), for: UIControlState.normal)
+//            incomeButton.setTitle(String(format: "$%.2f", myInfo.income), for: UIControlState.normal)
+//            expButton.setTitle(String(format: "$%.2f", myInfo.recurringExpenses), for: UIControlState.normal)
+//            savingsButton.setTitle(String(format: "$%.2f", myInfo.savings), for: UIControlState.normal)
         }
     }
     
