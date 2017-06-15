@@ -168,7 +168,8 @@ class IncomeTableController: UITableViewController, NSFetchedResultsControllerDe
         incomeDict = [:]
         sectionTitles = []
 
-        if let user = UserMO.userWithName("default", inMOContext: getContext()) {
+        if let user = UserMO.getActiveUser(getContext())
+        {
             for income in user.receives! {
                 if (income as! IncomeMO).descr != ".hidden" {
                     addToDict(income as! IncomeMO)

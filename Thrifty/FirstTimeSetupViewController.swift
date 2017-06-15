@@ -23,7 +23,7 @@ class FirstTimeSetupViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if UserMO.userWithNameExists("default", inMOContext: getContext()) {
+        if let _ = UserMO.getActiveUser(getContext()) {
             dismiss(animated: true, completion: nil)
         }
     }

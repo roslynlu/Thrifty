@@ -65,6 +65,8 @@ class ExpenseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
         if (inputExpense.text != "") {
             
             let context = getContext()
+            
+            let activeUser = UserMO.getActiveUser(context)
 
             let newExpense = ExpenseInfo(id: UUID().uuidString,
                                          type: type,
@@ -72,7 +74,7 @@ class ExpenseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
                                          amount: Double(inputExpense.text!)!,
                                          daysCycle: 0,
                                          date: Date() as NSDate,
-                                         spentBy: "default")
+                                         spentBy: (activeUser?.name)!)
             
             _ = ExpenseMO.expenseWithInfo(newExpense, inMOContext: context)
             

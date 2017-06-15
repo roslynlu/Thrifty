@@ -31,7 +31,7 @@ class SetSavingsViewController: UIViewController {
     }
 
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: false, completion: nil)
         
     }
 

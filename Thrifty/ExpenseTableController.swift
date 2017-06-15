@@ -165,7 +165,8 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
         expenseDict = [:]
         sectionTitles = []
         
-        if let user = UserMO.userWithName("default", inMOContext: getContext()) {
+        if let user = UserMO.getActiveUser(getContext())
+        {
             for expense in user.spends! {
                 addToDict(expense as! ExpenseMO)
             }

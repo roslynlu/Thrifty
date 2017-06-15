@@ -31,13 +31,14 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if !UserMO.userWithNameExists("default", inMOContext: getContext()) {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstTimeSetup")
-            present(viewController, animated: true, completion: nil)
-        }
-        else {
+        if let _ = UserMO.getActiveUser(getContext()) {
             loadData()
             updateDisplay()
+        }
+        else {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstTimeSetup")
+            present(viewController, animated: true, completion: nil)
+            
         }
     }
     
@@ -139,7 +140,7 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     // Fetches data and stores it in myInfo
     func loadData() {
-        myInfo = UserMO.userWithName("default", inMOContext: getContext())
+        myInfo = UserMO.getActiveUser(getContext())
     }
     
 }
