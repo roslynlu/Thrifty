@@ -910,7 +910,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iU-x4-lTw">
                                 <rect key="frame" x="0.0" y="150" width="375" height="216"/>
@@ -1037,12 +1037,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4F-gU-AWI" customClass="JTCalendarMenuView">
-                                <rect key="frame" x="16" y="43" width="343" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="swD-QX-Q2w" customClass="JTCalendarWeekDayView">
-                                <rect key="frame" x="16" y="100" width="343" height="30"/>
+                                <rect key="frame" x="94" y="43" width="200" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1051,6 +1046,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="swD-QX-Q2w" customClass="JTCalendarWeekDayView">
+                                <rect key="frame" x="16" y="100" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVh-5U-CLv">
+                                <rect key="frame" x="34" y="49" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MODE"/>
+                                <connections>
+                                    <action selector="changeMode:" destination="3qx-8b-3gY" eventType="touchUpInside" id="vdT-cT-4du"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1058,6 +1066,7 @@
                     <connections>
                         <outlet property="calendarContentView" destination="icn-Jp-vuf" id="ECh-Xk-nVf"/>
                         <outlet property="calendarMenuView" destination="u4F-gU-AWI" id="O6w-Q8-u5X"/>
+                        <outlet property="changeModeButton" destination="OVh-5U-CLv" id="w1W-R8-axz"/>
                         <outlet property="weekDayView" destination="swD-QX-Q2w" id="7Dy-Nu-Rcp"/>
                     </connections>
                 </viewController>
@@ -1068,7 +1077,7 @@
         <!--Analysis-->
         <scene sceneID="OK9-0N-vju">
             <objects>
-                <viewController title="Analysis" id="gtH-iM-Y94" sceneMemberID="viewController">
+                <viewController title="Analysis" id="gtH-iM-Y94" customClass="AnalysisVC" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PRv-5U-dmv"/>
                         <viewControllerLayoutGuide type="bottom" id="xPH-fN-f81"/>
@@ -1076,47 +1085,29 @@
                     <view key="view" contentMode="scaleToFill" id="Ij4-VC-nlc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4tl-cs-QBz" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="293" width="375" height="325"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gcm-MC-ou7" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="43" width="375" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Analysis" image="analysis" id="40U-wq-hdi"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="Gcm-MC-ou7" id="m0u-mx-NsE"/>
+                        <outlet property="pieChartView" destination="4tl-cs-QBz" id="IrJ-Lr-gqI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaE-mQ-iFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1246" y="2575"/>
-        </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="QHv-4E-m07">
-            <objects>
-                <collectionViewController id="G26-Bh-bub" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="PEg-2L-s0T">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EiT-Ix-88g">
-                            <size key="itemSize" width="182" height="171"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3Ij-fu-ePY">
-                                <rect key="frame" x="0.0" y="0.0" width="182" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="182" height="171"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="G26-Bh-bub" id="NGS-NO-3d8"/>
-                            <outlet property="delegate" destination="G26-Bh-bub" id="PfG-Qm-0Qy"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FKR-NE-FWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1928.8" y="2574.96251874063"/>
+            <point key="canvasLocation" x="1245.5999999999999" y="2574.96251874063"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kCU-h8-3sh">

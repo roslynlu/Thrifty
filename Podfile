@@ -7,5 +7,6 @@ target 'Thrifty' do
 
   # Pods for Thrifty
   pod 'JTCalendar', '~> 2.0'
+  pod ‘Charts'
 
 end

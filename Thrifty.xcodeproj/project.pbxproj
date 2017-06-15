@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6BF90A76469703F418227E6F /* Pods_Thrifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */; };
 		E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */; };
-		E41D78851EF1DD96000CC8B1 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78841EF1DD96000CC8B1 /* HistoryVC.swift */; };
 		E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */; };
 		E4D96FF01EEB15700030BF2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FEE1EEB15700030BF2A /* Main.storyboard */; };
 		E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */; };
@@ -43,7 +42,6 @@
 		2644817BCBEC393FDD8B4D04 /* Pods-Thrifty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thrifty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty.release.xcconfig"; sourceTree = "<group>"; };
 		7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thrifty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseVC.swift; sourceTree = "<group>"; };
-		E41D78841EF1DD96000CC8B1 /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		E4D96FE71EEB15700030BF2A /* Thrifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thrifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D96FEF1EEB15700030BF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,9 +128,9 @@
 				E4D970101EEB62660030BF2A /* MainViewController.swift */,
 				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
 				E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */,
-				E41D78841EF1DD96000CC8B1 /* HistoryVC.swift */,
 				E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */,
 				E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */,
+				E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */,
 				F681E3211EEE2FA600926D75 /* Setter VCs */,
 				F681E3201EEE2F8A00926D75 /* Supporting Files */,
 				E4D9700D1EEB406F0030BF2A /* Core Data */,
