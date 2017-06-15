@@ -37,11 +37,22 @@ class SetBBViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let activeUser = UserMO.getActiveUser(getContext())
+        var amount : Double = 0
+        
+        if cashField.text == ""
+        {
+            amount = 0
+        }
+        else
+        {
+            amount = Double(cashField.text!)!
+        }
+        print(amount)
         
         let beginningBalance = IncomeInfo(id: UUID().uuidString,
                                           type: "Beginning Balance",
                                           descr: ".hidden",
-                                          amount: Double(cashField.text!)!,
+                                          amount: amount,
                                           daysCycle: 0,
                                           date: Date() as NSDate,
                                           receivedBy: (activeUser?.name)!)

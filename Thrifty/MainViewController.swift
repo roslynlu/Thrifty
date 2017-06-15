@@ -12,55 +12,51 @@ import QuartzCore
 
 class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
+    // OUTLETS
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet var dailyBudget: UILabel!
     
     var dailyBudgetDollars: Double = 0
     var numDaysInMonth: Double = 30
     var netMonthlyIncome: Double = 0
     var expenses : Double = 0
-    
     var user : UserMO!
     
-    // Outlets
-    @IBOutlet var dailyBudget: UILabel!
+    //DO LATER
+    func calculateDailyBudget () -> Double
+    {
+        //income - expenses - savings
+        //daily income = income.amount - dayscycle 
+        //each daily recurring expense = expense.amount - dayscycle
+        //
+        return 30.0
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //format buttons
         minusButton.layer.cornerRadius = 0.5 * minusButton.bounds.size.width;
         minusButton.layer.borderWidth = 2.0
         minusButton.layer.borderColor = UIColor.white.cgColor
-        minusButton.titleEdgeInsets.left = 12; // add left padding.
-        //minusButton.titleLabel?.textAlignment = NSTextAlignment.center
-        //minusButton.title.contentVerticalAlignment = fill
+        minusButton.titleEdgeInsets.left = 12;
         
         plusButton.layer.cornerRadius = 0.5 * minusButton.bounds.size.width;
         plusButton.layer.borderWidth = 2.0
         plusButton.layer.borderColor = UIColor.white.cgColor
         plusButton.titleLabel?.textAlignment = NSTextAlignment.center
         
-        //fetch user from CoreData into local var user
+        //fetch user from CoreData into local var user and set greeting label
         user = UserMO.getActiveUser(getContext())
         print("name is " + (user.name)!)
         greeting.text = "Hello " + (user.name)! + ","
     }
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        
-//        loadData()
-//
-//        //instead of subtracting expenses, subtract all expenses with today's date
-//        //monthly income, subtract recurring expenses and subtract savings
-//        //
-//        if let info = myInfo {
-//            netMonthlyIncome = info.income - info.recurringExpenses - info.savings
-//            dailyBudgetDollars = netMonthlyIncome/numDaysInMonth
-//            dailyBudgetDollars -= expenses
-//            dailyBudget.text = String(format: "$%.2f", dailyBudgetDollars)
-//        }
-//        
-//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let budget = calculateDailyBudget()
+        dailyBudget.text = String(format: "$%.2f", budget)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,19 +80,5 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
 //        }
 //    }
     
-    @IBAction func unwindSave(segue: UIStoryboardSegue)
-    {
-        let expenseVC = segue.source as! ExpenseVC
-        expenses += expenseVC.amountExpense
-        print("total expenses are \(expenses)")
-        
-        
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        appDelegate.sharedExpenseVariable = expenses
-    }
-    
-    @IBAction func unwindCancel(segue: UIStoryboardSegue)
-    {
-        
-    }
+
 }
