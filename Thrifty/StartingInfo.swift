@@ -8,21 +8,22 @@
 
 import Foundation
 
-struct userInfo {
-    var income : Double
-    var recurringExpenses : Double
-    var savings : Double
-    
-    init() {
-        income = 0
-        recurringExpenses = 0
-        savings = 0
-    }
-    
-//    init(_ sourceUserMO: UserMO) {
-//        self.income = sourceUserMO.income
-//        self.recurringExpenses = sourceUserMO.recurringExpenses
-//        self.savings = sourceUserMO.savings
-//        
-//    }
+struct ExpenseInfo {
+    var id: String
+    var type: String
+    var descr: String
+    var amount: Double
+    var daysCycle: Int16
+    var date: NSDate
+    var spentBy: String = "default"
+}
+
+struct IncomeInfo {
+    var id: String
+    var type: String
+    var descr: String
+    var amount: Double
+    var daysCycle: Int16
+    var date: NSDate
+    var receivedBy: String = "default"
 }

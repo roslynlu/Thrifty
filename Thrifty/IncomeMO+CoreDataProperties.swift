@@ -2,7 +2,7 @@
 //  IncomeMO+CoreDataProperties.swift
 //  Thrifty
 //
-//  Created by Boris Teodorovich on 6/14/17.
+//  Created by Boris Teodorovich on 6/15/17.
 //  Copyright © 2017 DeAnza. All rights reserved.
 //
 
@@ -16,11 +16,12 @@ extension IncomeMO {
         return NSFetchRequest<IncomeMO>(entityName: "Income")
     }
 
-    @NSManaged public var name: String?
+    @NSManaged public var amount: Double
     @NSManaged public var date: NSDate?
     @NSManaged public var daysCycle: Int16
-    @NSManaged public var amount: Double
+    @NSManaged public var descr: String?
     @NSManaged public var type: String?
+    @NSManaged public var id: String?
     @NSManaged public var receivedBy: UserMO?
 
 }

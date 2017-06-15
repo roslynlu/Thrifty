@@ -1,19 +1,19 @@
 //
-//  TVCell.swift
-//  CIS55Lab2_Boris
+//  IncomeCell.swift
+//  Thrifty
 //
-//  Created by Boris Teodorovich on 5/15/17.
-//  Copyright © 2017 Boris Teodorovich. All rights reserved.
+//  Created by Boris Teodorovich on 6/15/17.
+//  Copyright © 2017 DeAnza. All rights reserved.
 //
 
 import UIKit
 
-class ExpenseCell: UITableViewCell {
+class IncomeCell: UITableViewCell {
 
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var daysPeriodField: UILabel!
     @IBOutlet weak var amountField: UILabel!
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,10 +21,10 @@ class ExpenseCell: UITableViewCell {
         
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

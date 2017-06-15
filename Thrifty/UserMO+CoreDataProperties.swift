@@ -2,7 +2,7 @@
 //  UserMO+CoreDataProperties.swift
 //  Thrifty
 //
-//  Created by Boris Teodorovich on 6/14/17.
+//  Created by Boris Teodorovich on 6/15/17.
 //  Copyright © 2017 DeAnza. All rights reserved.
 //
 
@@ -16,10 +16,9 @@ extension UserMO {
         return NSFetchRequest<UserMO>(entityName: "User")
     }
 
-    @NSManaged public var cashOnHand: Double
     @NSManaged public var name: String?
     @NSManaged public var receives: NSSet?
-    @NSManaged public var sets: NSSet?
+    @NSManaged public var wants: NSSet?
     @NSManaged public var spends: NSSet?
 
 }
@@ -41,20 +40,20 @@ extension UserMO {
 
 }
 
-// MARK: Generated accessors for sets
+// MARK: Generated accessors for wants
 extension UserMO {
 
-    @objc(addSetsObject:)
-    @NSManaged public func addToSets(_ value: GoalMO)
+    @objc(addWantsObject:)
+    @NSManaged public func addToWants(_ value: GoalMO)
 
-    @objc(removeSetsObject:)
-    @NSManaged public func removeFromSets(_ value: GoalMO)
+    @objc(removeWantsObject:)
+    @NSManaged public func removeFromWants(_ value: GoalMO)
 
-    @objc(addSets:)
-    @NSManaged public func addToSets(_ values: NSSet)
+    @objc(addWants:)
+    @NSManaged public func addToWants(_ values: NSSet)
 
-    @objc(removeSets:)
-    @NSManaged public func removeFromSets(_ values: NSSet)
+    @objc(removeWants:)
+    @NSManaged public func removeFromWants(_ values: NSSet)
 
 }
 
