@@ -12,8 +12,7 @@ import QuartzCore
 
 class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
-    var myInfo: UserMO!
-    
+    @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     
@@ -21,6 +20,8 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     var numDaysInMonth: Double = 30
     var netMonthlyIncome: Double = 0
     var expenses : Double = 0
+    
+    var user : UserMO!
     
     // Outlets
     @IBOutlet var dailyBudget: UILabel!
@@ -38,36 +39,24 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         plusButton.layer.borderWidth = 2.0
         plusButton.layer.borderColor = UIColor.white.cgColor
         plusButton.titleLabel?.textAlignment = NSTextAlignment.center
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         
-        loadData()
-
-        //instead of subtracting expenses, subtract all expenses with today's date
-        //monthly income, subtract recurring expenses and subtract savings
-        //
-        if let info = myInfo {
-            netMonthlyIncome = info.income - info.recurringExpenses - info.savings
-            dailyBudgetDollars = netMonthlyIncome/numDaysInMonth
-            dailyBudgetDollars -= expenses
-            dailyBudget.text = String(format: "$%.2f", dailyBudgetDollars)
-        }
-        
+        //fetch user from CoreData into local var user
+        user = UserMO.getUser(getContext())
+        print("name is " + (user.name)!)
+        greeting.text = "Hello " + (user.name)! + ","
     }
-    
 //    
 //    override func viewWillAppear(_ animated: Bool) {
 //        
 //        loadData()
 //
-//        
+//        //instead of subtracting expenses, subtract all expenses with today's date
 //        //monthly income, subtract recurring expenses and subtract savings
 //        //
 //        if let info = myInfo {
 //            netMonthlyIncome = info.income - info.recurringExpenses - info.savings
 //            dailyBudgetDollars = netMonthlyIncome/numDaysInMonth
-//            
+//            dailyBudgetDollars -= expenses
 //            dailyBudget.text = String(format: "$%.2f", dailyBudgetDollars)
 //        }
 //        
@@ -84,16 +73,16 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     // Fetches data and stores it in myInfo
-    func loadData() {
-        let fetchRequest : NSFetchRequest<UserMO> = UserMO.fetchRequest()
-        do {
-            let fetchedObjects = try getContext().fetch(fetchRequest)
-                myInfo = fetchedObjects.first
-        }
-        catch {
-            print(error)
-        }
-    }
+//    func loadData() {
+//        let fetchRequest : NSFetchRequest<UserMO> = UserMO.fetchRequest()
+//        do {
+//            let fetchedObjects = try getContext().fetch(fetchRequest)
+//                myInfo = fetchedObjects.first
+//        }
+//        catch {
+//            print(error)
+//        }
+//    }
     
     @IBAction func unwindSave(segue: UIStoryboardSegue)
     {
@@ -102,8 +91,8 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         print("total expenses are \(expenses)")
         
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.sharedExpenseVariable = expenses
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.sharedExpenseVariable = expenses
     }
     
     @IBAction func unwindCancel(segue: UIStoryboardSegue)
