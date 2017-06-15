@@ -86,7 +86,9 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
         if myInfo.receives != nil {
             var incomes: Double = 0.0
             for income in myInfo.receives! {
-                incomes += (income as! IncomeMO).amount
+                if (income as! IncomeMO).daysCycle != 0 {
+                    incomes += (income as! IncomeMO).amount
+                }
             }
             return incomes
         }

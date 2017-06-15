@@ -170,7 +170,9 @@ class IncomeTableController: UITableViewController, NSFetchedResultsControllerDe
 
         if let user = UserMO.userWithName("default", inMOContext: getContext()) {
             for income in user.receives! {
-                addToDict(income as! IncomeMO)
+                if (income as! IncomeMO).descr != ".hidden" {
+                    addToDict(income as! IncomeMO)
+                }
             }
         }
         
