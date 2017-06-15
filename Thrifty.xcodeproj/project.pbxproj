@@ -34,6 +34,7 @@
 		F61D807B1EF29A6F006B6B1D /* IncomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */; };
 		F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807C1EF29D25006B6B1D /* IncomeCell.swift */; };
 		F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */; };
+		E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */; };
 		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeTableController.swift; sourceTree = "<group>"; };
 		F61D807C1EF29D25006B6B1D /* IncomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeCell.swift; sourceTree = "<group>"; };
 		F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisVC.swift; sourceTree = "<group>"; };
 		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,6 +319,7 @@
 				F61D805B1EF1DDB1006B6B1D /* ExpenseTableController.swift in Sources */,
 				F61D80791EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift in Sources */,
 				F61D807B1EF29A6F006B6B1D /* IncomeTableController.swift in Sources */,
+				E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */,
 				E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
 				F61D80761EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift in Sources */,
