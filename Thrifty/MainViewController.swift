@@ -23,6 +23,11 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet var dailyBudget: UILabel!
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +78,10 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         let expenseVC = segue.source as! ExpenseVC
         expenses += expenseVC.amountExpense
         print("total expenses are \(expenses)")
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.sharedExpenseVariable = expenses
     }
     
     @IBAction func unwindCancel(segue: UIStoryboardSegue)
