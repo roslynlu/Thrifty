@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FirstTimeSetupViewController: UIViewController {
 
@@ -21,21 +22,32 @@ class FirstTimeSetupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if UserMO.userWithNameExists("default", inMOContext: getContext()) {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    
+    
+    
 
     @IBAction func continueClicked(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetIncome") as! SetIncomeViewController
-        viewController.firstTime = true
+        _ = UserMO.userWithName("default", inMOContext: getContext())
+        
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstTimeSequence")
+        
         present(viewController, animated: true, completion: nil)
+
         
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

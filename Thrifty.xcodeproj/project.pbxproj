@@ -14,17 +14,27 @@
 		E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */; };
 		E4D96FF51EEB15700030BF2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FF41EEB15700030BF2A /* Assets.xcassets */; };
 		E4D96FF81EEB15700030BF2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FF61EEB15700030BF2A /* LaunchScreen.storyboard */; };
-		E4D970001EEB1AEC0030BF2A /* SetIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FFF1EEB1AEC0030BF2A /* SetIncomeViewController.swift */; };
-		E4D970021EEB20360030BF2A /* SetRecurringExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970011EEB20360030BF2A /* SetRecurringExpensesViewController.swift */; };
+		E4D970001EEB1AEC0030BF2A /* SetBBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */; };
+		E4D970021EEB20360030BF2A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970011EEB20360030BF2A /* AddExpenseViewController.swift */; };
 		E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */; };
 		E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970051EEB210D0030BF2A /* BudgetViewController.swift */; };
 		E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970071EEB229C0030BF2A /* StartingInfo.swift */; };
-		E4D9700B1EEB3FB30030BF2A /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970091EEB3FB30030BF2A /* UserMO+CoreDataClass.swift */; };
-		E4D9700C1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */; };
-		E4D9700F1EEB43180030BF2A /* SavingStartingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */; };
 		E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970101EEB62660030BF2A /* MainViewController.swift */; };
 		E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */; };
 		E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */; };
+		F61D805B1EF1DDB1006B6B1D /* ExpenseTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D805A1EF1DDB1006B6B1D /* ExpenseTableController.swift */; };
+		F61D805D1EF1E1A1006B6B1D /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D805C1EF1E1A1006B6B1D /* ExpenseCell.swift */; };
+		F61D80721EF1E8BB006B6B1D /* GoalMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806A1EF1E8BB006B6B1D /* GoalMO+CoreDataClass.swift */; };
+		F61D80731EF1E8BB006B6B1D /* GoalMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806B1EF1E8BB006B6B1D /* GoalMO+CoreDataProperties.swift */; };
+		F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806C1EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift */; };
+		F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */; };
+		F61D80761EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806E1EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift */; };
+		F61D80771EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */; };
+		F61D80781EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */; };
+		F61D80791EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */; };
+		F61D807B1EF29A6F006B6B1D /* IncomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */; };
+		F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807C1EF29D25006B6B1D /* IncomeCell.swift */; };
+		F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */; };
 		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,19 +50,29 @@
 		E4D96FF41EEB15700030BF2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4D96FF71EEB15700030BF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4D96FF91EEB15700030BF2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4D96FFF1EEB1AEC0030BF2A /* SetIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIncomeViewController.swift; sourceTree = "<group>"; };
-		E4D970011EEB20360030BF2A /* SetRecurringExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRecurringExpensesViewController.swift; sourceTree = "<group>"; };
+		E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBBViewController.swift; sourceTree = "<group>"; };
+		E4D970011EEB20360030BF2A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSavingsViewController.swift; sourceTree = "<group>"; };
 		E4D970051EEB210D0030BF2A /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		E4D970071EEB229C0030BF2A /* StartingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingInfo.swift; sourceTree = "<group>"; };
-		E4D970091EEB3FB30030BF2A /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStartingInfoViewController.swift; sourceTree = "<group>"; };
 		E4D970101EEB62660030BF2A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E4F8A38C1EF1E97900CBCCB2 /* Thrifty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thrifty-Bridging-Header.h"; sourceTree = "<group>"; };
 		E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryObjC.h; sourceTree = "<group>"; };
 		E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryObjC.m; sourceTree = "<group>"; };
 		E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisVC.swift; sourceTree = "<group>"; };
+		F61D805A1EF1DDB1006B6B1D /* ExpenseTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableController.swift; sourceTree = "<group>"; };
+		F61D805C1EF1E1A1006B6B1D /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
+		F61D806A1EF1E8BB006B6B1D /* GoalMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GoalMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F61D806B1EF1E8BB006B6B1D /* GoalMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GoalMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F61D806C1EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F61D806E1EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IncomeMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IncomeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeTableController.swift; sourceTree = "<group>"; };
+		F61D807C1EF29D25006B6B1D /* IncomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeCell.swift; sourceTree = "<group>"; };
+		F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,9 +126,9 @@
 		E4D96FE91EEB15700030BF2A /* Thrifty */ = {
 			isa = PBXGroup;
 			children = (
-				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
 				E4D970101EEB62660030BF2A /* MainViewController.swift */,
+				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
 				E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */,
 				E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */,
 				E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */,
@@ -124,9 +144,15 @@
 		E4D9700D1EEB406F0030BF2A /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				F61D806A1EF1E8BB006B6B1D /* GoalMO+CoreDataClass.swift */,
+				F61D806B1EF1E8BB006B6B1D /* GoalMO+CoreDataProperties.swift */,
+				F61D806C1EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift */,
+				F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */,
+				F61D806E1EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift */,
+				F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */,
+				F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */,
+				F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */,
 				E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */,
-				E4D970091EEB3FB30030BF2A /* UserMO+CoreDataClass.swift */,
-				E4D9700A1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -147,10 +173,14 @@
 			isa = PBXGroup;
 			children = (
 				F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */,
-				E4D96FFF1EEB1AEC0030BF2A /* SetIncomeViewController.swift */,
-				E4D970011EEB20360030BF2A /* SetRecurringExpensesViewController.swift */,
+				E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */,
+				F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */,
+				F61D807C1EF29D25006B6B1D /* IncomeCell.swift */,
+				F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */,
+				F61D805C1EF1E1A1006B6B1D /* ExpenseCell.swift */,
+				F61D805A1EF1DDB1006B6B1D /* ExpenseTableController.swift */,
+				E4D970011EEB20360030BF2A /* AddExpenseViewController.swift */,
 				E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */,
-				E4D9700E1EEB43180030BF2A /* SavingStartingInfoViewController.swift */,
 			);
 			name = "Setter VCs";
 			sourceTree = "<group>";
@@ -279,21 +309,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */,
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
+				F61D80771EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift in Sources */,
 				E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */,
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
+				F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */,
+				F61D80781EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift in Sources */,
+				F61D805B1EF1DDB1006B6B1D /* ExpenseTableController.swift in Sources */,
+				F61D80791EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift in Sources */,
+				F61D807B1EF29A6F006B6B1D /* IncomeTableController.swift in Sources */,
 				E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */,
 				E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
+				F61D80761EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
 				F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */,
-				E4D970021EEB20360030BF2A /* SetRecurringExpensesViewController.swift in Sources */,
-				E4D9700B1EEB3FB30030BF2A /* UserMO+CoreDataClass.swift in Sources */,
+				E4D970021EEB20360030BF2A /* AddExpenseViewController.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
-				E4D970001EEB1AEC0030BF2A /* SetIncomeViewController.swift in Sources */,
-				E4D9700C1EEB3FB30030BF2A /* UserMO+CoreDataProperties.swift in Sources */,
-				E4D9700F1EEB43180030BF2A /* SavingStartingInfoViewController.swift in Sources */,
+				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,
+				F61D80731EF1E8BB006B6B1D /* GoalMO+CoreDataProperties.swift in Sources */,
+				F61D80721EF1E8BB006B6B1D /* GoalMO+CoreDataClass.swift in Sources */,
+				E4D970001EEB1AEC0030BF2A /* SetBBViewController.swift in Sources */,
 				E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */,
+				F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */,
+				F61D805D1EF1E1A1006B6B1D /* ExpenseCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Thrifty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.deanza.rlu.Thrifty;
@@ -434,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Thrifty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.deanza.rlu.Thrifty;

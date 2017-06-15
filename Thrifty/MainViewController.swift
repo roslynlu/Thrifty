@@ -56,6 +56,23 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
     }
     
+//    
+//    override func viewWillAppear(_ animated: Bool) {
+//        
+//        loadData()
+//
+//        
+//        //monthly income, subtract recurring expenses and subtract savings
+//        //
+//        if let info = myInfo {
+//            netMonthlyIncome = info.income - info.recurringExpenses - info.savings
+//            dailyBudgetDollars = netMonthlyIncome/numDaysInMonth
+//            
+//            dailyBudget.text = String(format: "$%.2f", dailyBudgetDollars)
+//        }
+//        
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,6 +100,10 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         let expenseVC = segue.source as! ExpenseVC
         expenses += expenseVC.amountExpense
         print("total expenses are \(expenses)")
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.sharedExpenseVariable = expenses
     }
     
     @IBAction func unwindCancel(segue: UIStoryboardSegue)
