@@ -43,6 +43,15 @@ public class UserMO: NSManagedObject {
         
     }
     
+    class func getUser(_ context: NSManagedObjectContext) -> UserMO? {
+        let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
+        
+        if let user = (try? context.fetch(request))?.first {
+            return user
+        }
+        return nil
+    }
+    
     
     
 }

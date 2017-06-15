@@ -128,9 +128,9 @@
 		E4D96FE91EEB15700030BF2A /* Thrifty */ = {
 			isa = PBXGroup;
 			children = (
+				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
 				E4D970101EEB62660030BF2A /* MainViewController.swift */,
-				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
 				E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */,
 				E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */,
 				E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */,
@@ -462,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Thrifty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.deanza.rlu.Thrifty;
@@ -478,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Thrifty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.deanza.rlu.Thrifty;
