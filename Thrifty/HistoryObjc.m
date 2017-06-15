@@ -19,6 +19,22 @@
 
 @end
 
+@implementation UIColor (Extensions)
+
++ (UIColor *)colorWithHueDegrees:(CGFloat)hue saturation:(CGFloat)saturation brightness:(CGFloat)brightness {
+    return [UIColor colorWithHue:(hue/360) saturation:saturation brightness:brightness alpha:1.0];
+}
+
++ (UIColor *)aquaColor {
+    return [UIColor colorWithHueDegrees:166 saturation:0.56 brightness:0.55];
+}
+
++ (UIColor *)paleYellowColor {
+    return [UIColor colorWithHueDegrees:60 saturation:0.2 brightness:1.0];
+}
+
+@end
+
 @implementation HistoryObjC
 
 - (void)viewDidLoad {
@@ -63,7 +79,7 @@
     // Today
     else if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
+        dayView.circleView.backgroundColor = [UIColor aquaColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
@@ -125,6 +141,11 @@
             [_calendarContentView loadPreviousPageWithAnimation];
         }
     }
+    
+    //week view
+//    _calendarManager.settings.weekModeEnabled = YES;
+//    [_calendarManager reload];
+    //doesn't change the height of calendarContentView, you have to do it yourself
 }
 
 #pragma mark - Fake data
@@ -170,6 +191,20 @@
         
         [_eventsByDate[key] addObject:randomDate];
     }
+}
+
+- (IBAction)changeMode:(id)sender
+{
+    _calendarManager.settings.weekModeEnabled = !_calendarManager.settings.weekModeEnabled;
+    [_calendarManager reload];
+    
+    CGFloat newHeight = 300;
+    if(_calendarManager.settings.weekModeEnabled){
+        newHeight = 85.;
+    }
+    
+    //self.calendarContentViewHeight.constant = newHeight;
+    [self.view layoutIfNeeded];
 }
 
 /*

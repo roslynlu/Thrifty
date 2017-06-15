@@ -16,5 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet JTVerticalCalendarView *calendarContentView;
 
+@property (weak, nonatomic) IBOutlet UIButton *changeModeButton;
+
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @end

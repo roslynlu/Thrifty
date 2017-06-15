@@ -34,7 +34,7 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
         loadData()
 
-        
+        //instead of subtracting expenses, subtract all expenses with today's date
         //monthly income, subtract recurring expenses and subtract savings
         //
         if let info = myInfo {
