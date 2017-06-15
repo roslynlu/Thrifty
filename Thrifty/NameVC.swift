@@ -28,7 +28,16 @@ class NameVC: UIViewController {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        _ = UserMO.userWithName((nameField?.text)!, inMOContext: getContext())
+        if nameField.text != ""
+        {
+            _ = UserMO.userWithName((nameField?.text)!, inMOContext: getContext())
+        }
+        else
+        {
+            let dataAlert = UIAlertController(title: "Error", message: "Please enter a name", preferredStyle: UIAlertControllerStyle.alert)
+            dataAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(dataAlert, animated: true, completion: nil)
+        }
 
     }
     
