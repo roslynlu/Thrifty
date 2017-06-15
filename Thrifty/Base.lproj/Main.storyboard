@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXX-Ys-b5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1914" y="968"/>
+            <point key="canvasLocation" x="-2527" y="967"/>
         </scene>
         <!--Set Monthly Income-->
         <scene sceneID="tne-QT-ifu">
@@ -84,7 +84,7 @@
                                         <rect key="frame" x="0.0" y="40.5" width="303.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -1162,12 +1162,56 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mVE-mJ-CG9"/>
+                        <segue destination="5A4-54-UhY" kind="relationship" relationship="rootViewController" id="TUw-lH-Xj4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ue-zp-Adg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110" y="967"/>
+            <point key="canvasLocation" x="-1676" y="967"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Hwe-J2-9Rt">
+            <objects>
+                <viewController id="5A4-54-UhY" customClass="NameVC" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="568-dz-2Vc"/>
+                        <viewControllerLayoutGuide type="bottom" id="G8m-7q-r9j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="egg-98-VIB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKG-kW-j0p">
+                                <rect key="frame" x="125" y="213" width="184" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZn-LZ-pGB">
+                                <rect key="frame" x="125" y="129" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Hpi-7j-rHm">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="GyN-l3-BnA">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="1mG-Oz-eC5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameField" destination="iKG-kW-j0p" id="fXI-Zj-p8C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b7h-ic-s99" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-876" y="971.96401799100454"/>
         </scene>
     </scenes>
     <resources>

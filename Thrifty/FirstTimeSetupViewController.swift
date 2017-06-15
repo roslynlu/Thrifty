@@ -40,8 +40,7 @@ class FirstTimeSetupViewController: UIViewController {
     
 
     @IBAction func continueClicked(_ sender: UIButton) {
-        _ = UserMO.userWithName("default", inMOContext: getContext())
-        
+
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstTimeSequence")
         
         present(viewController, animated: true, completion: nil)

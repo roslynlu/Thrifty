@@ -35,6 +35,7 @@
 		F61D807B1EF29A6F006B6B1D /* IncomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */; };
 		F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807C1EF29D25006B6B1D /* IncomeCell.swift */; };
 		F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */; };
+		F61D80811EF301E2006B6B1D /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80801EF301E2006B6B1D /* NameVC.swift */; };
 		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeTableController.swift; sourceTree = "<group>"; };
 		F61D807C1EF29D25006B6B1D /* IncomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeCell.swift; sourceTree = "<group>"; };
 		F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		F61D80801EF301E2006B6B1D /* NameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
 		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */,
+				F61D80801EF301E2006B6B1D /* NameVC.swift */,
 				E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */,
 				F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */,
 				F61D807C1EF29D25006B6B1D /* IncomeCell.swift */,
@@ -334,6 +337,7 @@
 				E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */,
 				F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */,
 				F61D805D1EF1E1A1006B6B1D /* ExpenseCell.swift in Sources */,
+				F61D80811EF301E2006B6B1D /* NameVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
