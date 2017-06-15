@@ -8,11 +8,14 @@
 
 import UIKit
 import CoreData
+import QuartzCore
 
 class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     var myInfo: UserMO!
     
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
     
     var dailyBudgetDollars: Double = 0
     var numDaysInMonth: Double = 30
@@ -21,14 +24,21 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     // Outlets
     @IBOutlet var dailyBudget: UILabel!
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        minusButton.layer.cornerRadius = 0.5 * minusButton.bounds.size.width;
+        minusButton.layer.borderWidth = 2.0
+        minusButton.layer.borderColor = UIColor.white.cgColor
+        minusButton.titleEdgeInsets.left = 12; // add left padding.
+        //minusButton.titleLabel?.textAlignment = NSTextAlignment.center
+        //minusButton.title.contentVerticalAlignment = fill
         
+        plusButton.layer.cornerRadius = 0.5 * minusButton.bounds.size.width;
+        plusButton.layer.borderWidth = 2.0
+        plusButton.layer.borderColor = UIColor.white.cgColor
+        plusButton.titleLabel?.textAlignment = NSTextAlignment.center
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         

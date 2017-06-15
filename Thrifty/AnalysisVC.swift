@@ -46,7 +46,7 @@ class AnalysisVC: UIViewController {
         pieChartDataSet.valueLinePart1OffsetPercentage = 0.8;
         //pieChartDataSet.valueLinePart1Length = 0.2;
         pieChartDataSet.valueLinePart2Length = 0.4;
-        //dataSet.xValuePosition = PieChartValuePositionOutsideSlice;
+        //dataSet.xValuePosition = .outsideSlice;
         pieChartDataSet.yValuePosition = .outsideSlice;
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
@@ -56,10 +56,7 @@ class AnalysisVC: UIViewController {
         pFormatter.maximumFractionDigits = 1
         pFormatter.multiplier = 1.0
         pFormatter.percentSymbol = " %"
-        //DefaultValueFormatter.swift, parameter is of type NumberFormatter. DefaultValueFormatter is of type NSObject, IValueFormatter
-        let ivitem : IValueFormatter = DefaultValueFormatter(formatter: pFormatter)
-        //setValueFormatter is in file ChartData.swift, parameter is of type IValueFormatter
-        pieChartData.setValueFormatter(ivitem)
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
         pieChartData.setValueFont(UIFont(name: "HelveticaNeue-Light", size: CGFloat(11.0)))
         pieChartData.setValueTextColor(UIColor.black)
         
