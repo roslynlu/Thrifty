@@ -20,8 +20,8 @@ extension ExpenseMO {
     @NSManaged public var date: NSDate?
     @NSManaged public var daysCycle: Int16
     @NSManaged public var descr: String?
-    @NSManaged public var type: String?
     @NSManaged public var id: String?
+    @NSManaged public var type: String?
     @NSManaged public var spentBy: UserMO?
 
 }

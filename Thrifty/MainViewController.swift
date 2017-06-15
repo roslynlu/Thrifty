@@ -41,7 +41,7 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         plusButton.titleLabel?.textAlignment = NSTextAlignment.center
         
         //fetch user from CoreData into local var user
-        user = UserMO.getUser(getContext())
+        user = UserMO.getActiveUser(getContext())
         print("name is " + (user.name)!)
         greeting.text = "Hello " + (user.name)! + ","
     }

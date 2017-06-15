@@ -57,13 +57,16 @@ class AddExpenseViewController: UIViewController {
             
             let context = getContext()
             
+            let activeUser = UserMO.getActiveUser(context)
+
+            
             let newExpense = ExpenseInfo(id: UUID().uuidString,
                                          type: typeField.text!,
                                          descr: nameField.text!,
                                          amount: Double(amountField.text!)!,
                                          daysCycle: Int16(daysCycleField.text!)!,
                                          date: dateField.date as NSDate,
-                                         spentBy: "default")
+                                         spentBy: (activeUser?.name)!)
             
             _ = ExpenseMO.expenseWithInfo(newExpense, inMOContext: context)
             

@@ -28,8 +28,8 @@ class NameVC: UIViewController {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        _ = UserMO.userWithName("default", inMOContext: getContext())
-        
+        _ = UserMO.userWithName((nameField?.text)!, inMOContext: getContext())
+
     }
     
     

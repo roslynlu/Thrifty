@@ -35,6 +35,7 @@ public class UserMO: NSManagedObject {
             
             let user = UserMO(context: context)
             user.name = name
+            user.isActive = true
             
             try! context.save()
             
@@ -43,9 +44,10 @@ public class UserMO: NSManagedObject {
         
     }
     
-    class func getUser(_ context: NSManagedObjectContext) -> UserMO? {
+    class func getActiveUser(_ context: NSManagedObjectContext) -> UserMO? {
         let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
-        
+        request.predicate = NSPredicate(format: "isActive = true")
+
         if let user = (try? context.fetch(request))?.first {
             return user
         }

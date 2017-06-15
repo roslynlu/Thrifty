@@ -57,13 +57,16 @@ class AddIncomeViewController: UIViewController {
             
             let context = getContext()
             
+            let activeUser = UserMO.getActiveUser(context)
+
+            
             let newIncome = IncomeInfo(id: UUID().uuidString,
                                          type: typeField.text!,
                                          descr: nameField.text!,
                                          amount: Double(amountField.text!)!,
                                          daysCycle: Int16(daysCycleField.text!)!,
                                          date: dateField.date as NSDate,
-                                         receivedBy: "default")
+                                         receivedBy: (activeUser?.name)!)
             
             _ = IncomeMO.incomeWithInfo(newIncome, inMOContext: context)
             
