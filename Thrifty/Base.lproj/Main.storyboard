@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Cn-1j-5h7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Cn-1j-5h7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -127,7 +127,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Add New Income"/>
                             <connections>
-                                <segue destination="t0V-VL-Nib" kind="presentation" id="oc4-kN-QPV"/>
+                                <action selector="addIncomePressed:" destination="mmp-ff-HP1" eventType="touchUpInside" id="udM-LY-9ag"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -135,7 +135,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1DC-jm-UOh" id="w8W-oK-xc3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y6j-r7-mXz">
@@ -207,7 +207,7 @@
         <!--Add Income-->
         <scene sceneID="Ijj-L9-JHW">
             <objects>
-                <viewController title="Add Income" id="t0V-VL-Nib" customClass="AddIncomeViewController" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecInc" title="Add Income" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t0V-VL-Nib" customClass="AddIncomeViewController" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V0r-Yd-x4Z"/>
                         <viewControllerLayoutGuide type="bottom" id="QCh-7I-rc5"/>
@@ -387,12 +387,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqt-Wg-nMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="276"/>
+            <point key="canvasLocation" x="892" y="1661"/>
         </scene>
         <!--Add Recurring Expenses-->
         <scene sceneID="RiS-Nw-oEw">
             <objects>
-                <viewController title="Add Recurring Expenses" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pQj-bq-p0w" customClass="AddExpenseViewController" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecExp" title="Add Recurring Expenses" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pQj-bq-p0w" customClass="AddExpenseViewController" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f6h-KG-Pcx"/>
                         <viewControllerLayoutGuide type="bottom" id="tZS-wi-Miy"/>
@@ -548,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZzT-bo-E9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3415" y="276"/>
+            <point key="canvasLocation" x="1990" y="1660"/>
         </scene>
         <!--Recurring Expenses-->
         <scene sceneID="jI1-q1-usC">
@@ -563,7 +563,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Add New Expense"/>
                             <connections>
-                                <segue destination="pQj-bq-p0w" kind="presentation" id="lDW-DF-cqv"/>
+                                <action selector="addExpensePressed:" destination="YpF-rv-G1V" eventType="touchUpInside" id="SNC-0Z-snM"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -571,7 +571,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJN-Ei-ZRk" id="iyo-4K-57g">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lWY-df-fRU">
@@ -634,7 +634,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAz-Zf-UF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2622" y="967"/>
+            <point key="canvasLocation" x="1991" y="967"/>
         </scene>
         <!--Set Savings Goal-->
         <scene sceneID="eWn-rT-x8O">
@@ -713,7 +713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFT-Xz-laW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4270" y="967"/>
+            <point key="canvasLocation" x="3150" y="967"/>
         </scene>
         <!--Budget-->
         <scene sceneID="vGi-xV-4z7">
@@ -1181,22 +1181,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKG-kW-j0p">
-                                <rect key="frame" x="125" y="213" width="184" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZn-LZ-pGB">
-                                <rect key="frame" x="125" y="129" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zNL-eP-A1f">
+                                <rect key="frame" x="16" y="319" width="343" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZn-LZ-pGB">
+                                        <rect key="frame" x="0.0" y="5" width="130" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKG-kW-j0p">
+                                        <rect key="frame" x="150" y="0.0" width="193" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zNL-eP-A1f" firstAttribute="leading" secondItem="egg-98-VIB" secondAttribute="leadingMargin" id="Ok6-fI-qvi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zNL-eP-A1f" secondAttribute="trailing" id="hhx-EQ-n3d"/>
+                            <constraint firstItem="zNL-eP-A1f" firstAttribute="centerY" secondItem="egg-98-VIB" secondAttribute="centerY" id="y8b-fM-XT4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Hpi-7j-rHm">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="GyN-l3-BnA">

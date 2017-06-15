@@ -3,13 +3,12 @@
     <entity name="Expense" representedClassName="ExpenseMO" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="daysCycle" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="descr" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
-        <relationship name="spentBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="spends" inverseEntity="User" syncable="YES"/>
+        <relationship name="spentBy" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="spends" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Goal" representedClassName="GoalMO" syncable="YES">
+    <entity name="Fund" representedClassName="FundMO" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="amountSoFar" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="completed" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -17,28 +16,50 @@
         <attribute name="descr" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="wantedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wants" inverseEntity="User" syncable="YES"/>
+        <relationship name="wantedBy" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wants" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Income" representedClassName="IncomeMO" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="descr" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <relationship name="receivedBy" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="receives" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="RecExpense" representedClassName="RecExpenseMO" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="daysCycle" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="descr" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
-        <relationship name="receivedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="receives" inverseEntity="User" syncable="YES"/>
+        <relationship name="plannedToBeSpentBy" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="plansToSpend" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="RecIncome" representedClassName="RecIncomeMO" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="daysCycle" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="descr" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <relationship name="plannedToBeReceivedBy" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="plansToReceive" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="UserMO" syncable="YES">
         <attribute name="isActive" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="savingCoeff" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="plansToReceive" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecIncome" inverseName="plannedToBeReceivedBy" inverseEntity="RecIncome" syncable="YES"/>
+        <relationship name="plansToSpend" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecExpense" inverseName="plannedToBeSpentBy" inverseEntity="RecExpense" syncable="YES"/>
         <relationship name="receives" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Income" inverseName="receivedBy" inverseEntity="Income" syncable="YES"/>
         <relationship name="spends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="spentBy" inverseEntity="Expense" syncable="YES"/>
-        <relationship name="wants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="wantedBy" inverseEntity="Goal" syncable="YES"/>
+        <relationship name="wants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fund" inverseName="wantedBy" inverseEntity="Fund" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Expense" positionX="-11" positionY="144" width="128" height="150"/>
-        <element name="Goal" positionX="-72" positionY="-189" width="128" height="165"/>
-        <element name="Income" positionX="-9" positionY="-18" width="128" height="150"/>
-        <element name="User" positionX="-272" positionY="27" width="128" height="120"/>
+        <element name="Expense" positionX="-11" positionY="144" width="128" height="133"/>
+        <element name="Fund" positionX="-74" positionY="467" width="128" height="163"/>
+        <element name="Income" positionX="153" positionY="-54" width="128" height="133"/>
+        <element name="User" positionX="-272" positionY="27" width="128" height="163"/>
+        <element name="RecIncome" positionX="414" positionY="-9" width="128" height="148"/>
+        <element name="RecExpense" positionX="151" positionY="182" width="128" height="148"/>
     </elements>
 </model>

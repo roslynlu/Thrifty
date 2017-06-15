@@ -26,6 +26,7 @@ public class UserMO: NSManagedObject {
             let user = UserMO(context: context)
             user.name = name
             user.isActive = true
+            user.savingCoeff = 0
             
             try! context.save()
             

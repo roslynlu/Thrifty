@@ -1,5 +1,5 @@
 //
-//  GoalMO+CoreDataProperties.swift
+//  FundMO+CoreDataProperties.swift
 //  Thrifty
 //
 //  Created by Boris Teodorovich on 6/15/17.
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension GoalMO {
+extension FundMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<GoalMO> {
-        return NSFetchRequest<GoalMO>(entityName: "Goal")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<FundMO> {
+        return NSFetchRequest<FundMO>(entityName: "Fund")
     }
 
     @NSManaged public var amount: Double
