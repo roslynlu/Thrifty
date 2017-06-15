@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class ExpenseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var inputExpense: UITextField!
     @IBOutlet var typeOfExpense: UIPickerView!
+    @IBOutlet weak var descrField: UITextField!
+    
     var types : [String] = [String]()
     var amountExpense : Double = 0.0
     
@@ -45,7 +48,43 @@ class ExpenseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return types[row]
     }
+    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        <#code#>
+//    }
 
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    @IBAction func DoneButtonClicked(_ sender: Any) {
+        let pickerindex = typeOfExpense.selectedRow(inComponent: 0).description
+        let type = types[Int(pickerindex)!]
+        
+        if (inputExpense.text != "") {
+            
+            let context = getContext()
+
+            let newExpense = ExpenseInfo(id: UUID().uuidString,
+                                         type: type,
+                                         descr: descrField.text!,
+                                         amount: Double(inputExpense.text!)!,
+                                         daysCycle: 0,
+                                         date: Date() as NSDate,
+                                         spentBy: "default")
+            
+            _ = ExpenseMO.expenseWithInfo(newExpense, inMOContext: context)
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        else {
+            let dataAlert = UIAlertController(title: "Error", message: "Enter an expense amount", preferredStyle: UIAlertControllerStyle.alert)
+            dataAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(dataAlert, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
