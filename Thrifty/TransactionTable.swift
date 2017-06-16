@@ -1,29 +1,34 @@
 //
-//  TVController.swift
-//  CIS55Lab2_Boris
+//  IncomeTableController.swift
+//  Thrifty
 //
-//  Created by Boris Teodorovich on 5/15/17.
-//  Copyright © 2017 Boris Teodorovich. All rights reserved.
+//  Created by Boris Teodorovich on 6/15/17.
+//  Copyright © 2017 DeAnza. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
 
-class ExpenseTableController: UITableViewController, NSFetchedResultsControllerDelegate {
+class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegate {
     
     
+    @IBOutlet weak var transactionTypeSelector: UIPickerView!
     
+    // Stuff for the picker
+    var types: [String] = ["Income", "Expense"]
     
     // Stuff for the section labels
-    var expenseDict = [String: [RecExpenseMO]]()
+    var dict = [String: [TransactionMO]]()
     var sectionTitles = [String]()
-
+    
     
     
     // Auto Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,6 +42,28 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
     }
     
     
+    
+    // Picker View
+    // The number of columns of data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return types.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return types[row]
+    }
+    
+    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    //        <#code#>
+    //    }
+    
+
     
     
     // Updating controller
@@ -63,9 +90,9 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
         default:
             tableView.reloadData()
         }
-//        
+        
 //        if let fetchedObjects = controller.fetchedObjects {
-//            expenses = fetchedObjects as! [RecExpenseMO]
+//            expenses = fetchedObjects as! [TransactionMO]
 //        }
     }
     
@@ -78,24 +105,24 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
     
     
     // Sections
-
-//    // On the side
-//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-////        if searchController.isActive {
-////            return [""]
-////        }
-////        else {
-//            return sectionTitles
-////        }
-//    }
+    
+    //    // On the side
+    //    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    ////        if searchController.isActive {
+    ////            return [""]
+    ////        }
+    ////        else {
+    //            return sectionTitles
+    ////        }
+    //    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-            return sectionTitles.count
+        return sectionTitles.count
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let values = expenseDict[sectionTitles[section]] {
+        if let values = dict[sectionTitles[section]] {
             return values.count
         }
         else {
@@ -104,7 +131,7 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return sectionTitles[section]
+        return sectionTitles[section]
     }
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
@@ -118,10 +145,10 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
     
     // Cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID = "ExpenseCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! ExpenseCell
+        let cellID = "IncomeCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! IncomeCell
         
-        if let values = expenseDict[sectionTitles[indexPath.section]] {
+        if let values = dict[sectionTitles[indexPath.section]] {
             let cellItem = values[indexPath.row]
             updateCellContents(in: cell, with: cellItem)
         }
@@ -136,20 +163,21 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
         
         switch editingStyle {
         case .delete:
-            let context = getContext()
-            if let itemToDelete = expenseDict[sectionTitles[indexPath.section]]?[indexPath.row] {
-                context.delete(itemToDelete)
-            }
-            try! context.save()
-            fetchFromCD()
-            tableView.reloadData()
+            
+                let context = getContext()
+                if let itemToDelete = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
+                    itemToDelete.delete(from: context)
+                }
+
+                fetchFromCD()
+                tableView.reloadData()
             
         default: break
         }
     }
     
     
-
+    
     
     
     
@@ -162,46 +190,64 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
     
     
     func fetchFromCD() {
-        expenseDict = [:]
+        dict = [:]
         sectionTitles = []
-        
-        if let user = UserMO.getActiveUser(getContext())
-        {
-            for expense in user.plansToSpend! {
-                addToDict(expense as! RecExpenseMO)
+        let pickerindex = transactionTypeSelector.selectedRow(inComponent: 0).description
+
+        switch (types[Int(pickerindex)!]) {
+        case "Income":
+            if let user = UserMO.getActiveUser(getContext())
+            {
+                for income in user.recurringIncomes! {
+                    if income.descr != ".hidden" {
+                        addToDict(income)
+                    }
+                }
             }
+        case "Expense":
+            if let user = UserMO.getActiveUser(getContext())
+            {
+                for expense in user.recurringExpenses! {
+                    if expense.descr != ".hidden" {
+                        addToDict(expense)
+                    }
+                }
+            }
+        default: break
         }
         
-
+        
     }
     
-    func addToDict(_ expense: RecExpenseMO) {
+    func addToDict(_ expense: TransactionMO) {
         if let key = expense.type {
             
-            if var valsWithSameFirstLetter = expenseDict[key] {
+            if var valsWithSameFirstLetter = dict[key] {
                 valsWithSameFirstLetter.append(expense)
-                expenseDict[key] = valsWithSameFirstLetter
+                dict[key] = valsWithSameFirstLetter
             }
             else {
-                expenseDict[key] = [expense]
+                dict[key] = [expense]
             }
         }
         
-        sectionTitles = [String](expenseDict.keys)
+        sectionTitles = [String](dict.keys)
         sectionTitles.sort()
     }
-
     
-    func updateCellContents(in cell: ExpenseCell, with cellItem: RecExpenseMO) {
+    
+    func updateCellContents(in cell: IncomeCell, with cellItem: TransactionMO) {
         cell.nameField.text = cellItem.descr
         cell.daysPeriodField.text = String(cellItem.daysCycle)
         cell.amountField.text = String(cellItem.amount)
-
+        
     }
     
-    @IBAction func addExpensePressed(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddRecExp")
+    @IBAction func addIncomePressed(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddRecInc")
         present(viewController, animated: true, completion: nil)
     }
+    
+    
+    
 }
-

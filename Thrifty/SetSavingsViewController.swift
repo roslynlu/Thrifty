@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class SetSavingsViewController: UIViewController {
 
     
     var firstTime: Bool = true
-    var percent : Double = 0.0
+    var coeff : Double = 0.0
     
     @IBOutlet weak var percentOutput: UILabel!
     @IBOutlet var percentageSlider: UISlider!
@@ -31,11 +32,22 @@ class SetSavingsViewController: UIViewController {
         percentOutput.text = (String(format: "%d%@", Int(percentageSlider.value), "%"))
     }
 
+    
+    
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
         
-        percent = Double(percentageSlider.value/100)
-        print(percent)
+        coeff = Double(Int(percentageSlider.value)) / 100.0
+        print(coeff)
         //save percent var to core data
+        
+        UserMO.getActiveUser(getContext())?.setSavingsCoeff(coeff, context: getContext())
+        
         
         navigationController?.dismiss(animated: false, completion: nil)
     }

@@ -57,18 +57,18 @@ class AddIncomeViewController: UIViewController {
             
             let context = getContext()
             
-            let activeUser = UserMO.getActiveUser(context)
+            
+            let newIncome = TransactionInfo(daysCycle: Double(daysCycleField.text!)!,
+                                            amount: Double(amountField.text!)!,
+                                            date: dateField.date as NSDate,
+                                            descr: nameField.text!,
+                                            id: UUID().uuidString,
+                                            type: Double(amountField.text!)! >= 0 ? "income" : "expense",
+                                            amountSoFar: Double(amountField.text!)!,
+                                            category: typeField.text!)
 
             
-            let newIncome = IncomeInfo(id: UUID().uuidString,
-                                         type: typeField.text!,
-                                         descr: nameField.text!,
-                                         amount: Double(amountField.text!)!,
-                                         daysCycle: Int16(daysCycleField.text!)!,
-                                         date: dateField.date as NSDate,
-                                         receivedBy: (activeUser?.name)!)
-            
-            _ = RecIncomeMO.recIncomeWithInfo(newIncome, inMOContext: context)
+            _ = UserMO.getActiveUser(context)?.createNewTransaction(with: newIncome, in: context)
             
             self.dismiss(animated: true, completion: nil)
         }

@@ -66,17 +66,18 @@ class ExpenseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
             
             let context = getContext()
             
-            let activeUser = UserMO.getActiveUser(context)
 
-            let newExpense = ExpenseInfo(id: UUID().uuidString,
-                                         type: type,
-                                         descr: descrField.text!,
-                                         amount: Double(inputExpense.text!)!,
-                                         daysCycle: 0,
-                                         date: Date() as NSDate,
-                                         spentBy: (activeUser?.name)!)
+            let newExpense = TransactionInfo(daysCycle: 0,
+                                             amount: -Double(inputExpense.text!)!,
+                                             date: Date() as NSDate,
+                                             descr: descrField.text!,
+                                             id: UUID().uuidString,
+                                             type: "expense",
+                                             amountSoFar: Double(inputExpense.text!)!,
+                                             category: type)
+     
             
-            _ = ExpenseMO.expenseWithInfo(newExpense, inMOContext: context)
+            _ = UserMO.getActiveUser(context)?.createNewTransaction(with: newExpense, in: context)
             
             self.dismiss(animated: true, completion: nil)
         }

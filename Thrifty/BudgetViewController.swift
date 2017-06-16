@@ -50,23 +50,20 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     
     @IBAction func setIncomeClicked(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetRecInc") as! IncomeTableController
-//        viewController.myInfo = userInfo(self.myInfo)
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionTable
         present(viewController, animated: true, completion: nil)
         
     }
     
     @IBAction func setExpClicked(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetRecExp") as! ExpenseTableController
-//        viewController.myInfo = userInfo(self.myInfo)
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionTable
         present(viewController, animated: true, completion: nil)
         
-        
+//        
     }
     
     @IBAction func setSavingsClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetSavings") as! SetSavingsViewController
-//        viewController.myInfo = userInfo(self.myInfo)
         present(viewController, animated: true, completion: nil)
         
     }
@@ -74,54 +71,20 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     func updateDisplay() {
         if myInfo != nil {
             
+            let income = myInfo.sumOfAvgDailyRecurringIncomes! * 30
+            
+            let expense = myInfo.sumOfAvgDailyRecurringExpenses! * 30
+            
+            let savings = income * myInfo.savingCoeff
             
             
-            incomeButton.setTitle(String(format: "$%.2f", sumOfIncomes()!), for: UIControlState.normal)
-            expButton.setTitle(String(format: "$%.2f", sumOfExpenses()!), for: UIControlState.normal)
-            savingsButton.setTitle(String(format: "$%.2f", sumOfSavings()!), for: UIControlState.normal)
+            incomeButton.setTitle(String(format: "$%.2f", income), for: UIControlState.normal)
+            expButton.setTitle(String(format: "$%.2f", expense), for: UIControlState.normal)
+            savingsButton.setTitle(String(format: "$%.2f", savings), for: UIControlState.normal)
         }
     }
     
-    
-    func sumOfIncomes() -> Double? {
-        if myInfo.plansToReceive != nil {
-            var incomes: Double = 0.0
-            for income in myInfo.plansToReceive! {
-                incomes += (income as! RecIncomeMO).amount
-            }
-            return incomes
-        }
-        else {
-            return nil
-        }
-    }
-    
-    func sumOfExpenses() -> Double? {
-        if myInfo.plansToSpend != nil {
-            var expenses: Double = 0.0
-            for expense in myInfo.plansToSpend! {
-                expenses += (expense as! RecExpenseMO).amount
-            }
-            return expenses
-        }
-        else {
-            return nil
-        }
-    }
-    
-    func sumOfSavings() -> Double? {
-        if myInfo.wants != nil {
-            var goals: Double = 0.0
-            for goal in myInfo.wants! {
-                goals += (goal as! FundMO).amount
-            }
-            return goals
-        }
-        else {
-            return nil
-        }
-    }
-    
+ 
     
     
     
