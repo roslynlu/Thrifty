@@ -31,7 +31,12 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         //daily income = income.amount - dayscycle 
         //each daily recurring expense = expense.amount - dayscycle
         //
-        return 30.0
+        
+        let sumOfTransactionsToday = user.sumOfTransactionsForDay(Date())
+        
+        
+        
+        return user.sumOfAvgDailyRecurringIncomes! + user.sumOfAvgDailyRecurringExpenses! - (user.sumOfAvgDailyRecurringIncomes! * user.savingCoeff) + sumOfTransactionsToday
     }
 
     override func viewDidLoad() {

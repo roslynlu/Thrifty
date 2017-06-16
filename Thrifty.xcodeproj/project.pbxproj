@@ -15,32 +15,21 @@
 		E4D96FF51EEB15700030BF2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FF41EEB15700030BF2A /* Assets.xcassets */; };
 		E4D96FF81EEB15700030BF2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FF61EEB15700030BF2A /* LaunchScreen.storyboard */; };
 		E4D970001EEB1AEC0030BF2A /* SetBBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */; };
-		E4D970021EEB20360030BF2A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970011EEB20360030BF2A /* AddExpenseViewController.swift */; };
 		E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */; };
 		E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970051EEB210D0030BF2A /* BudgetViewController.swift */; };
 		E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970071EEB229C0030BF2A /* StartingInfo.swift */; };
 		E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D970101EEB62660030BF2A /* MainViewController.swift */; };
 		E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */; };
 		E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */; };
-		F61D805B1EF1DDB1006B6B1D /* ExpenseTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D805A1EF1DDB1006B6B1D /* ExpenseTableController.swift */; };
-		F61D805D1EF1E1A1006B6B1D /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D805C1EF1E1A1006B6B1D /* ExpenseCell.swift */; };
 		F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806C1EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift */; };
 		F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */; };
-		F61D80761EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806E1EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift */; };
-		F61D80771EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */; };
-		F61D80781EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */; };
-		F61D80791EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */; };
-		F61D807B1EF29A6F006B6B1D /* IncomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */; };
+		F61D807B1EF29A6F006B6B1D /* TransactionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */; };
 		F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807C1EF29D25006B6B1D /* IncomeCell.swift */; };
 		F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */; };
 		F61D80811EF301E2006B6B1D /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80801EF301E2006B6B1D /* NameVC.swift */; };
 		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
-		F6F1B9E61EF333D1003C83BE /* FundMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9E41EF333D1003C83BE /* FundMO+CoreDataClass.swift */; };
-		F6F1B9E71EF333D1003C83BE /* FundMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9E51EF333D1003C83BE /* FundMO+CoreDataProperties.swift */; };
-		F6F1B9EC1EF336B7003C83BE /* RecExpenseMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9E81EF336B7003C83BE /* RecExpenseMO+CoreDataClass.swift */; };
-		F6F1B9ED1EF336B7003C83BE /* RecExpenseMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9E91EF336B7003C83BE /* RecExpenseMO+CoreDataProperties.swift */; };
-		F6F1B9F31EF337B5003C83BE /* RecIncomeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F11EF337B5003C83BE /* RecIncomeMO+CoreDataProperties.swift */; };
-		F6F1B9F51EF345FA003C83BE /* RecIncomeMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F41EF345FA003C83BE /* RecIncomeMO+CoreDataClass.swift */; };
+		F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */; };
+		F6F1B9F91EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +45,6 @@
 		E4D96FF71EEB15700030BF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4D96FF91EEB15700030BF2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBBViewController.swift; sourceTree = "<group>"; };
-		E4D970011EEB20360030BF2A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSavingsViewController.swift; sourceTree = "<group>"; };
 		E4D970051EEB210D0030BF2A /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		E4D970071EEB229C0030BF2A /* StartingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingInfo.swift; sourceTree = "<group>"; };
@@ -65,25 +53,15 @@
 		E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryObjC.h; sourceTree = "<group>"; };
 		E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryObjC.m; sourceTree = "<group>"; };
 		E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisVC.swift; sourceTree = "<group>"; };
-		F61D805A1EF1DDB1006B6B1D /* ExpenseTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableController.swift; sourceTree = "<group>"; };
-		F61D805C1EF1E1A1006B6B1D /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		F61D806C1EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F61D806E1EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IncomeMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IncomeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeTableController.swift; sourceTree = "<group>"; };
+		F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTable.swift; sourceTree = "<group>"; };
 		F61D807C1EF29D25006B6B1D /* IncomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeCell.swift; sourceTree = "<group>"; };
 		F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		F61D80801EF301E2006B6B1D /* NameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
 		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
-		F6F1B9E41EF333D1003C83BE /* FundMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FundMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F6F1B9E51EF333D1003C83BE /* FundMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FundMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F6F1B9E81EF336B7003C83BE /* RecExpenseMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecExpenseMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F6F1B9E91EF336B7003C83BE /* RecExpenseMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecExpenseMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F6F1B9F11EF337B5003C83BE /* RecIncomeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecIncomeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F6F1B9F41EF345FA003C83BE /* RecIncomeMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecIncomeMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,18 +132,10 @@
 		E4D9700D1EEB406F0030BF2A /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				F6F1B9F41EF345FA003C83BE /* RecIncomeMO+CoreDataClass.swift */,
-				F6F1B9F11EF337B5003C83BE /* RecIncomeMO+CoreDataProperties.swift */,
-				F6F1B9E81EF336B7003C83BE /* RecExpenseMO+CoreDataClass.swift */,
-				F6F1B9E91EF336B7003C83BE /* RecExpenseMO+CoreDataProperties.swift */,
-				F6F1B9E41EF333D1003C83BE /* FundMO+CoreDataClass.swift */,
-				F6F1B9E51EF333D1003C83BE /* FundMO+CoreDataProperties.swift */,
+				F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */,
+				F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */,
 				F61D806C1EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift */,
 				F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */,
-				F61D806E1EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift */,
-				F61D806F1EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift */,
-				F61D80701EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift */,
-				F61D80711EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift */,
 				E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -189,12 +159,9 @@
 				F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */,
 				F61D80801EF301E2006B6B1D /* NameVC.swift */,
 				E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */,
-				F61D807A1EF29A6F006B6B1D /* IncomeTableController.swift */,
+				F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */,
 				F61D807C1EF29D25006B6B1D /* IncomeCell.swift */,
 				F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */,
-				F61D805C1EF1E1A1006B6B1D /* ExpenseCell.swift */,
-				F61D805A1EF1DDB1006B6B1D /* ExpenseTableController.swift */,
-				E4D970011EEB20360030BF2A /* AddExpenseViewController.swift */,
 				E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */,
 			);
 			name = "Setter VCs";
@@ -325,34 +292,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */,
-				F6F1B9ED1EF336B7003C83BE /* RecExpenseMO+CoreDataProperties.swift in Sources */,
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
-				F61D80771EF1E8BB006B6B1D /* ExpenseMO+CoreDataProperties.swift in Sources */,
 				E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */,
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
 				F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */,
-				F6F1B9EC1EF336B7003C83BE /* RecExpenseMO+CoreDataClass.swift in Sources */,
-				F61D80781EF1E8BB006B6B1D /* IncomeMO+CoreDataClass.swift in Sources */,
-				F61D805B1EF1DDB1006B6B1D /* ExpenseTableController.swift in Sources */,
-				F6F1B9E71EF333D1003C83BE /* FundMO+CoreDataProperties.swift in Sources */,
-				F61D80791EF1E8BB006B6B1D /* IncomeMO+CoreDataProperties.swift in Sources */,
-				F61D807B1EF29A6F006B6B1D /* IncomeTableController.swift in Sources */,
-				F6F1B9F31EF337B5003C83BE /* RecIncomeMO+CoreDataProperties.swift in Sources */,
+				F61D807B1EF29A6F006B6B1D /* TransactionTable.swift in Sources */,
 				E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */,
 				E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
-				F61D80761EF1E8BB006B6B1D /* ExpenseMO+CoreDataClass.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
 				F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */,
-				E4D970021EEB20360030BF2A /* AddExpenseViewController.swift in Sources */,
-				F6F1B9E61EF333D1003C83BE /* FundMO+CoreDataClass.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,
+				F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */,
 				E4D970001EEB1AEC0030BF2A /* SetBBViewController.swift in Sources */,
 				E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */,
 				F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */,
-				F6F1B9F51EF345FA003C83BE /* RecIncomeMO+CoreDataClass.swift in Sources */,
-				F61D805D1EF1E1A1006B6B1D /* ExpenseCell.swift in Sources */,
+				F6F1B9F91EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift in Sources */,
 				F61D80811EF301E2006B6B1D /* NameVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
