@@ -38,7 +38,6 @@ class SetSavingsViewController: UIViewController {
         //save percent var to core data
         
         navigationController?.dismiss(animated: false, completion: nil)
-        
     }
 
 }
