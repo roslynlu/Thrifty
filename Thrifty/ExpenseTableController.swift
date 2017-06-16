@@ -16,7 +16,7 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
     
     
     // Stuff for the section labels
-    var expenseDict = [String: [ExpenseMO]]()
+    var expenseDict = [String: [RecExpenseMO]]()
     var sectionTitles = [String]()
 
     
@@ -65,7 +65,7 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
         }
 //        
 //        if let fetchedObjects = controller.fetchedObjects {
-//            expenses = fetchedObjects as! [ExpenseMO]
+//            expenses = fetchedObjects as! [RecExpenseMO]
 //        }
     }
     
@@ -167,15 +167,15 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
         
         if let user = UserMO.getActiveUser(getContext())
         {
-            for expense in user.spends! {
-                addToDict(expense as! ExpenseMO)
+            for expense in user.plansToSpend! {
+                addToDict(expense as! RecExpenseMO)
             }
         }
         
 
     }
     
-    func addToDict(_ expense: ExpenseMO) {
+    func addToDict(_ expense: RecExpenseMO) {
         if let key = expense.type {
             
             if var valsWithSameFirstLetter = expenseDict[key] {
@@ -192,12 +192,16 @@ class ExpenseTableController: UITableViewController, NSFetchedResultsControllerD
     }
 
     
-    func updateCellContents(in cell: ExpenseCell, with cellItem: ExpenseMO) {
+    func updateCellContents(in cell: ExpenseCell, with cellItem: RecExpenseMO) {
         cell.nameField.text = cellItem.descr
         cell.daysPeriodField.text = String(cellItem.daysCycle)
         cell.amountField.text = String(cellItem.amount)
 
     }
     
+    @IBAction func addExpensePressed(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddRecExp")
+        present(viewController, animated: true, completion: nil)
+    }
 }
 

@@ -16,7 +16,7 @@ class IncomeTableController: UITableViewController, NSFetchedResultsControllerDe
     
     
     // Stuff for the section labels
-    var incomeDict = [String: [IncomeMO]]()
+    var incomeDict = [String: [RecIncomeMO]]()
     var sectionTitles = [String]()
     
     
@@ -67,7 +67,7 @@ class IncomeTableController: UITableViewController, NSFetchedResultsControllerDe
         }
         
 //        if let fetchedObjects = controller.fetchedObjects {
-//            expenses = fetchedObjects as! [IncomeMO]
+//            expenses = fetchedObjects as! [RecIncomeMO]
 //        }
     }
     
@@ -170,9 +170,9 @@ class IncomeTableController: UITableViewController, NSFetchedResultsControllerDe
 
         if let user = UserMO.getActiveUser(getContext())
         {
-            for income in user.receives! {
-                if (income as! IncomeMO).descr != ".hidden" {
-                    addToDict(income as! IncomeMO)
+            for income in user.plansToReceive! {
+                if (income as! RecIncomeMO).descr != ".hidden" {
+                    addToDict(income as! RecIncomeMO)
                 }
             }
         }
@@ -180,7 +180,7 @@ class IncomeTableController: UITableViewController, NSFetchedResultsControllerDe
         
     }
     
-    func addToDict(_ expense: IncomeMO) {
+    func addToDict(_ expense: RecIncomeMO) {
         if let key = expense.type {
             
             if var valsWithSameFirstLetter = incomeDict[key] {
@@ -197,11 +197,15 @@ class IncomeTableController: UITableViewController, NSFetchedResultsControllerDe
     }
     
     
-    func updateCellContents(in cell: IncomeCell, with cellItem: IncomeMO) {
+    func updateCellContents(in cell: IncomeCell, with cellItem: RecIncomeMO) {
         cell.nameField.text = cellItem.descr
         cell.daysPeriodField.text = String(cellItem.daysCycle)
         cell.amountField.text = String(cellItem.amount)
         
     }
     
+    @IBAction func addIncomePressed(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddRecInc")
+        present(viewController, animated: true, completion: nil)
+    }
 }

@@ -68,7 +68,7 @@ class AddIncomeViewController: UIViewController {
                                          date: dateField.date as NSDate,
                                          receivedBy: (activeUser?.name)!)
             
-            _ = IncomeMO.incomeWithInfo(newIncome, inMOContext: context)
+            _ = RecIncomeMO.recIncomeWithInfo(newIncome, inMOContext: context)
             
             self.dismiss(animated: true, completion: nil)
         }

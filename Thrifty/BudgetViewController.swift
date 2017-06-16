@@ -84,12 +84,10 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     
     func sumOfIncomes() -> Double? {
-        if myInfo.receives != nil {
+        if myInfo.plansToReceive != nil {
             var incomes: Double = 0.0
-            for income in myInfo.receives! {
-                if (income as! IncomeMO).daysCycle != 0 {
-                    incomes += (income as! IncomeMO).amount
-                }
+            for income in myInfo.plansToReceive! {
+                incomes += (income as! RecIncomeMO).amount
             }
             return incomes
         }
@@ -99,10 +97,10 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     }
     
     func sumOfExpenses() -> Double? {
-        if myInfo.spends != nil {
+        if myInfo.plansToSpend != nil {
             var expenses: Double = 0.0
-            for expense in myInfo.spends! {
-                expenses += (expense as! ExpenseMO).amount
+            for expense in myInfo.plansToSpend! {
+                expenses += (expense as! RecExpenseMO).amount
             }
             return expenses
         }
@@ -115,7 +113,7 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
         if myInfo.wants != nil {
             var goals: Double = 0.0
             for goal in myInfo.wants! {
-                goals += (goal as! GoalMO).amount
+                goals += (goal as! FundMO).amount
             }
             return goals
         }

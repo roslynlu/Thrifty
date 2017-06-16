@@ -68,7 +68,7 @@ class AddExpenseViewController: UIViewController {
                                          date: dateField.date as NSDate,
                                          spentBy: (activeUser?.name)!)
             
-            _ = ExpenseMO.expenseWithInfo(newExpense, inMOContext: context)
+            _ = RecExpenseMO.recExpenseWithInfo(newExpense, inMOContext: context)
             
             self.dismiss(animated: true, completion: nil)
         }
