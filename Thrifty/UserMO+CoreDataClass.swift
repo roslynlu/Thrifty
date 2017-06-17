@@ -249,5 +249,11 @@ public class UserMO: NSManagedObject {
             return temp
     }
     
+    func calculateDailyBudget(_ date: Date, context: NSManagedObjectContext) -> Double {
+        let sumOfTransactionsToday = sumOfTransactionsForDay(date)
+        
+        return sumOfAvgDailyRecurringIncomes! + sumOfAvgDailyRecurringExpenses! - (sumOfAvgDailyRecurringIncomes! * savingCoeff) + sumOfTransactionsToday
+    }
+    
     
 }

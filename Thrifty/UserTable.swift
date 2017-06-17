@@ -13,6 +13,13 @@ import CoreData
 class UserTable: UITableViewController {
 
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
+    
     // Stuff for the section labels
     var dict = [String: [UserMO]]()
     var sectionTitles = [String]()
