@@ -13,7 +13,7 @@ import CoreData
 public class UserMO: NSManagedObject {
 
     
-    
+    // Creates a user with a given name if there is no user with that name already
     class func userWithName(_ name: String, inMOContext context: NSManagedObjectContext) -> UserMO? {
         let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", name)
@@ -27,12 +27,23 @@ public class UserMO: NSManagedObject {
             user.name = name
             user.isActive = true
             user.savingCoeff = 0
+            user.setUpCompleted = false
             
             try! context.save()
             
             return user
         }
         
+    }
+    
+    class func getUsers(_ context: NSManagedObjectContext) -> [UserMO] {
+        let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
+        
+        if let users = (try? context.fetch(request)) {
+            return users
+        }
+
+        return []
     }
     
     class func getActiveUser(_ context: NSManagedObjectContext) -> UserMO? {
@@ -45,6 +56,41 @@ public class UserMO: NSManagedObject {
         return nil
     }
     
+    func makeActive(_ context: NSManagedObjectContext) {
+        self.isActive = true
+        try! context.save()
+    }
+    
+    func makeInactive(_ context: NSManagedObjectContext) {
+        self.isActive = false
+        try! context.save()
+    }
+    
+    
+    
+    
+    
+    class func getIncompleteUsers(_ context: NSManagedObjectContext) -> [UserMO]? {
+        let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
+        request.predicate = NSPredicate(format: "setUpCompleted = false")
+        
+        if let users = (try? context.fetch(request)) {
+            return users
+        }
+        return nil
+    }
+    
+    func completeSetUp(_ context: NSManagedObjectContext) {
+        self.setUpCompleted = true
+        try! context.save()
+    }
+    
+    
+    
+    
+    
+    
+    
     func createNewTransaction(with info: TransactionInfo, in context: NSManagedObjectContext) {
         _ = TransactionMO.transaction(with: info, by: self, in: context)
     }
@@ -54,7 +100,7 @@ public class UserMO: NSManagedObject {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).daysCycle != 0
-                    && (transaction as! TransactionMO).amount > 0 {
+                    && (transaction as! TransactionMO).type == "income"{
                     
                     set.append(transaction as! TransactionMO)
                 }
@@ -83,7 +129,7 @@ public class UserMO: NSManagedObject {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).daysCycle != 0
-                    && (transaction as! TransactionMO).amount < 0 {
+                    && (transaction as! TransactionMO).type == "expense" {
                     
                     set.append(transaction as! TransactionMO)
                 }
@@ -140,7 +186,7 @@ public class UserMO: NSManagedObject {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
-                if (transaction as! TransactionMO).type == "expense"
+                if (transaction as! TransactionMO).type == "income"
                     && (transaction as! TransactionMO).amountSoFar == (transaction as! TransactionMO).amount
                     && (transaction as! TransactionMO).amount > 0 {
                     
@@ -197,7 +243,6 @@ public class UserMO: NSManagedObject {
             for transaction in oneTime! {
                 
                 
-                let tranDate = transaction.date as Date?
                 
                // if tranDate.getStringWithFormat("MM/dd/yy") == date.getStringWithFormat("MM/dd/yy") {
                     temp += transaction.amount

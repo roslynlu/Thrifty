@@ -43,6 +43,6 @@ public class TransactionMO: NSManagedObject {
         context.delete(self)
         try! context.save()
     }
-    
+
 
 }

@@ -2,7 +2,7 @@
 //  UserMO+CoreDataProperties.swift
 //  Thrifty
 //
-//  Created by Boris Teodorovich on 6/16/17.
+//  Created by Boris Teodorovich on 6/17/17.
 //  Copyright © 2017 DeAnza. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ extension UserMO {
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String?
     @NSManaged public var savingCoeff: Double
+    @NSManaged public var setUpCompleted: Bool
     @NSManaged public var transactions: NSSet?
 
 }

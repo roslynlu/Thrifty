@@ -9,15 +9,16 @@
 import UIKit
 import CoreData
 
-class AddIncomeViewController: UIViewController {
+class AddTransaction: UIViewController {
+    
+    @IBOutlet weak var titleField: UILabel!
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var daysCycleField: UITextField!
-    @IBOutlet weak var dateField: UIDatePicker!
     
-    
+    var type: String = "income"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class AddIncomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //        print ("income 1.5 is \(income)")
+        self.titleField.text = "Add an " + type.capitalized
         
     }
     
@@ -57,13 +58,22 @@ class AddIncomeViewController: UIViewController {
             
             let context = getContext()
             
+            var amount = Double(amountField.text!)!
+            
+            switch type {
+            case "expense":
+                amount = -amount
+            case "fund":
+                amount = -amount
+            default: break
+            }
             
             let newIncome = TransactionInfo(daysCycle: Double(daysCycleField.text!)!,
-                                            amount: Double(amountField.text!)!,
-                                            date: dateField.date as NSDate,
+                                            amount: amount,
+                                            date: Date() as NSDate,
                                             descr: nameField.text!,
                                             id: UUID().uuidString,
-                                            type: Double(amountField.text!)! >= 0 ? "income" : "expense",
+                                            type: type,
                                             amountSoFar: Double(amountField.text!)!,
                                             category: typeField.text!)
 

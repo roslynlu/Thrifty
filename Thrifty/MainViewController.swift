@@ -32,7 +32,7 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         //each daily recurring expense = expense.amount - dayscycle
         //
         
-        let sumOfTransactionsToday = user.sumOfTransactionsForDay(Date())
+        let sumOfTransactionsToday = 0.0 //user.sumOfTransactionsForDay(Date())
         
         
         

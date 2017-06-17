@@ -31,15 +31,8 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let _ = UserMO.getActiveUser(getContext()) {
             loadData()
             updateDisplay()
-        }
-        else {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstTimeSetup")
-            present(viewController, animated: true, completion: nil)
-            
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -103,5 +96,17 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     func loadData() {
         myInfo = UserMO.getActiveUser(getContext())
     }
+    
+    
+    
+    
+    
+    @IBAction func logOutPressed(_ sender: UIButton) {
+        UserMO.getActiveUser(getContext())!.makeInactive(getContext())
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
 }

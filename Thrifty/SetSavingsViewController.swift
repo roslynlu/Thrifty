@@ -47,7 +47,7 @@ class SetSavingsViewController: UIViewController {
         //save percent var to core data
         
         UserMO.getActiveUser(getContext())?.setSavingsCoeff(coeff, context: getContext())
-        
+        UserMO.getActiveUser(getContext())?.completeSetUp(getContext())
         
         navigationController?.dismiss(animated: false, completion: nil)
         
