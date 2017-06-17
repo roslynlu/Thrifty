@@ -50,7 +50,6 @@ class SetSavingsViewController: UIViewController {
         UserMO.getActiveUser(getContext())?.completeSetUp(getContext())
         
         navigationController?.dismiss(animated: false, completion: nil)
-        
     }
 
 }

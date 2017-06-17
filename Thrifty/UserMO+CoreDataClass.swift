@@ -174,6 +174,7 @@ public class UserMO: NSManagedObject {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).type == "expense"
+                    && (transaction as! TransactionMO).daysCycle == 0
                     && (transaction as! TransactionMO).descr != ".hidden" {
                     
                     set.append(transaction as! TransactionMO)
@@ -244,12 +245,11 @@ public class UserMO: NSManagedObject {
                 
                 
                 
-               // if tranDate.getStringWithFormat("MM/dd/yy") == date.getStringWithFormat("MM/dd/yy") {
+                if tranDate?.getStringWithFormat("MM/dd/yy") == date.getStringWithFormat("MM/dd/yy") {
                     temp += transaction.amount
-               // }
+                }
             }
             return temp
-        
     }
     
     
