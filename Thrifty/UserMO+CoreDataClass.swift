@@ -237,13 +237,10 @@ public class UserMO: NSManagedObject {
     func sumOfTransactionsForDay(_ date: Date) -> Double {
         
             var temp: Double = 0.0
-        
-        
-        
-        
-            for transaction in oneTime! {
-                
-                
+
+            for transaction in oneTime!
+            {
+                let tranDate = transaction.date as Date?
                 
                 if tranDate?.getStringWithFormat("MM/dd/yy") == date.getStringWithFormat("MM/dd/yy") {
                     temp += transaction.amount

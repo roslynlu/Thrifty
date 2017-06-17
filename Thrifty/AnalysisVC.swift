@@ -125,9 +125,9 @@ class AnalysisVC: UIViewController {
     
     @IBAction func unwindSave (segue: UIStoryboardSegue)
     {
-        let datePickerVC = segue.source as! AnalysisDateVC
-        fromAsDate = datePickerVC.from
-        toAsDate = datePickerVC.to
+//        let datePickerVC = segue.source as! AnalysisDateVC
+//        fromAsDate = datePickerVC.from
+//        toAsDate = datePickerVC.to
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -136,9 +136,9 @@ class AnalysisVC: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "setDate"
         {
-            let dateChangeVC = segue.destination as! AnalysisDateVC
-            dateChangeVC.from = fromAsDate
-            dateChangeVC.to = toAsDate
+//            let dateChangeVC = segue.destination as! AnalysisDateVC
+//            dateChangeVC.from = fromAsDate
+//            dateChangeVC.to = toAsDate
         }
     }
 
