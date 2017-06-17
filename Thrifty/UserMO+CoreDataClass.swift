@@ -128,6 +128,7 @@ public class UserMO: NSManagedObject {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).type == "expense"
+                    && (transaction as! TransactionMO).daysCycle == 0
                     && (transaction as! TransactionMO).descr != ".hidden" {
                     
                     set.append(transaction as! TransactionMO)
@@ -190,21 +191,16 @@ public class UserMO: NSManagedObject {
     func sumOfTransactionsForDay(_ date: Date) -> Double {
         
             var temp: Double = 0.0
-        
-        
-        
-        
-            for transaction in oneTime! {
-                
-                
+
+            for transaction in oneTime!
+            {
                 let tranDate = transaction.date as Date?
                 
-               // if tranDate.getStringWithFormat("MM/dd/yy") == date.getStringWithFormat("MM/dd/yy") {
+                if tranDate?.getStringWithFormat("MM/dd/yy") == date.getStringWithFormat("MM/dd/yy") {
                     temp += transaction.amount
-               // }
+                }
             }
             return temp
-        
     }
     
     

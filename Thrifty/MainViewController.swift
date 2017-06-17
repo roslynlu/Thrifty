@@ -27,15 +27,8 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     //DO LATER
     func calculateDailyBudget () -> Double
     {
-        //income - expenses - savings
-        //daily income = income.amount - dayscycle 
-        //each daily recurring expense = expense.amount - dayscycle
-        //
-        
         let sumOfTransactionsToday = user.sumOfTransactionsForDay(Date())
-        
-        
-        
+
         return user.sumOfAvgDailyRecurringIncomes! + user.sumOfAvgDailyRecurringExpenses! - (user.sumOfAvgDailyRecurringIncomes! * user.savingCoeff) + sumOfTransactionsToday
     }
 

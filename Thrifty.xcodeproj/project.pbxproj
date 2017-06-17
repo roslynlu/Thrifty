@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6BF90A76469703F418227E6F /* Pods_Thrifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */; };
 		E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */; };
+		E4C6F3DF1EF4A79900CD2C75 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */; };
 		E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */; };
 		E4D96FF01EEB15700030BF2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FEE1EEB15700030BF2A /* Main.storyboard */; };
 		E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 		2644817BCBEC393FDD8B4D04 /* Pods-Thrifty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thrifty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty.release.xcconfig"; sourceTree = "<group>"; };
 		7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thrifty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseVC.swift; sourceTree = "<group>"; };
+		E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		E4D96FE71EEB15700030BF2A /* Thrifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thrifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D96FEF1EEB15700030BF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		F681E3201EEE2F8A00926D75 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */,
 				E4D96FF61EEB15700030BF2A /* LaunchScreen.storyboard */,
 				E4D96FF41EEB15700030BF2A /* Assets.xcassets */,
 				E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */,
@@ -305,6 +308,7 @@
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,
 				F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */,
+				E4C6F3DF1EF4A79900CD2C75 /* NSDate.swift in Sources */,
 				E4D970001EEB1AEC0030BF2A /* SetBBViewController.swift in Sources */,
 				E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */,
 				F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */,
