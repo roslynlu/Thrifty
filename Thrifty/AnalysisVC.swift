@@ -11,30 +11,118 @@ import Charts
 
 class AnalysisVC: UIViewController {
 
-    @IBOutlet weak var lineChartView: LineChartView!
-    @IBOutlet weak var pieChartView: PieChartView!
+//    @IBOutlet weak var datesButton: UIButton!
+    
     @IBOutlet weak var datesButton: UIButton!
+
+    @IBOutlet weak var barButtonItem: UIBarButtonItem!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     //TODO: change fromAsDate
     var fromAsDate : Date!
     var toAsDate : Date! = Date()
+    
+    
+    private func setupSegmentedControl() {
+        // Configure Segmented Control
+        segmentedControl.removeAllSegments()
+        segmentedControl.insertSegment(withTitle: "Pie Chart", at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: "Line Chart", at: 1, animated: false)
+        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
+        
+        // Select First Segment
+        segmentedControl.selectedSegmentIndex = 0
+    }
+    
+    func selectionDidChange(_ sender: UISegmentedControl)
+    {
+        updateView()
+    }
+    
+    func setupView()
+    {
+        setupSegmentedControl()
+        updateView()
+    }
+    
+    private lazy var piechartVC: PieChartVC = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "piechartsegment") as! PieChartVC
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
+    
+    private lazy var linechartVC: LineChartVC = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "linechartsegment") as! LineChartVC
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
 
-    //eventually just fill these arrays with the expense.type and percentage of expense
-    let typeOfExpense = ["Food", "Shopping", "Gas", "Rent", "Transportation", "Entertainment"]
-    let percentage = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+    private func add(asChildViewController viewController: UIViewController) {
+        // Add Child View Controller
+        addChildViewController(viewController)
+        
+        // Add Child View as Subview
+        view.addSubview(viewController.view)
+        
+        // Configure Child View
+        viewController.view.frame = view.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        // Notify Child View Controller
+        viewController.didMove(toParentViewController: self)
+    }
     
-    //for line chart
-    let date : [Double] = [1, 2, 3, 4, 5, 6, 7]
-    let expenses : [Double] = [1, 2, 3, 4, 5, 6, 7]
+    private func remove(asChildViewController viewController: UIViewController) {
+        // Notify Child View Controller
+        viewController.willMove(toParentViewController: nil)
+        
+        // Remove Child View From Superview
+        viewController.view.removeFromSuperview()
+        
+        // Notify Child View Controller
+        viewController.removeFromParentViewController()
+    }
     
+    private func updateView() {
+        if segmentedControl.selectedSegmentIndex == 0
+        {
+            remove(asChildViewController: linechartVC)
+            add(asChildViewController: piechartVC)
+        }
+        else
+        {
+            remove(asChildViewController: piechartVC)
+            add(asChildViewController: linechartVC)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        fromAsDate = getPreviousMonth()
         
+        setupView()
         // Do any additional setup after loading the view.
         
-        setPieChart(dataPoints: typeOfExpense, values: percentage)
-        setLineChart(date: date, expenses: expenses)
+        let button = UIButton(type: .custom)
+        /*
+         * Insert button styling
+         */
+        button.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(30.0), height: CGFloat(30.0))
+        barButtonItem = UIBarButtonItem(customView: button)
+
     }
     
     func getPreviousMonth() -> Date
@@ -53,69 +141,14 @@ class AnalysisVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yy"
-        datesButton.setTitle(String(formatter.string(from: fromAsDate) + " – " + formatter.string(from: toAsDate)), for: UIControlState.normal)
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MM/dd/yy"
+//        datesButton.setTitle(String(formatter.string(from: fromAsDate) + " – " + formatter.string(from: toAsDate)), for: UIControlState.normal)
     }
-    
-    func setPieChart(dataPoints: [String], values: [Double]) {
-        
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
-            dataEntries.append(dataEntry)
-        }
-        
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "" )
-        pieChartDataSet.sliceSpace = 2.0;
-        
-        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8;
-        //pieChartDataSet.valueLinePart1Length = 0.2;
-        pieChartDataSet.valueLinePart2Length = 0.4;
-        //dataSet.xValuePosition = .outsideSlice;
-        pieChartDataSet.yValuePosition = .outsideSlice;
-        
-        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        
-        let pFormatter = NumberFormatter()
-        pFormatter.numberStyle = .percent
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1.0
-        pFormatter.percentSymbol = " %"
-        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
-        pieChartData.setValueFont(UIFont(name: "HelveticaNeue-Light", size: CGFloat(11.0)))
-        pieChartData.setValueTextColor(UIColor.black)
-        
-        var colors: [UIColor] = []
-        
-        for _ in 0..<dataPoints.count {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 0.6)
-            colors.append(color)
-        }
-        pieChartView.data = pieChartData
-        pieChartDataSet.colors = colors
-    }
-    
-    func setLineChart(date: [Double], expenses: [Double])
-    {
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<date.count {
-            let dataEntry = ChartDataEntry(x: date[i], y: expenses[i])
-            dataEntries.append(dataEntry)
-        }
-        
-        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Expenses")
-        let lineChartData = LineChartData(dataSet: lineChartDataSet)
-        lineChartView.data = lineChartData
-    
-    }
-    
+  
+
+
+
     // MARK: - Navigation
     
     @IBAction func unwindCancel(segue: UIStoryboardSegue)
@@ -137,6 +170,7 @@ class AnalysisVC: UIViewController {
         if segue.identifier == "setDate"
         {
             let dateChangeVC = segue.destination as! AnalysisDateVC
+            fromAsDate = getPreviousMonth()
             dateChangeVC.from = fromAsDate
             dateChangeVC.to = toAsDate
         }

@@ -559,25 +559,6 @@
             </objects>
             <point key="canvasLocation" x="-1594" y="5320"/>
         </scene>
-        <!--Funds-->
-        <scene sceneID="xJ5-4I-SLO">
-            <objects>
-                <viewController title="Funds" id="5Cy-Jo-SEW" userLabel="Funds" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LEj-Ji-DNH"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lh6-oL-cNw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sSo-aZ-qPD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Funds" image="funds2" id="hCs-8Y-jKo"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Dl-bK-tcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-812" y="4645"/>
-        </scene>
         <!--Main-->
         <scene sceneID="qzX-Yy-9pr">
             <objects>
@@ -727,6 +708,90 @@
             </objects>
             <point key="canvasLocation" x="620" y="3965.667166416792"/>
         </scene>
+        <!--My Funds-->
+        <scene sceneID="PTY-Xj-YAt">
+            <objects>
+                <tableViewController id="KX7-qG-zqy" customClass="FundsTVC" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="a7F-Bd-v0k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FundCell" rowHeight="200" id="mdd-1g-knx" customClass="FundsTVCell" customModule="Thrifty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mdd-1g-knx" id="sgt-FR-fdt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPP-X4-AD5">
+                                            <rect key="frame" x="0.0" y="-1" width="375" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omg-2c-9cj">
+                                            <rect key="frame" x="0.0" y="21" width="375" height="51"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-Bo-Dxw">
+                                            <rect key="frame" x="20" y="164" width="335" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </progressView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$2500/$5000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXt-Ph-7mn">
+                                            <rect key="frame" x="82" y="80" width="210" height="53"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fundAmount" destination="WXt-Ph-7mn" id="iZZ-C2-tQv"/>
+                                    <outlet property="fundImageView" destination="dPP-X4-AD5" id="0ew-tI-rr7"/>
+                                    <outlet property="fundName" destination="omg-2c-9cj" id="Bdi-35-XgS"/>
+                                    <outlet property="progressBar" destination="2PV-Bo-Dxw" id="KlD-oS-Iog"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KX7-qG-zqy" id="vC1-c2-JU1"/>
+                            <outlet property="delegate" destination="KX7-qG-zqy" id="Nhn-OC-I7X"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Funds" id="fhC-hv-uJ4">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="tit-0G-nk7">
+                            <connections>
+                                <segue destination="Q5x-sk-Nvg" kind="presentation" id="UzS-CW-J1x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aX2-cA-7TA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63.200000000000003" y="4617.8410794602705"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="u7I-fu-f2h">
+            <objects>
+                <viewController id="Q5x-sk-Nvg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X4F-o3-dph"/>
+                        <viewControllerLayoutGuide type="bottom" id="eFq-fn-jAl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eSb-be-qUW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a7K-38-gYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845.60000000000002" y="4630.434782608696"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="UgW-gG-6H3">
             <objects>
@@ -785,7 +850,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WeS-FK-QKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="4644.8275862068967"/>
+            <point key="canvasLocation" x="1607.2" y="4068.2158920539732"/>
         </scene>
         <!--History-->
         <scene sceneID="Ej6-ww-kIG">
@@ -848,39 +913,32 @@
                     <view key="view" contentMode="scaleToFill" id="Ij4-VC-nlc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4tl-cs-QBz" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="76" width="375" height="325"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gcm-MC-ou7" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="360" width="375" height="258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsE-RQ-3Rz">
-                                <rect key="frame" x="93" y="38" width="194" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="6/1/17 – 6/30/17"/>
-                                <connections>
-                                    <segue destination="Law-7Y-HJd" kind="presentation" identifier="setDate" id="UG7-EQ-3ea"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Analysis" image="analysis" id="40U-wq-hdi"/>
+                    <navigationItem key="navigationItem" id="qOa-iy-5vH">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="S44-MC-R0T">
+                            <rect key="frame" x="102" y="7.5" width="171" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First" width="85"/>
+                                <segment title="Second" width="85"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="FHR-0S-DrG">
+                            <connections>
+                                <segue destination="Law-7Y-HJd" kind="presentation" identifier="setDate" id="KL2-8m-SW0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="datesButton" destination="RsE-RQ-3Rz" id="WTV-9B-zPr"/>
-                        <outlet property="lineChartView" destination="Gcm-MC-ou7" id="m0u-mx-NsE"/>
-                        <outlet property="pieChartView" destination="4tl-cs-QBz" id="IrJ-Lr-gqI"/>
+                        <outlet property="barButtonItem" destination="FHR-0S-DrG" id="vzl-PK-R8x"/>
+                        <outlet property="segmentedControl" destination="S44-MC-R0T" id="HDK-eL-apB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaE-mQ-iFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245.5999999999999" y="2574.96251874063"/>
+            <point key="canvasLocation" x="2184.8000000000002" y="2574.96251874063"/>
         </scene>
         <!--Analysis DateVC-->
         <scene sceneID="Hf0-O4-mxj">
@@ -942,7 +1000,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9P-dS-vtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EbG-1G-LeK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2008.8" y="2574.96251874063"/>
+            <point key="canvasLocation" x="2948" y="2574.96251874063"/>
+        </scene>
+        <!--Pie ChartVC-->
+        <scene sceneID="ZGK-Fl-mYd">
+            <objects>
+                <viewController storyboardIdentifier="piechartsegment" id="h1U-EV-Uub" customClass="PieChartVC" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5LW-mn-1S7"/>
+                        <viewControllerLayoutGuide type="bottom" id="2zn-t4-win"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1rN-It-5z5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert list view of category mapped to dollar amount spent" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywj-84-IVM">
+                                <rect key="frame" x="31" y="557" width="328" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4tl-cs-QBz" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="24" y="100" width="326" height="316"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="pieChartView" destination="4tl-cs-QBz" id="tI6-fT-H3r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ObG-ba-coD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="1869"/>
+        </scene>
+        <!--Line ChartVC-->
+        <scene sceneID="31j-Ww-2tr">
+            <objects>
+                <viewController storyboardIdentifier="linechartsegment" id="IGw-eZ-FRN" customClass="LineChartVC" customModule="Thrifty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jwq-OY-XVY"/>
+                        <viewControllerLayoutGuide type="bottom" id="u1k-ol-4Ob"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sby-hg-9m7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gcm-MC-ou7" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="26" y="90" width="323" height="294"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert list of dollar expenses by day?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGE-wx-n9w">
+                                <rect key="frame" x="26" y="537" width="323" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="lineChartView" destination="Gcm-MC-ou7" id="f9B-jO-dSj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufn-F1-YmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2904.8000000000002" y="1868.8155922038982"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kCU-h8-3sh">
@@ -966,10 +1092,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="dUe-VK-fB4" kind="relationship" relationship="viewControllers" id="cAj-Yo-5v5"/>
-                        <segue destination="5Cy-Jo-SEW" kind="relationship" relationship="viewControllers" id="E0f-7w-Gup"/>
+                        <segue destination="SxE-cK-YXA" kind="relationship" relationship="viewControllers" id="MWC-UG-4nL"/>
                         <segue destination="119-Ab-A9P" kind="relationship" relationship="viewControllers" id="8dK-AF-4vL"/>
                         <segue destination="3qx-8b-3gY" kind="relationship" relationship="viewControllers" id="PVA-V0-Rl0"/>
-                        <segue destination="gtH-iM-Y94" kind="relationship" relationship="viewControllers" id="GtH-MR-UK1"/>
+                        <segue destination="mRP-tH-evW" kind="relationship" relationship="viewControllers" id="GtH-MR-UK1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOH-Ft-02n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1045,6 +1171,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7h-ic-s99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-876" y="971.96401799100454"/>
+        </scene>
+        <!--Analysis-->
+        <scene sceneID="gEM-T6-wi0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mRP-tH-evW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Analysis" image="analysis" id="40U-wq-hdi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZML-Mb-Y0y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gtH-iM-Y94" kind="relationship" relationship="rootViewController" id="JvA-Bk-Ldb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7NQ-T8-ehn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1245.5999999999999" y="2574.96251874063"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tix-py-8Om">
+            <objects>
+                <viewController id="b1v-Bz-teQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ypp-nu-QYk"/>
+                        <viewControllerLayoutGuide type="bottom" id="CY9-1v-LJw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="29g-Kn-o4a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sT5-gQ-WR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Funds-->
+        <scene sceneID="Ilr-ud-qk7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SxE-cK-YXA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Funds" image="funds2" id="g9l-rN-CUb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RHU-hn-l5L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KX7-qG-zqy" kind="relationship" relationship="rootViewController" id="vFc-N3-Spv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bmz-kO-rWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-876" y="4617.8410794602705"/>
         </scene>
     </scenes>
     <resources>

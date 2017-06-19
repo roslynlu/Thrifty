@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6BF90A76469703F418227E6F /* Pods_Thrifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */; };
+		E41777DB1EF8649B00364981 /* FundsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41777DA1EF8649B00364981 /* FundsTVC.swift */; };
+		E41777DD1EF864C900364981 /* FundsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41777DC1EF864C900364981 /* FundsTVCell.swift */; };
 		E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */; };
 		E4C6F3DF1EF4A79900CD2C75 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */; };
 		E4C6F3E11EF4B88700CD2C75 /* AnalysisDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */; };
+		E4C6F3E31EF4C9F700CD2C75 /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E21EF4C9F700CD2C75 /* PieChartVC.swift */; };
+		E4C6F3E51EF4CA0600CD2C75 /* LineChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E41EF4CA0600CD2C75 /* LineChartVC.swift */; };
 		E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */; };
 		E4D96FF01EEB15700030BF2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FEE1EEB15700030BF2A /* Main.storyboard */; };
 		E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */; };
@@ -38,9 +42,13 @@
 		19A50D7C45845FCB980B286F /* Pods-Thrifty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thrifty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty.debug.xcconfig"; sourceTree = "<group>"; };
 		2644817BCBEC393FDD8B4D04 /* Pods-Thrifty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thrifty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thrifty/Pods-Thrifty.release.xcconfig"; sourceTree = "<group>"; };
 		7A849C62ACF427A5EB362E07 /* Pods_Thrifty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thrifty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E41777DA1EF8649B00364981 /* FundsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundsTVC.swift; sourceTree = "<group>"; };
+		E41777DC1EF864C900364981 /* FundsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundsTVCell.swift; sourceTree = "<group>"; };
 		E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseVC.swift; sourceTree = "<group>"; };
 		E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisDateVC.swift; sourceTree = "<group>"; };
+		E4C6F3E21EF4C9F700CD2C75 /* PieChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartVC.swift; sourceTree = "<group>"; };
+		E4C6F3E41EF4CA0600CD2C75 /* LineChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartVC.swift; sourceTree = "<group>"; };
 		E4D96FE71EEB15700030BF2A /* Thrifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thrifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D96FEF1EEB15700030BF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,12 +128,16 @@
 			children = (
 				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
+				E41777DA1EF8649B00364981 /* FundsTVC.swift */,
+				E41777DC1EF864C900364981 /* FundsTVCell.swift */,
 				E4D970101EEB62660030BF2A /* MainViewController.swift */,
 				E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */,
 				E4F8A38F1EF1EA3300CBCCB2 /* HistoryObjC.h */,
 				E4F8A3901EF1EA3300CBCCB2 /* HistoryObjC.m */,
 				E4F8A3951EF20FAB00CBCCB2 /* AnalysisVC.swift */,
 				E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */,
+				E4C6F3E21EF4C9F700CD2C75 /* PieChartVC.swift */,
+				E4C6F3E41EF4CA0600CD2C75 /* LineChartVC.swift */,
 				F681E3211EEE2FA600926D75 /* Setter VCs */,
 				F681E3201EEE2F8A00926D75 /* Supporting Files */,
 				E4D9700D1EEB406F0030BF2A /* Core Data */,
@@ -297,18 +309,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C6F3E31EF4C9F700CD2C75 /* PieChartVC.swift in Sources */,
 				F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */,
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
 				E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */,
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
+				E41777DD1EF864C900364981 /* FundsTVCell.swift in Sources */,
 				F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */,
 				F61D807B1EF29A6F006B6B1D /* TransactionTable.swift in Sources */,
+				E41777DB1EF8649B00364981 /* FundsTVC.swift in Sources */,
 				E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */,
 				E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
 				F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */,
 				E4C6F3E11EF4B88700CD2C75 /* AnalysisDateVC.swift in Sources */,
+				E4C6F3E51EF4CA0600CD2C75 /* LineChartVC.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,
 				F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */,
