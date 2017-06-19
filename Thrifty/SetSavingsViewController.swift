@@ -10,6 +10,16 @@ import UIKit
 import CoreData
 
 class SetSavingsViewController: UIViewController {
+    
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
+    
 
     
     var firstTime: Bool = true
@@ -40,6 +50,11 @@ class SetSavingsViewController: UIViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
+    
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
         
         coeff = Double(Int(percentageSlider.value)) / 100.0
@@ -47,7 +62,7 @@ class SetSavingsViewController: UIViewController {
         //save percent var to core data
         
         UserMO.getActiveUser(getContext())?.setSavingsCoeff(coeff, context: getContext())
-        
+        UserMO.getActiveUser(getContext())?.completeSetUp(getContext())
         
         navigationController?.dismiss(animated: false, completion: nil)
     }

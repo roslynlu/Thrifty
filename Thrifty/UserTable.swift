@@ -1,8 +1,8 @@
 //
-//  IncomeTableController.swift
+//  UserTable.swift
 //  Thrifty
 //
-//  Created by Boris Teodorovich on 6/15/17.
+//  Created by Boris Teodorovich on 6/16/17.
 //  Copyright © 2017 DeAnza. All rights reserved.
 //
 
@@ -10,9 +10,8 @@ import UIKit
 import CoreData
 
 
-class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegate {
-    
-    
+class UserTable: UITableViewController {
+
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -21,14 +20,8 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     
     
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-    
-    // Stuff for the picker
-    var types: [String] = ["income", "expense"]
-    
     // Stuff for the section labels
-    var dict = [String: [TransactionMO]]()
+    var dict = [String: [UserMO]]()
     var sectionTitles = [String]()
     
     
@@ -36,25 +29,38 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     // Auto Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupSegmentedControl()
+        
+//        let context = getContext()
+//        
+//        for failedUser in UserMO.getIncompleteUsers(context)! {
+//            context.delete(failedUser)
+//            try! context.save()
+//        }
+        
     }
     
-    private func setupSegmentedControl() {
-        // Configure Segmented Control
-        segmentedControl.removeAllSegments()
-        for index in 0..<types.count {
-        segmentedControl.insertSegment(withTitle: types[index].capitalized, at: index, animated: false)
-        }
-        // Select First Segment
-        segmentedControl.selectedSegmentIndex = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchFromCD()
+        
+        self.tableView.reloadData()
     }
     
-
     
     override func viewDidAppear(_ animated: Bool) {
-        fetchFromCD()
-        self.tableView.reloadData()
+        
+        if UserMO.getActiveUser(getContext()) != nil {
+            if (UserMO.getActiveUser(getContext())?.setUpCompleted)! {
+                let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
+                present(VC, animated: false, completion: nil)
+            }
+            else {
+                let VC = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "BeginSetup")
+                present(VC, animated: false, completion: nil)
+            }
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,9 +97,9 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
             tableView.reloadData()
         }
         
-//        if let fetchedObjects = controller.fetchedObjects {
-//            expenses = fetchedObjects as! [TransactionMO]
-//        }
+        //        if let fetchedObjects = controller.fetchedObjects {
+        //            expenses = fetchedObjects as! [TransactionMO]
+        //        }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -145,8 +151,8 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     
     // Cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID = "TransactionCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TransactionCell
+        let cellID = "UserCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! UserCell
         
         if let values = dict[sectionTitles[indexPath.section]] {
             let cellItem = values[indexPath.row]
@@ -164,14 +170,14 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         switch editingStyle {
         case .delete:
             
-                let context = getContext()
-                
-                if let itemToDelete = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
-                    TransactionMO.deleteTransaction(itemToDelete, context: context)
-                }
-
-                fetchFromCD()
-                tableView.reloadData()
+            let context = getContext()
+            
+            if let itemToDelete = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
+                UserMO.deleteUser(itemToDelete, context: context)
+            }
+            
+            fetchFromCD()
+            tableView.reloadData()
             
         default: break
         }
@@ -193,41 +199,21 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     func fetchFromCD() {
         dict = [:]
         sectionTitles = []
-
-        switch (segmentedControl.selectedSegmentIndex) {
-        case 0:
-            if let user = UserMO.getActiveUser(getContext())
-            {
-                for income in user.recurringIncomes {
-                    if income.descr != ".hidden" {
-                        addToDict(income)
-                    }
-                }
-            }
-        case 1:
-            if let user = UserMO.getActiveUser(getContext())
-            {
-                for expense in user.recurringExpenses {
-                    if expense.descr != ".hidden" {
-                        addToDict(expense)
-                    }
-                }
-            }
-        default: break
+        
+        for user in UserMO.getUsers(getContext()) {
+            addToDict(user)
         }
-        
-        
     }
     
-    func addToDict(_ expense: TransactionMO) {
-        if let key = expense.category {
+    func addToDict(_ user: UserMO) {
+        if let key = user.name {
             
             if var valsWithSameFirstLetter = dict[key] {
-                valsWithSameFirstLetter.append(expense)
+                valsWithSameFirstLetter.append(user)
                 dict[key] = valsWithSameFirstLetter
             }
             else {
-                dict[key] = [expense]
+                dict[key] = [user]
             }
         }
         
@@ -236,39 +222,24 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     }
     
     
-    func updateCellContents(in cell: TransactionCell, with cellItem: TransactionMO) {
-        
-        // Recurring
-        let recurringSt = cellItem.daysCycle == 1 ? "Every day you" : String(format: "Every %1.0f days you", cellItem.daysCycle)
-        
-        
-        // Income/Expense
-        let amountSt = cellItem.amount > 0 ? String(format: "receive %1.2f from", cellItem.amount) : String(format: "spend %1.2f on", -cellItem.amount)
-        
-        
-        
-        cell.explanationField.text = String(format: "%@ %@ ", recurringSt, amountSt) + cellItem.descr!
+    func updateCellContents(in cell: UserCell, with cellItem: UserMO) {
+        cell.nameField.text = cellItem.name
         
     }
     
-    @IBAction func addIncomePressed(_ sender: UIButton) {
-        let AddTypeVC = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "AddTransaction") as! AddTransaction
-        
-        AddTypeVC.type = types[segmentedControl.selectedSegmentIndex]
-        
-        present(AddTypeVC, animated: true, completion: nil)
+    
+    
+    
+    
+    // Segue to Detail View
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                
+                if let newActiveUser = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
+                    
+                    newActiveUser.makeActive(getContext())
+                }
+            }
     }
-    
-    
-    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        fetchFromCD()
-        tableView.reloadData()
-    }
-    
-    
-    @IBAction func backPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
+
 }

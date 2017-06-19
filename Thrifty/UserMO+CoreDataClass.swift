@@ -13,7 +13,7 @@ import CoreData
 public class UserMO: NSManagedObject {
 
     
-    
+    // Creates a user with a given name if there is no user with that name already
     class func userWithName(_ name: String, inMOContext context: NSManagedObjectContext) -> UserMO? {
         let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", name)
@@ -27,12 +27,32 @@ public class UserMO: NSManagedObject {
             user.name = name
             user.isActive = true
             user.savingCoeff = 0
+            user.setUpCompleted = false
             
-            try! context.save()
+            do {
+                try context.save()
+            }
+            catch {
+                return nil
+            }
             
             return user
         }
+    }
+    
+    class func deleteUser(_ user: UserMO, context: NSManagedObjectContext) {
+        context.delete(user)
+        try! context.save()
+    }
+    
+    class func getUsers(_ context: NSManagedObjectContext) -> [UserMO] {
+        let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
         
+        if let users = (try? context.fetch(request)) {
+            return users
+        }
+
+        return []
     }
     
     class func getActiveUser(_ context: NSManagedObjectContext) -> UserMO? {
@@ -45,16 +65,55 @@ public class UserMO: NSManagedObject {
         return nil
     }
     
+    func makeActive(_ context: NSManagedObjectContext) {
+        self.isActive = true
+        try! context.save()
+    }
+    
+    func makeInactive(_ context: NSManagedObjectContext) {
+        self.isActive = false
+        try! context.save()
+    }
+    
+    
+    
+    
+    
+    class func getIncompleteUsers(_ context: NSManagedObjectContext) -> [UserMO]? {
+        let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
+        request.predicate = NSPredicate(format: "setUpCompleted = false")
+        
+        if let users = (try? context.fetch(request)) {
+            return users
+        }
+        return nil
+    }
+    
+    
+    
+    
+    
+    func completeSetUp(_ context: NSManagedObjectContext) {
+        self.setUpCompleted = true
+        try! context.save()
+    }
+    
+    
+    
+    
+    
+    
+    
     func createNewTransaction(with info: TransactionInfo, in context: NSManagedObjectContext) {
         _ = TransactionMO.transaction(with: info, by: self, in: context)
     }
     
-    var recurringIncomes: [TransactionMO]? {
+    var recurringIncomes: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).daysCycle != 0
-                    && (transaction as! TransactionMO).amount > 0 {
+                    && (transaction as! TransactionMO).type == "income"{
                     
                     set.append(transaction as! TransactionMO)
                 }
@@ -63,27 +122,20 @@ public class UserMO: NSManagedObject {
         }
     }
     
-    var sumOfAvgDailyRecurringIncomes: Double? {
-        get{
-            if recurringIncomes != nil {
-                var temp: Double = 0.0
-                for income in recurringIncomes! {
-                    temp += income.amount / income.daysCycle
-                }
-                return temp
-            }
-            else {
-                return nil
-            }
+    func sumOfAvgRecurringIncomesFor(numberOfDays days: Double) -> Double {
+        var temp: Double = 0.0
+        for income in recurringIncomes {
+            temp += income.amount / income.daysCycle
         }
+        return temp * days
     }
     
-    var recurringExpenses: [TransactionMO]? {
+    var recurringExpenses: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).daysCycle != 0
-                    && (transaction as! TransactionMO).amount < 0 {
+                    && (transaction as! TransactionMO).type == "expense" {
                     
                     set.append(transaction as! TransactionMO)
                 }
@@ -92,25 +144,22 @@ public class UserMO: NSManagedObject {
         }
     }
     
-    var sumOfAvgDailyRecurringExpenses: Double? {
-        get{
-            if recurringExpenses != nil {
-                var temp: Double = 0.0
-                for expense in recurringExpenses! {
-                    temp += (expense.amount / expense.daysCycle)
-                }
-                return temp
-            }
-            else {
-                return nil
-            }
+    func sumOfAvgRecurringExpensesFor(numberOfDays days: Double) -> Double {
+        var temp: Double = 0.0
+        for expense in recurringExpenses {
+            temp += (expense.amount / expense.daysCycle)
         }
+        return temp * days
+    }
+    
+    
+    func sumOfAvgSavingsFor(numberOfDays days: Double) -> Double {
+        return -sumOfAvgRecurringIncomesFor(numberOfDays: days) * savingCoeff
     }
     
     
     
-    
-    var funds: [TransactionMO]? {
+    var funds: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
@@ -122,7 +171,7 @@ public class UserMO: NSManagedObject {
             return set
         }
     }
-    var oneTime: [TransactionMO]? {
+    var oneTime: [TransactionMO] {
         
         get {
             var set: [TransactionMO] = []
@@ -137,11 +186,11 @@ public class UserMO: NSManagedObject {
             return set
         }
     }
-    var oneTimeIncomes: [TransactionMO]? {
+    var oneTimeIncomes: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
-                if (transaction as! TransactionMO).type == "expense"
+                if (transaction as! TransactionMO).type == "income"
                     && (transaction as! TransactionMO).amountSoFar == (transaction as! TransactionMO).amount
                     && (transaction as! TransactionMO).amount > 0 {
                     
@@ -151,7 +200,7 @@ public class UserMO: NSManagedObject {
             return set
         }
     }
-    var oneTimeExpenses: [TransactionMO]? {
+    var oneTimeExpenses: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
@@ -166,18 +215,13 @@ public class UserMO: NSManagedObject {
         }
     }
     
-    var balance: Double? {
+    var balance: Double {
         get {
-            if oneTime != nil {
-                var temp: Double = 0.0
-                for transaction in oneTime! {
-                    temp += transaction.amount
-                }
-                return temp
+            var temp: Double = 0.0
+            for transaction in oneTime {
+                temp += transaction.amount
             }
-            else {
-                return nil
-            }
+            return temp
         }
     }
     
@@ -192,7 +236,7 @@ public class UserMO: NSManagedObject {
         
             var temp: Double = 0.0
 
-            for transaction in oneTime!
+            for transaction in oneTime
             {
                 let tranDate = transaction.date as Date?
                 
@@ -201,6 +245,12 @@ public class UserMO: NSManagedObject {
                 }
             }
             return temp
+    }
+    
+    func calculateDailyBudget(_ date: Date, context: NSManagedObjectContext) -> Double {
+        let sumOfTransactionsToday = sumOfTransactionsForDay(date)
+        
+        return sumOfAvgRecurringIncomesFor(numberOfDays: 1) + sumOfAvgRecurringExpensesFor(numberOfDays: 1) + sumOfAvgSavingsFor(numberOfDays: 1) + sumOfTransactionsToday
     }
     
     

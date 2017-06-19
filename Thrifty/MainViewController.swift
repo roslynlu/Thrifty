@@ -12,6 +12,14 @@ import QuartzCore
 
 class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
     // OUTLETS
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var plusButton: UIButton!
@@ -25,12 +33,7 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     var user : UserMO!
     
     //DO LATER
-    func calculateDailyBudget () -> Double
-    {
-        let sumOfTransactionsToday = user.sumOfTransactionsForDay(Date())
-
-        return user.sumOfAvgDailyRecurringIncomes! + user.sumOfAvgDailyRecurringExpenses! - (user.sumOfAvgDailyRecurringIncomes! * user.savingCoeff) + sumOfTransactionsToday
-    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +55,7 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let budget = calculateDailyBudget()
+        let budget = user.calculateDailyBudget(Date(), context: getContext())
         dailyBudget.text = String(format: "$%.2f", budget)
     }
     

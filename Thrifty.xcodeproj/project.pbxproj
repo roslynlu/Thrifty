@@ -31,11 +31,13 @@
 		F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */; };
 		F61D807B1EF29A6F006B6B1D /* TransactionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */; };
 		F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807C1EF29D25006B6B1D /* IncomeCell.swift */; };
-		F61D807F1EF2AA83006B6B1D /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */; };
+		F61D807F1EF2AA83006B6B1D /* AddTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D807E1EF2AA83006B6B1D /* AddTransaction.swift */; };
 		F61D80811EF301E2006B6B1D /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80801EF301E2006B6B1D /* NameVC.swift */; };
-		F64C13221EEF510800B20A42 /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */; };
+		F6375B141EF4D43D0019E2FC /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6375B131EF4D43D0019E2FC /* UserTable.swift */; };
+		F6375B161EF4D5400019E2FC /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6375B151EF4D5400019E2FC /* UserCell.swift */; };
 		F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */; };
 		F6F1B9F91EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */; };
+		F6F1B9FE1EF4C5F7003C83BE /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F1B9FD1EF4C5F7003C83BE /* Setup.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +71,13 @@
 		F61D806D1EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTable.swift; sourceTree = "<group>"; };
 		F61D807C1EF29D25006B6B1D /* IncomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeCell.swift; sourceTree = "<group>"; };
-		F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		F61D807E1EF2AA83006B6B1D /* AddTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransaction.swift; sourceTree = "<group>"; };
 		F61D80801EF301E2006B6B1D /* NameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
-		F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
+		F6375B131EF4D43D0019E2FC /* UserTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
+		F6375B151EF4D5400019E2FC /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F6F1B9FD1EF4C5F7003C83BE /* Setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				E4D96FEE1EEB15700030BF2A /* Main.storyboard */,
+				F6F1B9FD1EF4C5F7003C83BE /* Setup.storyboard */,
+				F6375B131EF4D43D0019E2FC /* UserTable.swift */,
+				F6375B151EF4D5400019E2FC /* UserCell.swift */,
 				E4D970051EEB210D0030BF2A /* BudgetViewController.swift */,
 				E41777DA1EF8649B00364981 /* FundsTVC.swift */,
 				E41777DC1EF864C900364981 /* FundsTVCell.swift */,
@@ -174,12 +181,11 @@
 		F681E3211EEE2FA600926D75 /* Setter VCs */ = {
 			isa = PBXGroup;
 			children = (
-				F64C13211EEF510800B20A42 /* FirstTimeSetupViewController.swift */,
 				F61D80801EF301E2006B6B1D /* NameVC.swift */,
 				E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */,
-				F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */,
 				F61D807C1EF29D25006B6B1D /* IncomeCell.swift */,
-				F61D807E1EF2AA83006B6B1D /* AddIncomeViewController.swift */,
+				F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */,
+				F61D807E1EF2AA83006B6B1D /* AddTransaction.swift */,
 				E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */,
 			);
 			name = "Setter VCs";
@@ -248,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F1B9FE1EF4C5F7003C83BE /* Setup.storyboard in Resources */,
 				E4D96FF81EEB15700030BF2A /* LaunchScreen.storyboard in Resources */,
 				E4D96FF51EEB15700030BF2A /* Assets.xcassets in Resources */,
 				E4D96FF01EEB15700030BF2A /* Main.storyboard in Resources */,
@@ -334,6 +341,7 @@
 				F61D807D1EF29D25006B6B1D /* IncomeCell.swift in Sources */,
 				F6F1B9F91EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift in Sources */,
 				F61D80811EF301E2006B6B1D /* NameVC.swift in Sources */,
+				F6375B161EF4D5400019E2FC /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

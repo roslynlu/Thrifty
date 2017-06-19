@@ -39,10 +39,10 @@ public class TransactionMO: NSManagedObject {
         }
     }
     
-    func delete(from context: NSManagedObjectContext) {
-        context.delete(self)
+    class func deleteTransaction(_ transaction: TransactionMO, context: NSManagedObjectContext) {
+        context.delete(transaction)
         try! context.save()
     }
-    
+
 
 }

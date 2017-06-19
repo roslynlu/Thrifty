@@ -10,6 +10,13 @@ import UIKit
 
 class AnalysisDateVC: UIViewController {
 
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
     @IBOutlet weak var fromDate: UIDatePicker!
     @IBOutlet weak var toDate: UIDatePicker!
     
