@@ -18,14 +18,11 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         return true
     }
     
-    
+    var type = "incomes"
     
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    
-    // Stuff for the picker
-    var types: [String] = ["income", "expense"]
     
     // Stuff for the section labels
     var dict = [String: [TransactionMO]]()
@@ -37,22 +34,14 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupSegmentedControl()
     }
-    
-    private func setupSegmentedControl() {
-        // Configure Segmented Control
-        segmentedControl.removeAllSegments()
-        for index in 0..<types.count {
-        segmentedControl.insertSegment(withTitle: types[index].capitalized, at: index, animated: false)
-        }
-        // Select First Segment
-        segmentedControl.selectedSegmentIndex = 0
-    }
-    
 
     
     override func viewDidAppear(_ animated: Bool) {
+        updateTableViewWithNewData()
+    }
+    
+    func updateTableViewWithNewData() {
         fetchFromCD()
         self.tableView.reloadData()
     }
@@ -170,8 +159,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
                     TransactionMO.deleteTransaction(itemToDelete, context: context)
                 }
 
-                fetchFromCD()
-                tableView.reloadData()
+                updateTableViewWithNewData()
             
         default: break
         }
@@ -194,8 +182,8 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         dict = [:]
         sectionTitles = []
 
-        switch (segmentedControl.selectedSegmentIndex) {
-        case 0:
+        switch (self.type) {
+        case "incomes":
             if let user = UserMO.getActiveUser(getContext())
             {
                 for income in user.recurringIncomes {
@@ -204,7 +192,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
                     }
                 }
             }
-        case 1:
+        case "expenses":
             if let user = UserMO.getActiveUser(getContext())
             {
                 for expense in user.recurringExpenses {
@@ -249,25 +237,6 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         
         cell.explanationField.text = String(format: "%@ %@ ", recurringSt, amountSt) + cellItem.descr!
         
-    }
-    
-    @IBAction func addIncomePressed(_ sender: UIButton) {
-        let AddTypeVC = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "AddTransaction") as! AddTransaction
-        
-        AddTypeVC.type = types[segmentedControl.selectedSegmentIndex]
-        
-        present(AddTypeVC, animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        fetchFromCD()
-        tableView.reloadData()
-    }
-    
-    
-    @IBAction func backPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
     }
     
     

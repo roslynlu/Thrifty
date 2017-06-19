@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Thrifty/BudgetViewController.swift"
-            timestampString = "519548669.634773"
+            timestampString = "519597704.255579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "updateDisplay()"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Thrifty/BudgetViewController.swift"
-            timestampString = "519548669.634773"
+            timestampString = "519597704.255579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "BudgetViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Thrifty/UserTable.swift"
-            timestampString = "519542558.186959"
+            timestampString = "519606070.870652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -352,6 +352,22 @@
             startingLineNumber = "45"
             endingLineNumber = "45"
             landmarkName = "deleteUser(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Thrifty/TransactionContainer.swift"
+            timestampString = "519606907.486625"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

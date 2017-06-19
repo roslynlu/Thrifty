@@ -171,6 +171,8 @@ public class UserMO: NSManagedObject {
             return set
         }
     }
+    
+    
     var oneTime: [TransactionMO] {
         
         get {
