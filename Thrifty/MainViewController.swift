@@ -12,6 +12,14 @@ import QuartzCore
 
 class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
     // OUTLETS
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var plusButton: UIButton!

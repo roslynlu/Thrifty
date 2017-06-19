@@ -12,6 +12,11 @@ import CoreData
 class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
     var myInfo : UserMO!
     var fetchResultsController : NSFetchedResultsController<UserMO>!
     
@@ -27,12 +32,18 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        loadData()
+        updateDisplay()
+//        if !myInfo.setUpCompleted {
+//            let AddTypeVC = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "BeginSetup")
+//            
+//            
+//            present(AddTypeVC, animated: false, completion: nil)
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            loadData()
-            updateDisplay()
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,20 +54,20 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     
     @IBAction func setIncomeClicked(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionTable
+        let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionTable
         present(viewController, animated: true, completion: nil)
         
     }
     
     @IBAction func setExpClicked(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionTable
+        let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionTable
         present(viewController, animated: true, completion: nil)
         
 //        
     }
     
     @IBAction func setSavingsClicked(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetSavings") as! SetSavingsViewController
+        let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetSavings") as! SetSavingsViewController
         present(viewController, animated: true, completion: nil)
         
     }
@@ -64,11 +75,9 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     func updateDisplay() {
         if myInfo != nil {
             
-            let income = myInfo.sumOfAvgDailyRecurringIncomes! * 30
-            
-            let expense = myInfo.sumOfAvgDailyRecurringExpenses! * 30
-            
-            let savings = income * myInfo.savingCoeff
+            let income = myInfo.sumOfAvgRecurringIncomesFor(numberOfDays: 30)
+            let expense = myInfo.sumOfAvgRecurringExpensesFor(numberOfDays: 30)
+            let savings = myInfo.sumOfAvgSavingsFor(numberOfDays: 30)
             
             
             incomeButton.setTitle(String(format: "$%.2f", income), for: UIControlState.normal)

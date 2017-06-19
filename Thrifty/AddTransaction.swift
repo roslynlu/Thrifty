@@ -11,6 +11,15 @@ import CoreData
 
 class AddTransaction: UIViewController {
     
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
+    
     @IBOutlet weak var titleField: UILabel!
     
     @IBOutlet weak var nameField: UITextField!
@@ -47,14 +56,26 @@ class AddTransaction: UIViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-        
-        if (nameField.text != "" &&
-            typeField.text != "" &&
-            amountField.text != "" &&
-            daysCycleField.text != "") {
+        if (nameField.text == "" ||
+            typeField.text == "" ||
+            amountField.text == "" ||
+            daysCycleField.text == "") {
+            let dataAlert = UIAlertController(title: "Error", message: "Make sure all data fields have data", preferredStyle: UIAlertControllerStyle.alert)
+            dataAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(dataAlert, animated: true, completion: nil)
+        }
+        else if Double(amountField.text!)! <= 0.0 || Double(daysCycleField.text!)! <= 0.0 {
+            let dataAlert = UIAlertController(title: "Error", message: "Entered amounts must be positive numerical values", preferredStyle: UIAlertControllerStyle.alert)
+            dataAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(dataAlert, animated: true, completion: nil)
+        }
+        else {
             
             let context = getContext()
             
@@ -82,11 +103,7 @@ class AddTransaction: UIViewController {
             
             self.dismiss(animated: true, completion: nil)
         }
-        else {
-            let dataAlert = UIAlertController(title: "Error", message: "Make sure all data fields have data", preferredStyle: UIAlertControllerStyle.alert)
-            dataAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(dataAlert, animated: true, completion: nil)
-        }
+        
         
     }
     

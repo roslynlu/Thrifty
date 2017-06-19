@@ -2,7 +2,7 @@
 //  UserMO+CoreDataProperties.swift
 //  Thrifty
 //
-//  Created by Boris Teodorovich on 6/17/17.
+//  Created by Boris Teodorovich on 6/18/17.
 //  Copyright © 2017 DeAnza. All rights reserved.
 //
 

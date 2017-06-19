@@ -10,6 +10,16 @@ import UIKit
 import CoreData
 
 class SetSavingsViewController: UIViewController {
+    
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
+    
 
     
     var firstTime: Bool = true
@@ -38,6 +48,11 @@ class SetSavingsViewController: UIViewController {
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
+    }
+    
+    
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func savePressed(_ sender: UIBarButtonItem) {

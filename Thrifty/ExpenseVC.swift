@@ -11,6 +11,12 @@ import CoreData
 
 class ExpenseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
     @IBOutlet var inputExpense: UITextField!
     @IBOutlet var typeOfExpense: UIPickerView!
     @IBOutlet weak var descrField: UITextField!

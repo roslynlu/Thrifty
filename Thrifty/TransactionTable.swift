@@ -12,6 +12,15 @@ import CoreData
 
 class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
@@ -136,8 +145,8 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     
     // Cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID = "IncomeCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! IncomeCell
+        let cellID = "TransactionCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TransactionCell
         
         if let values = dict[sectionTitles[indexPath.section]] {
             let cellItem = values[indexPath.row]
@@ -156,10 +165,9 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         case .delete:
             
                 let context = getContext()
+                
                 if let itemToDelete = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
-                    context.delete(itemToDelete)
-                    try! context.save()
-
+                    TransactionMO.deleteTransaction(itemToDelete, context: context)
                 }
 
                 fetchFromCD()
@@ -190,7 +198,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         case 0:
             if let user = UserMO.getActiveUser(getContext())
             {
-                for income in user.recurringIncomes! {
+                for income in user.recurringIncomes {
                     if income.descr != ".hidden" {
                         addToDict(income)
                     }
@@ -199,7 +207,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         case 1:
             if let user = UserMO.getActiveUser(getContext())
             {
-                for expense in user.recurringExpenses! {
+                for expense in user.recurringExpenses {
                     if expense.descr != ".hidden" {
                         addToDict(expense)
                     }
@@ -212,7 +220,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     }
     
     func addToDict(_ expense: TransactionMO) {
-        if let key = expense.type {
+        if let key = expense.category {
             
             if var valsWithSameFirstLetter = dict[key] {
                 valsWithSameFirstLetter.append(expense)
@@ -228,10 +236,18 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     }
     
     
-    func updateCellContents(in cell: IncomeCell, with cellItem: TransactionMO) {
-        cell.nameField.text = cellItem.descr
-        cell.daysPeriodField.text = String(cellItem.daysCycle)
-        cell.amountField.text = String(cellItem.amount)
+    func updateCellContents(in cell: TransactionCell, with cellItem: TransactionMO) {
+        
+        // Recurring
+        let recurringSt = cellItem.daysCycle == 1 ? "Every day you" : String(format: "Every %1.0f days you", cellItem.daysCycle)
+        
+        
+        // Income/Expense
+        let amountSt = cellItem.amount > 0 ? String(format: "receive %1.2f from", cellItem.amount) : String(format: "spend %1.2f on", -cellItem.amount)
+        
+        
+        
+        cell.explanationField.text = String(format: "%@ %@ ", recurringSt, amountSt) + cellItem.descr!
         
     }
     
@@ -250,6 +266,9 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     }
     
     
+    @IBAction func backPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
 }

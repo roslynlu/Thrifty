@@ -28,21 +28,24 @@ class NameVC: UIViewController {
     }
     
     
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if nameField.text != ""
-        {
-            _ = UserMO.userWithName((nameField?.text)!, inMOContext: getContext())
-        }
-        else
-        {
-            let dataAlert = UIAlertController(title: "Error", message: "Please enter a name", preferredStyle: UIAlertControllerStyle.alert)
-            dataAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(dataAlert, animated: true, completion: nil)
-        }
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
 
     }
-    
+
+    @IBAction func savePressed(_ sender: UIButton) {
+            if nameField.text != ""
+            {
+                _ = UserMO.userWithName((nameField?.text)!, inMOContext: getContext())
+            }
+            else
+            {
+                let dataAlert = UIAlertController(title: "Error", message: "Please enter a name", preferredStyle: UIAlertControllerStyle.alert)
+                dataAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(dataAlert, animated: true, completion: nil)
+            }
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     func getContext() -> NSManagedObjectContext {

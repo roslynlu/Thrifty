@@ -30,26 +30,37 @@ class UserTable: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let context = getContext()
+//        let context = getContext()
+//        
+//        for failedUser in UserMO.getIncompleteUsers(context)! {
+//            context.delete(failedUser)
+//            try! context.save()
+//        }
         
-        for failedUser in UserMO.getIncompleteUsers(context)! {
-            context.delete(failedUser)
-            try! context.save()
-        }
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
+        fetchFromCD()
         
+        self.tableView.reloadData()
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
+        
         if UserMO.getActiveUser(getContext()) != nil {
-            performSegue(withIdentifier: "GoToMainApp", sender: nil)
+            if (UserMO.getActiveUser(getContext())?.setUpCompleted)! {
+                let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
+                present(VC, animated: false, completion: nil)
+            }
+            else {
+                let VC = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "BeginSetup")
+                present(VC, animated: false, completion: nil)
+            }
         }
         
-        fetchFromCD()
-        self.tableView.reloadData()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -162,9 +173,9 @@ class UserTable: UITableViewController {
             let context = getContext()
             
             if let itemToDelete = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
-                context.delete(itemToDelete)
-                try! context.save()
+                UserMO.deleteUser(itemToDelete, context: context)
             }
+            
             fetchFromCD()
             tableView.reloadData()
             

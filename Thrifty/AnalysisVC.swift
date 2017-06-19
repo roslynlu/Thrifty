@@ -11,6 +11,14 @@ import Charts
 
 class AnalysisVC: UIViewController {
 
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var datesButton: UIButton!

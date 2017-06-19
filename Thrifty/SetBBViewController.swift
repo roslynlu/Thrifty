@@ -13,6 +13,12 @@ class SetBBViewController: UIViewController {
 
     
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    
     //Outlets
     @IBOutlet var cashField: UITextField!
 
@@ -34,6 +40,12 @@ class SetBBViewController: UIViewController {
     }
 
 
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectUser")
+        present(VC, animated: false, completion: nil)
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         var amount: Double
