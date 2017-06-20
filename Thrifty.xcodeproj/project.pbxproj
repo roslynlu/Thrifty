@@ -42,6 +42,7 @@
 		F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */; };
 		F6F1B9F91EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */; };
 		F6F1B9FE1EF4C5F7003C83BE /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F1B9FD1EF4C5F7003C83BE /* Setup.storyboard */; };
+		F6FCD03A1EF9CA67007CC4C7 /* AnalysisDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -333,6 +334,7 @@
 				E41777DE1EF86C9300364981 /* FundsTVCell.swift in Sources */,
 				E41777E21EF8886B00364981 /* FundDetailVC.swift in Sources */,
 				F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */,
+				F6FCD03A1EF9CA67007CC4C7 /* AnalysisDateVC.swift in Sources */,
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
 				E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */,
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
