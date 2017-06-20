@@ -14,6 +14,10 @@
 		E41777E21EF8886B00364981 /* FundDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41777E11EF8886B00364981 /* FundDetailVC.swift */; };
 		E41777E41EF8B84600364981 /* PieTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41777E31EF8B84600364981 /* PieTableVC.swift */; };
 		E41777E61EF8B86100364981 /* LineTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41777E51EF8B86000364981 /* LineTableVC.swift */; };
+		E41777E71EF8C19B00364981 /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E21EF4C9F700CD2C75 /* PieChartVC.swift */; };
+		E41777E81EF8C1B200364981 /* LineChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E41EF4CA0600CD2C75 /* LineChartVC.swift */; };
+		E41777E91EF8C1B900364981 /* AnalysisDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */; };
+		E41777EB1EF8D8D500364981 /* PieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41777EA1EF8D8D500364981 /* PieCell.swift */; };
 		E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */; };
 		E4C6F3DF1EF4A79900CD2C75 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */; };
 		E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */; };
@@ -52,6 +56,7 @@
 		E41777E11EF8886B00364981 /* FundDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundDetailVC.swift; sourceTree = "<group>"; };
 		E41777E31EF8B84600364981 /* PieTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieTableVC.swift; sourceTree = "<group>"; };
 		E41777E51EF8B86000364981 /* LineTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineTableVC.swift; sourceTree = "<group>"; };
+		E41777EA1EF8D8D500364981 /* PieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieCell.swift; sourceTree = "<group>"; };
 		E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseVC.swift; sourceTree = "<group>"; };
 		E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisDateVC.swift; sourceTree = "<group>"; };
@@ -154,6 +159,7 @@
 				E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */,
 				E4C6F3E21EF4C9F700CD2C75 /* PieChartVC.swift */,
 				E41777E31EF8B84600364981 /* PieTableVC.swift */,
+				E41777EA1EF8D8D500364981 /* PieCell.swift */,
 				E4C6F3E41EF4CA0600CD2C75 /* LineChartVC.swift */,
 				E41777E51EF8B86000364981 /* LineTableVC.swift */,
 				F681E3211EEE2FA600926D75 /* Setter VCs */,
@@ -329,10 +335,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E41777DE1EF86C9300364981 /* FundsTVCell.swift in Sources */,
-				E4C6F3E31EF4C9F700CD2C75 /* PieChartVC.swift in Sources */,
 				E41777E21EF8886B00364981 /* FundDetailVC.swift in Sources */,
 				F61D80751EF1E8BB006B6B1D /* UserMO+CoreDataProperties.swift in Sources */,
+				E41777E91EF8C1B900364981 /* AnalysisDateVC.swift in Sources */,
 				E4D970061EEB210D0030BF2A /* BudgetViewController.swift in Sources */,
+				E41777E71EF8C19B00364981 /* PieChartVC.swift in Sources */,
+				E41777EB1EF8D8D500364981 /* PieCell.swift in Sources */,
 				E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */,
 				E4D970111EEB62660030BF2A /* MainViewController.swift in Sources */,
 				F61D807F1EF2AA83006B6B1D /* AddTransaction.swift in Sources */,
@@ -341,11 +349,10 @@
 				E41777DB1EF8649B00364981 /* FundsTVC.swift in Sources */,
 				E4F8A3961EF20FAB00CBCCB2 /* AnalysisVC.swift in Sources */,
 				E4F8A3911EF1EA3300CBCCB2 /* HistoryObjC.m in Sources */,
+				E41777E81EF8C1B200364981 /* LineChartVC.swift in Sources */,
 				E41777E41EF8B84600364981 /* PieTableVC.swift in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
-				E4C6F3E11EF4B88700CD2C75 /* AnalysisDateVC.swift in Sources */,
-				E4C6F3E51EF4CA0600CD2C75 /* LineChartVC.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				F660B9291EF87C80007B08AA /* TransactionContainer.swift in Sources */,
 				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,

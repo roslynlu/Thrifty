@@ -16,10 +16,15 @@ class NameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
         // Do any additional setup after loading the view.
+        let border = CALayer()
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.darkGray.cgColor
+        border.frame = CGRect(x: 0, y: nameField.frame.size.height - width, width:  nameField.frame.size.width, height: nameField.frame.size.height)
+        
+        border.borderWidth = width
+        nameField.layer.addSublayer(border)
+        nameField.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

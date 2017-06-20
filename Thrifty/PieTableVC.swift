@@ -7,9 +7,31 @@
 //
 
 import UIKit
+import CoreData
 
 class PieTableVC: UITableViewController {
-
+    
+    var typeOfExpense : [String] = []
+    var colors: [UIColor] = []
+    var expenses : [TransactionMO] = []
+    
+    func fetchFromCD() {
+        var temp : [TransactionMO] = []
+        for expense in (UserMO.getActiveUser(getContext())?.oneTime)! {
+            temp.append(expense)
+        }
+        for expense in (UserMO.getActiveUser(getContext())?.recurringExpenses)! {
+            temp.append(expense)
+        }
+//        expenses = temp.sorted(by: { $0.descr! < $1.descr! })
+        expenses = temp
+    }
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +41,10 @@ class PieTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.separatorStyle = .none
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -26,26 +52,60 @@ class PieTableVC: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                if newIndexPath.startIndex != 0 {
+                    tableView.insertRows(at: [newIndexPath], with: .fade)
+                }
+            }
+        case .delete:
+            if let indexPath = newIndexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = newIndexPath {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        //        if let fetchedObjects = controller.fetchedObjects {
+        //            expenses = fetchedObjects as! [TransactionMO]
+        //        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return typeOfExpense.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pieCell", for: indexPath) as! PieCell
 
         // Configure the cell...
+        cell.categoryLabel?.text = typeOfExpense[indexPath.row]
+        print("cellforrowat")
+        cell.colorBlock.backgroundColor = colors[indexPath.row]
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
