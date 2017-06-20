@@ -157,6 +157,7 @@ public class UserMO: NSManagedObject {
         }
     }
     
+    
     var oneTime: [TransactionMO] {
         
         get {

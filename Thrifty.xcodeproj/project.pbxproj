@@ -16,9 +16,6 @@
 		E41777E61EF8B86100364981 /* LineTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41777E51EF8B86000364981 /* LineTableVC.swift */; };
 		E41D78831EEF8EBE000CC8B1 /* ExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D78821EEF8EBE000CC8B1 /* ExpenseVC.swift */; };
 		E4C6F3DF1EF4A79900CD2C75 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3DE1EF4A79900CD2C75 /* NSDate.swift */; };
-		E4C6F3E11EF4B88700CD2C75 /* AnalysisDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */; };
-		E4C6F3E31EF4C9F700CD2C75 /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E21EF4C9F700CD2C75 /* PieChartVC.swift */; };
-		E4C6F3E51EF4CA0600CD2C75 /* LineChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E41EF4CA0600CD2C75 /* LineChartVC.swift */; };
 		E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FEA1EEB15700030BF2A /* AppDelegate.swift */; };
 		E4D96FF01EEB15700030BF2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D96FEE1EEB15700030BF2A /* Main.storyboard */; };
 		E4D96FF31EEB15700030BF2A /* Thrifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4D96FF11EEB15700030BF2A /* Thrifty.xcdatamodeld */; };
@@ -39,6 +36,7 @@
 		F61D80811EF301E2006B6B1D /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D80801EF301E2006B6B1D /* NameVC.swift */; };
 		F6375B141EF4D43D0019E2FC /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6375B131EF4D43D0019E2FC /* UserTable.swift */; };
 		F6375B161EF4D5400019E2FC /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6375B151EF4D5400019E2FC /* UserCell.swift */; };
+		F660B9291EF87C80007B08AA /* TransactionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660B9281EF87C80007B08AA /* TransactionContainer.swift */; };
 		F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */; };
 		F6F1B9F91EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */; };
 		F6F1B9FE1EF4C5F7003C83BE /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F1B9FD1EF4C5F7003C83BE /* Setup.storyboard */; };
@@ -83,6 +81,7 @@
 		F61D80801EF301E2006B6B1D /* NameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
 		F6375B131EF4D43D0019E2FC /* UserTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
 		F6375B151EF4D5400019E2FC /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		F660B9281EF87C80007B08AA /* TransactionContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionContainer.swift; sourceTree = "<group>"; };
 		F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6F1B9FD1EF4C5F7003C83BE /* Setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 				E4D96FFF1EEB1AEC0030BF2A /* SetBBViewController.swift */,
 				F61D807C1EF29D25006B6B1D /* IncomeCell.swift */,
 				F61D807A1EF29A6F006B6B1D /* TransactionTable.swift */,
+				F660B9281EF87C80007B08AA /* TransactionContainer.swift */,
 				F61D807E1EF2AA83006B6B1D /* AddTransaction.swift */,
 				E4D970031EEB20630030BF2A /* SetSavingsViewController.swift */,
 			);
@@ -347,6 +347,7 @@
 				E4C6F3E11EF4B88700CD2C75 /* AnalysisDateVC.swift in Sources */,
 				E4C6F3E51EF4CA0600CD2C75 /* LineChartVC.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
+				F660B9291EF87C80007B08AA /* TransactionContainer.swift in Sources */,
 				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,
 				F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */,
 				E41777E01EF886B300364981 /* FundsAddVC.swift in Sources */,
