@@ -12,17 +12,17 @@ import CoreData
 class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     
     var myInfo : UserMO!
     var fetchResultsController : NSFetchedResultsController<UserMO>!
     
+    let periods: [String: Int] = ["Daily": 1, "Monthly": 30, "Yearly": 365]
+    var period = "Monthly"
+    
     @IBOutlet weak var incomeButton: UIButton!
     @IBOutlet weak var expButton: UIButton!
     @IBOutlet weak var savingsButton: UIButton!
+    @IBOutlet weak var availableField: UILabel!
     
     
     
@@ -55,14 +55,14 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     @IBAction func setIncomeClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionContainer
-        viewController.initType = "income"
+        viewController.initType = TransactionMO.type.income
         present(viewController, animated: true, completion: nil)
         
     }
     
     @IBAction func setExpClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionContainer
-        viewController.initType = "expense"
+        viewController.initType = TransactionMO.type.expense
         present(viewController, animated: true, completion: nil)
         
 //        
@@ -85,6 +85,8 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
             incomeButton.setTitle(String(format: "$%.2f", income), for: UIControlState.normal)
             expButton.setTitle(String(format: "$%.2f", expense), for: UIControlState.normal)
             savingsButton.setTitle(String(format: "$%.2f", savings), for: UIControlState.normal)
+            
+            availableField.text = String(format: "$%.2f", income + expense + savings)
         }
     }
     
@@ -110,13 +112,10 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     
     
-    
-    
-    @IBAction func logOutPressed(_ sender: UIButton) {
+    @IBAction func logOut(_ sender: UIBarButtonItem) {
         UserMO.getActiveUser(getContext())!.makeInactive(getContext())
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     
     

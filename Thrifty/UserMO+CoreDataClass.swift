@@ -100,7 +100,7 @@ public class UserMO: NSManagedObject {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).daysCycle != 0
-                    && (transaction as! TransactionMO).type == "income"{
+                    && (transaction as! TransactionMO).type == TransactionMO.type.income.rawValue{
                     
                     set.append(transaction as! TransactionMO)
                 }
@@ -122,7 +122,7 @@ public class UserMO: NSManagedObject {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
                 if (transaction as! TransactionMO).daysCycle != 0
-                    && (transaction as! TransactionMO).type == "expense" {
+                    && (transaction as! TransactionMO).type == TransactionMO.type.expense.rawValue {
                     
                     set.append(transaction as! TransactionMO)
                 }
@@ -148,7 +148,7 @@ public class UserMO: NSManagedObject {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
-                if (transaction as! TransactionMO).type == "fund"
+                if (transaction as! TransactionMO).type == TransactionMO.type.fund.rawValue
                     && (transaction as! TransactionMO).amountSoFar != (transaction as! TransactionMO).amount {
                     set.append(transaction as! TransactionMO)
                 }
@@ -163,9 +163,8 @@ public class UserMO: NSManagedObject {
         get {
             var set: [TransactionMO] = []
             for transaction in self.transactions! {
-                if (transaction as! TransactionMO).type == "expense"
-                    && (transaction as! TransactionMO).daysCycle == 0
-                    && (transaction as! TransactionMO).descr != ".hidden" {
+                if ((transaction as! TransactionMO).daysCycle == 0
+                    && (transaction as! TransactionMO).descr != ".hidden") {
                     
                     set.append(transaction as! TransactionMO)
                 }
@@ -176,12 +175,10 @@ public class UserMO: NSManagedObject {
     var oneTimeIncomes: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
-            for transaction in self.transactions! {
-                if (transaction as! TransactionMO).type == "income"
-                    && (transaction as! TransactionMO).amountSoFar == (transaction as! TransactionMO).amount
-                    && (transaction as! TransactionMO).amount > 0 {
+            for transaction in self.oneTime {
+                if transaction.type == TransactionMO.type.income.rawValue {
                     
-                    set.append(transaction as! TransactionMO)
+                    set.append(transaction)
                 }
             }
             return set
@@ -190,12 +187,10 @@ public class UserMO: NSManagedObject {
     var oneTimeExpenses: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
-            for transaction in self.transactions! {
-                if (transaction as! TransactionMO).type == "expense"
-                    && (transaction as! TransactionMO).amountSoFar == (transaction as! TransactionMO).amount
-                    && (transaction as! TransactionMO).amount > 0 {
+            for transaction in self.oneTime {
+                if transaction.type == TransactionMO.type.expense.rawValue {
                     
-                    set.append(transaction as! TransactionMO)
+                    set.append(transaction)
                 }
             }
             return set

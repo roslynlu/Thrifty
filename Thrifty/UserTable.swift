@@ -11,7 +11,7 @@ import CoreData
 
 
 class UserTable: UITableViewController {
-
+    
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -19,8 +19,7 @@ class UserTable: UITableViewController {
     
     
     // Stuff for the section labels
-    var dict = [String: [UserMO]]()
-    var sectionTitles = [String]()
+    var users: [UserMO] = []
     
     
     
@@ -28,12 +27,12 @@ class UserTable: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let context = getContext()
-//        
-//        for failedUser in UserMO.getIncompleteUsers(context)! {
-//            context.delete(failedUser)
-//            try! context.save()
-//        }
+        //        let context = getContext()
+        //
+        //        for failedUser in UserMO.getIncompleteUsers(context)! {
+        //            context.delete(failedUser)
+        //            try! context.save()
+        //        }
         
     }
     
@@ -113,27 +112,21 @@ class UserTable: UITableViewController {
     //    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        //        return sectionTitles.count
+        return 1
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let values = dict[sectionTitles[section]] {
-            return values.count
-        }
-        else {
-            return 0
-        }
+        return users.count
+        
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
-    }
+    //    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //        return sectionTitles[section]
+    //    }
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        if let index = sectionTitles.index(of: title) {
-            return index
-        }
         return -1
     }
     
@@ -144,10 +137,8 @@ class UserTable: UITableViewController {
         let cellID = "UserCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! UserCell
         
-        if let values = dict[sectionTitles[indexPath.section]] {
-            let cellItem = values[indexPath.row]
-            updateCellContents(in: cell, with: cellItem)
-        }
+        let cellItem = users[indexPath.row]
+        updateCellContents(in: cell, with: cellItem)
         
         
         
@@ -162,9 +153,9 @@ class UserTable: UITableViewController {
             
             let context = getContext()
             
-            if let itemToDelete = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
-                UserMO.deleteUser(itemToDelete, context: context)
-            }
+            let itemToDelete = users[indexPath.row]
+            UserMO.deleteUser(itemToDelete, context: context)
+            
             
             fetchFromCD()
             tableView.reloadData()
@@ -187,29 +178,15 @@ class UserTable: UITableViewController {
     
     
     func fetchFromCD() {
-        dict = [:]
-        sectionTitles = []
+        var temp: [UserMO] = []
         
         for user in UserMO.getUsers(getContext()) {
-            addToDict(user)
-        }
-    }
-    
-    func addToDict(_ user: UserMO) {
-        if let key = user.name {
-            
-            if var valsWithSameFirstLetter = dict[key] {
-                valsWithSameFirstLetter.append(user)
-                dict[key] = valsWithSameFirstLetter
-            }
-            else {
-                dict[key] = [user]
-            }
+            temp.append(user)
         }
         
-        sectionTitles = [String](dict.keys)
-        sectionTitles.sort()
+        users = temp.sorted(by: { $0.name! < $1.name! })
     }
+    
     
     
     func updateCellContents(in cell: UserCell, with cellItem: UserMO) {
@@ -223,13 +200,13 @@ class UserTable: UITableViewController {
     
     // Segue to Detail View
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            
+            let newActiveUser = users[indexPath.row]
                 
-                if let newActiveUser = dict[sectionTitles[indexPath.section]]?[indexPath.row] {
-                    
-                    newActiveUser.makeActive(getContext())
-                }
-            }
+                newActiveUser.makeActive(getContext())
+                
+            
+        }
     }
-
 }

@@ -14,12 +14,6 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    
-    
     // OUTLETS
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var plusButton: UIButton!
@@ -38,13 +32,13 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //format buttons
-        minusButton.layer.cornerRadius = 0.5 * minusButton.bounds.size.width;
-        minusButton.layer.borderWidth = 2.0
+        minusButton.layer.cornerRadius = minusButton.bounds.width / 2
+        minusButton.layer.borderWidth = 3.0
         minusButton.layer.borderColor = UIColor.white.cgColor
-        minusButton.titleEdgeInsets.left = 12;
+        minusButton.titleLabel?.textAlignment = NSTextAlignment.center
         
-        plusButton.layer.cornerRadius = 0.5 * minusButton.bounds.size.width;
-        plusButton.layer.borderWidth = 2.0
+        plusButton.layer.cornerRadius = plusButton.bounds.width / 2
+        plusButton.layer.borderWidth = 3.0
         plusButton.layer.borderColor = UIColor.white.cgColor
         plusButton.titleLabel?.textAlignment = NSTextAlignment.center
         
@@ -63,23 +57,33 @@ class MainViewController: UIViewController, NSFetchedResultsControllerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
     
-    // Fetches data and stores it in myInfo
-//    func loadData() {
-//        let fetchRequest : NSFetchRequest<UserMO> = UserMO.fetchRequest()
-//        do {
-//            let fetchedObjects = try getContext().fetch(fetchRequest)
-//                myInfo = fetchedObjects.first
-//        }
-//        catch {
-//            print(error)
-//        }
-//    }
     
+    
+    
+    
+    
+    
+
+    
+    @IBAction func incomeClicked(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateOneTime") as! ExpenseVC
+        viewController.type = TransactionMO.type.income
+        present(viewController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func expClicked(_ sender: UIButton) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateOneTime") as! ExpenseVC
+        viewController.type = TransactionMO.type.expense
+        present(viewController, animated: true, completion: nil)
+        
+        //
+    }
 
 }

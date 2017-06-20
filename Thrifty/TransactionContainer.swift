@@ -17,20 +17,22 @@ class TransactionContainer: UIViewController {
     
     
     // Stuff for the picker
-    static let types: [String] = ["income", "expense"]
-    var initType = types.first
+    let types: [TransactionMO.type] = [TransactionMO.type.income, TransactionMO.type.expense]
+    var initType = TransactionMO.type.income
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupSegmentedControl()
+        
+        if ContainedTableView != nil {
+            ContainedTableView?.type = types[segmentedControl.selectedSegmentIndex]
+            ContainedTableView?.updateTableViewWithNewData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if ContainedTableView != nil {
-            ContainedTableView?.updateTableViewWithNewData()
-        }
+        
     }
     
 
@@ -45,18 +47,18 @@ class TransactionContainer: UIViewController {
     private func setupSegmentedControl() {
         // Configure Segmented Control
         segmentedControl.removeAllSegments()
-        for index in 0..<TransactionContainer.types.count {
-            segmentedControl.insertSegment(withTitle: TransactionContainer.types[index].capitalized, at: index, animated: false)
+        for index in 0..<types.count {
+            segmentedControl.insertSegment(withTitle: types[index].rawValue.capitalized, at: index, animated: false)
         }
         // Select First Segment
-        segmentedControl.selectedSegmentIndex = TransactionContainer.types.index(of: initType!)!
+        segmentedControl.selectedSegmentIndex = types.index(of: initType)!
     }
     
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         ContainedTableView = (segue.destination as! TransactionTable)
-        ContainedTableView?.type = TransactionContainer.types[segmentedControl.selectedSegmentIndex]
+        ContainedTableView?.type = types[segmentedControl.selectedSegmentIndex]
     }
  
     
@@ -64,7 +66,7 @@ class TransactionContainer: UIViewController {
         
         let AddTypeVC = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "AddTransaction") as! AddTransaction
         
-        AddTypeVC.type = TransactionContainer.types[segmentedControl.selectedSegmentIndex]
+        AddTypeVC.type = types[segmentedControl.selectedSegmentIndex]
         
         present(AddTypeVC, animated: true, completion: nil)
     }
@@ -72,7 +74,7 @@ class TransactionContainer: UIViewController {
     
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        ContainedTableView?.type = TransactionContainer.types[segmentedControl.selectedSegmentIndex]
+        ContainedTableView?.type = types[segmentedControl.selectedSegmentIndex]
         ContainedTableView?.updateTableViewWithNewData()
     }
     

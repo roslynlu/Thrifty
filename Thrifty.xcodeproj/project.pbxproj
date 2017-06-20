@@ -41,9 +41,12 @@
 		F6375B141EF4D43D0019E2FC /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6375B131EF4D43D0019E2FC /* UserTable.swift */; };
 		F6375B161EF4D5400019E2FC /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6375B151EF4D5400019E2FC /* UserCell.swift */; };
 		F660B9291EF87C80007B08AA /* TransactionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660B9281EF87C80007B08AA /* TransactionContainer.swift */; };
+		F6A088631EF8C48600543EAF /* LineChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E41EF4CA0600CD2C75 /* LineChartVC.swift */; };
+		F6A088641EF8C49000543EAF /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E21EF4C9F700CD2C75 /* PieChartVC.swift */; };
 		F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F61EF389CB003C83BE /* TransactionMO+CoreDataClass.swift */; };
 		F6F1B9F91EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1B9F71EF389CB003C83BE /* TransactionMO+CoreDataProperties.swift */; };
 		F6F1B9FE1EF4C5F7003C83BE /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F1B9FD1EF4C5F7003C83BE /* Setup.storyboard */; };
+		F6FCD03A1EF9CA67007CC4C7 /* AnalysisDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F3E01EF4B88700CD2C75 /* AnalysisDateVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -352,9 +355,11 @@
 				E41777E81EF8C1B200364981 /* LineChartVC.swift in Sources */,
 				E41777E41EF8B84600364981 /* PieTableVC.swift in Sources */,
 				E4D970041EEB20630030BF2A /* SetSavingsViewController.swift in Sources */,
+				F6A088631EF8C48600543EAF /* LineChartVC.swift in Sources */,
 				E4D96FEB1EEB15700030BF2A /* AppDelegate.swift in Sources */,
 				E4D970081EEB229C0030BF2A /* StartingInfo.swift in Sources */,
 				F660B9291EF87C80007B08AA /* TransactionContainer.swift in Sources */,
+				F6A088641EF8C49000543EAF /* PieChartVC.swift in Sources */,
 				F61D80741EF1E8BB006B6B1D /* UserMO+CoreDataClass.swift in Sources */,
 				F6F1B9F81EF389CB003C83BE /* TransactionMO+CoreDataClass.swift in Sources */,
 				E41777E01EF886B300364981 /* FundsAddVC.swift in Sources */,

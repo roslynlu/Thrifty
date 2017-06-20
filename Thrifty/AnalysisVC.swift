@@ -17,11 +17,10 @@ class AnalysisVC: UIViewController {
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var datesButton: UIButton!
 
-    @IBOutlet weak var barButtonItem: UIBarButtonItem!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     //TODO: change fromAsDate
-    var fromAsDate : Date!
+    var fromAsDate : Date! = Date()
     var toAsDate : Date! = Date()
     
     
@@ -118,12 +117,6 @@ class AnalysisVC: UIViewController {
         setupView()
         // Do any additional setup after loading the view.
         
-        let button = UIButton(type: .custom)
-        /*
-         * Insert button styling
-         */
-        button.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(30.0), height: CGFloat(30.0))
-        barButtonItem = UIBarButtonItem(customView: button)
 
     }
     
@@ -152,12 +145,7 @@ class AnalysisVC: UIViewController {
 
 
     // MARK: - Navigation
-    
-    @IBAction func unwindCancel(segue: UIStoryboardSegue)
-    {
-        
-    }
-    
+
     @IBAction func unwindSave (segue: UIStoryboardSegue)
     {
 //        let datePickerVC = segue.source as! AnalysisDateVC
@@ -171,9 +159,9 @@ class AnalysisVC: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "setDate"
         {
-//            let dateChangeVC = segue.destination as! AnalysisDateVC
-//            dateChangeVC.from = fromAsDate
-//            dateChangeVC.to = toAsDate
+            let dateChangeVC = segue.destination as! AnalysisDateVC
+            dateChangeVC.from = fromAsDate
+            dateChangeVC.to = toAsDate
         }
     }
 
