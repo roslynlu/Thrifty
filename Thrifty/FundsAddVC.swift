@@ -31,8 +31,8 @@ class FundsAddVC: UIViewController {
     }
     
     @IBAction func saveClicked(_ sender: Any) {
-        var newInfo = TransactionInfo(daysCycle: 0, amount: Double(newAmount.text!)!, date: Date() as NSDate, descr: newName.text!, id: UUID().uuidString, type: "fund", amountSoFar: 0, category: "")
-        TransactionMO.transaction(with: newInfo, by: UserMO.getActiveUser(getContext())!, in: getContext())
+        let newInfo = TransactionInfo(daysCycle: 0, amount: Double(newAmount.text!)!, date: Date() as NSDate, descr: newName.text!, id: UUID().uuidString, type: "fund", amountSoFar: 0, category: "")
+        _ = TransactionMO.transaction(with: newInfo, by: UserMO.getActiveUser(getContext())!, in: getContext())
         
         self.dismiss(animated: true, completion: nil)
     }

@@ -33,6 +33,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
     // Auto Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
     }
 

@@ -37,7 +37,11 @@ class AddTransaction: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       
         self.titleField.text = "Add an " + type.capitalized
+        
+        self.nameField.placeholder = (type == "income" ? "e.g. \"iOS app development\"" : "e.g. \"Gas\"")
+        self.typeField.placeholder = (type == "income" ? "e.g. \"Work\"" : "e.g. \"Transportation\"")
         
     }
     

@@ -24,13 +24,13 @@ class TransactionContainer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupSegmentedControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if ContainedTableView != nil {
             ContainedTableView?.updateTableViewWithNewData()
         }
+        setupSegmentedControl()
     }
     
 
