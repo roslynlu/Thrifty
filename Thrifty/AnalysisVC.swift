@@ -13,6 +13,15 @@ class AnalysisVC: UIViewController {
 
 //    @IBOutlet weak var datesButton: UIButton!
     
+    
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
+    
+    
+    
+    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var datesButton: UIButton!
 
     @IBOutlet weak var barButtonItem: UIBarButtonItem!
@@ -169,10 +178,9 @@ class AnalysisVC: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "setDate"
         {
-            let dateChangeVC = segue.destination as! AnalysisDateVC
-            fromAsDate = getPreviousMonth()
-            dateChangeVC.from = fromAsDate
-            dateChangeVC.to = toAsDate
+//            let dateChangeVC = segue.destination as! AnalysisDateVC
+//            dateChangeVC.from = fromAsDate
+//            dateChangeVC.to = toAsDate
         }
     }
 

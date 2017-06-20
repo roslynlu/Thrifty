@@ -13,8 +13,8 @@ class FundsTVCell: UITableViewCell {
     @IBOutlet weak var fundName: UILabel!
     @IBOutlet weak var fundAmount: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    
     @IBOutlet weak var fundImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         fundAmount.layer.cornerRadius = 3

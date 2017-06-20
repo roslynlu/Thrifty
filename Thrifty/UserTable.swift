@@ -50,14 +50,8 @@ class UserTable: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         if UserMO.getActiveUser(getContext()) != nil {
-            if (UserMO.getActiveUser(getContext())?.setUpCompleted)! {
-                let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
-                present(VC, animated: false, completion: nil)
-            }
-            else {
-                let VC = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "BeginSetup")
-                present(VC, animated: false, completion: nil)
-            }
+            let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
+            present(VC, animated: false, completion: nil)
         }
         
         

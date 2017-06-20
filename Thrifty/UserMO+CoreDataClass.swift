@@ -75,10 +75,6 @@ public class UserMO: NSManagedObject {
         try! context.save()
     }
     
-    
-    
-    
-    
     class func getIncompleteUsers(_ context: NSManagedObjectContext) -> [UserMO]? {
         let request: NSFetchRequest<UserMO> = UserMO.fetchRequest()
         request.predicate = NSPredicate(format: "setUpCompleted = false")
@@ -89,21 +85,12 @@ public class UserMO: NSManagedObject {
         return nil
     }
     
-    
-    
-    
-    
     func completeSetUp(_ context: NSManagedObjectContext) {
         self.setUpCompleted = true
         try! context.save()
     }
     
-    
-    
-    
-    
-    
-    
+
     func createNewTransaction(with info: TransactionInfo, in context: NSManagedObjectContext) {
         _ = TransactionMO.transaction(with: info, by: self, in: context)
     }
@@ -157,8 +144,6 @@ public class UserMO: NSManagedObject {
         return -sumOfAvgRecurringIncomesFor(numberOfDays: days) * savingCoeff
     }
     
-    
-    
     var funds: [TransactionMO] {
         get {
             var set: [TransactionMO] = []
@@ -171,6 +156,7 @@ public class UserMO: NSManagedObject {
             return set
         }
     }
+    
     var oneTime: [TransactionMO] {
         
         get {
@@ -223,8 +209,7 @@ public class UserMO: NSManagedObject {
             }
             return temp
         }
-    }
-    
+    }    
     
     func setSavingsCoeff(_ newCoeff: Double, context: NSManagedObjectContext) {
         self.savingCoeff = newCoeff
