@@ -12,10 +12,6 @@ import CoreData
 class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     
     var myInfo : UserMO!
     var fetchResultsController : NSFetchedResultsController<UserMO>!
@@ -55,14 +51,14 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     @IBAction func setIncomeClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionContainer
-        viewController.initType = "income"
+        viewController.initType = TransactionMO.type.income
         present(viewController, animated: true, completion: nil)
         
     }
     
     @IBAction func setExpClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionContainer
-        viewController.initType = "expense"
+        viewController.initType = TransactionMO.type.expense
         present(viewController, animated: true, completion: nil)
         
 //        

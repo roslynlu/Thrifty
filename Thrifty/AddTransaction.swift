@@ -13,13 +13,6 @@ class AddTransaction: UIViewController {
     
     
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    
-    
-    
     @IBOutlet weak var titleField: UILabel!
     
     @IBOutlet weak var nameField: UITextField!
@@ -27,7 +20,7 @@ class AddTransaction: UIViewController {
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var daysCycleField: UITextField!
     
-    var type: String = "income"
+    var type: TransactionMO.type = TransactionMO.type.income
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +31,10 @@ class AddTransaction: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
        
-        self.titleField.text = "Add an " + type.capitalized
+        self.titleField.text = "Add an " + type.rawValue.capitalized
         
-        self.nameField.placeholder = (type == "income" ? "e.g. \"iOS app development\"" : "e.g. \"Gas\"")
-        self.typeField.placeholder = (type == "income" ? "e.g. \"Work\"" : "e.g. \"Transportation\"")
+        self.nameField.placeholder = (type == TransactionMO.type.income ? "e.g. \"iOS app development work\"" : "e.g. \"Gas\"")
+        self.typeField.placeholder = (type == TransactionMO.type.income ? "e.g. \"Salary\"" : "e.g. \"Transportation\"")
         
     }
     
@@ -86,9 +79,9 @@ class AddTransaction: UIViewController {
             var amount = Double(amountField.text!)!
             
             switch type {
-            case "expense":
+            case TransactionMO.type.expense:
                 amount = -amount
-            case "fund":
+            case TransactionMO.type.fund:
                 amount = -amount
             default: break
             }
@@ -98,7 +91,7 @@ class AddTransaction: UIViewController {
                                             date: Date() as NSDate,
                                             descr: nameField.text!,
                                             id: UUID().uuidString,
-                                            type: type,
+                                            type: type.rawValue,
                                             amountSoFar: Double(amountField.text!)!,
                                             category: typeField.text!)
 

@@ -12,6 +12,12 @@ import CoreData
 @objc(TransactionMO)
 public class TransactionMO: NSManagedObject {
     
+    enum type: String {
+        case income = "income"
+        case expense = "expense"
+        case fund = "fund"
+    }
+    
     class func transaction(with info: TransactionInfo, by user: UserMO, in context: NSManagedObjectContext) -> TransactionMO? {
         let request: NSFetchRequest<TransactionMO> = TransactionMO.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", info.id)

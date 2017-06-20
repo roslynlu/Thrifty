@@ -12,16 +12,6 @@ import CoreData
 class SetSavingsViewController: UIViewController {
     
     
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    
-    
-    
-
-    
     var firstTime: Bool = true
     var coeff : Double = 0.0
     
