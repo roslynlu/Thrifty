@@ -55,14 +55,14 @@ class BudgetViewController: UIViewController, NSFetchedResultsControllerDelegate
     
     @IBAction func setIncomeClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionContainer
-        viewController.initType = "incomes"
+        viewController.initType = "income"
         present(viewController, animated: true, completion: nil)
         
     }
     
     @IBAction func setExpClicked(_ sender: UIButton) {
         let viewController = UIStoryboard(name: "Setup", bundle: nil).instantiateViewController(withIdentifier: "SetTransactions") as! TransactionContainer
-        viewController.initType = "expenses"
+        viewController.initType = "expense"
         present(viewController, animated: true, completion: nil)
         
 //        

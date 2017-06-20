@@ -18,7 +18,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         return true
     }
     
-    var type = "incomes"
+    var type = "income"
     
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -36,9 +36,9 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
 
     }
 
-    
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         updateTableViewWithNewData()
+
     }
     
     func updateTableViewWithNewData() {
@@ -183,7 +183,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
         sectionTitles = []
 
         switch (self.type) {
-        case "incomes":
+        case "income":
             if let user = UserMO.getActiveUser(getContext())
             {
                 for income in user.recurringIncomes {
@@ -192,7 +192,7 @@ class TransactionTable: UITableViewController, NSFetchedResultsControllerDelegat
                     }
                 }
             }
-        case "expenses":
+        case "expense":
             if let user = UserMO.getActiveUser(getContext())
             {
                 for expense in user.recurringExpenses {

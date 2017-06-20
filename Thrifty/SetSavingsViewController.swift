@@ -58,13 +58,12 @@ class SetSavingsViewController: UIViewController {
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
         
         coeff = Double(Int(percentageSlider.value)) / 100.0
-        print(coeff)
         //save percent var to core data
         
         UserMO.getActiveUser(getContext())?.setSavingsCoeff(coeff, context: getContext())
         UserMO.getActiveUser(getContext())?.completeSetUp(getContext())
         
-        navigationController?.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 
 }

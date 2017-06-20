@@ -17,7 +17,7 @@ class TransactionContainer: UIViewController {
     
     
     // Stuff for the picker
-    static let types: [String] = ["incomes", "expenses"]
+    static let types: [String] = ["income", "expense"]
     var initType = types.first
     
     
@@ -25,6 +25,12 @@ class TransactionContainer: UIViewController {
         super.viewDidLoad()
 
         setupSegmentedControl()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if ContainedTableView != nil {
+            ContainedTableView?.updateTableViewWithNewData()
+        }
     }
     
 
